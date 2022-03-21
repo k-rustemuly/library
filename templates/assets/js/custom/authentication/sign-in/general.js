@@ -10,17 +10,17 @@ var KTSigninGeneral = function () {
                     email: {
                         validators: {
                             notEmpty: {
-                                message: "Email address is required"
+                                message: "Укажите адрес электронной почты."
                             },
                             emailAddress: {
-                                message: "The value is not a valid email address"
+                                message: "Значение не является действительным адресом электронной почты."
                             }
                         }
                     },
                     password: {
                         validators: {
                             notEmpty: {
-                                message: "The password is required"
+                                message: "Требуется пароль"
                             }
                         }
                     }
@@ -32,13 +32,18 @@ var KTSigninGeneral = function () {
                     })
                 }
             }), e.addEventListener("click", (function (n) {
-                n.preventDefault(), i.validate().then((function (i) {
-                    "Valid" == i ? (e.setAttribute("data-kt-indicator", "on"), e.disabled = !0, setTimeout((function () {
-                        e.removeAttribute("data-kt-indicator"), e.disabled = !1, Swal.fire({
-                            text: "You have successfully logged in!",
+                n.preventDefault(), 
+                i.validate().then((function (i) {
+                    "Valid" == i ? (e.setAttribute("data-kt-indicator", "on"), 
+                    e.disabled = !0, 
+                    setTimeout((function () {
+                        e.removeAttribute("data-kt-indicator"), 
+                        e.disabled = !1, 
+                        Swal.fire({
+                            text: "Вы успешно вошли в систему",
                             icon: "success",
                             buttonsStyling: !1,
-                            confirmButtonText: "Ok, got it!",
+                            confirmButtonText: "Начать",
                             customClass: {
                                 confirmButton: "btn btn-primary"
                             }
@@ -50,10 +55,10 @@ var KTSigninGeneral = function () {
                             }
                         }))
                     }), 2e3)) : Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        text: "Электронная почта или пароль не правильный!",
                         icon: "error",
                         buttonsStyling: !1,
-                        confirmButtonText: "Ok, got it!",
+                        confirmButtonText: "Попробовать еще раз!",
                         customClass: {
                             confirmButton: "btn btn-primary"
                         }
