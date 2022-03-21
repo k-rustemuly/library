@@ -13,6 +13,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 if (file_exists(ROOT . 'library.env')) {
     $dotenv = Dotenv\Dotenv::createImmutable(ROOT);
     $dotenv->load(true);
+    exit($_ENV['URL']);
 }
 else {
     exit( ROOT.'library.env not found' );
