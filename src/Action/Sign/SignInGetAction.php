@@ -5,12 +5,12 @@ namespace App\Action\Sign\Center;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use App\Domain\Sign\Service\Center\SignIn;
+use App\Domain\Sign\Service\SignIn;
 
 /**
  * Action.
  */
-final class SignInEcpAction {
+final class SignInGetAction {
     /**
      * @var SignIn
      */
@@ -48,7 +48,9 @@ final class SignInEcpAction {
         $post["user_agent"] = $params['HTTP_USER_AGENT'];
         $post["user_ip_address"] = $params['REMOTE_ADDR'];
         $data = $this->service->pkcs($post);
-
+        return $this->view->render($response, 'sign-in.html', [
+            'name' => $args['name']
+        ]);
         return $this->responder->withJson($response, $data);
     }
 }
