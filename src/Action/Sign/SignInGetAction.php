@@ -14,13 +14,21 @@ final class SignInGetAction {
      * @var SignIn
      */
     private $service;
+
+    /**
+     * @var Twig
+     */
+    private $twig;
+
     /**
      * The constructor.
      *
      * @param SignIn $service The service
+     * @param Twig $twig The twig engine
      */
-    public function __construct(SignIn $service) {
+    public function __construct(SignIn $service, Twig $twig) {
         $this->service = $service;
+        $this->twig = $twig;
     }
 
     /**
@@ -33,7 +41,6 @@ final class SignInGetAction {
      * @return ResponseInterface The response
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $args): ResponseInterface{
-        $view = Twig::fromRequest($request);
-        return $view->render($response, 'sign-in.html', $this->service->get($args['lang']));
+        return $this->twig->render($response, 'sign-in.html', $this->service->get($args['lang']));
     }
 }

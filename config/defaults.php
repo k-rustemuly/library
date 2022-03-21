@@ -9,6 +9,45 @@ $settings['public'] = $settings['root'] . '/public';
 $settings['template'] = $settings['root'] . '/templates';
 $settings['uploads_public_dir'] = 'uploads/news/';
 $settings['uploads_dir'] = UPLOADS_DIR . '/news/';
+// Twig settings
+$settings['twig'] = [
+    'path' => $settings['root']. '/templates',
+    // Should be set to true in production
+    'cache_enabled' => $_ENV["API_IS_DEBUG"],
+    'cache_path' => $settings['root']. '/tmp/twig-cache',
+];
+
+// Twig assets cache
+$settings['assets'] = [
+    // Public assets cache directory
+    'path' => $settings['public']. '/assets/cache',
+    
+    // Public cache directory permissions (octal)
+    // You need to prefix mode with a zero (0)
+    // Use -1 to disable chmod
+    'path_chmod' => 0750,
+    
+    // The public url base path
+    'url_base_path' => 'assets/cache/',
+    
+    // Internal cache settings
+    //
+    // The main cache directory
+    // Use '' (empty string) to disable the internal cache
+    'cache_path' => $settings['temp'],
+    
+    // Used as the subdirectory of the cache_path directory, 
+    // where cache items will be stored
+    'cache_name' => 'assets-cache',
+    
+    // The lifetime (in seconds) for cache items
+    // With a value 0 causing items to be stored indefinitely
+    'cache_lifetime' => 0,
+    
+    // Enable JavaScript and CSS compression
+    // 1 = on, 0 = off
+    'minify' => 1
+];
 
 $settings['error'] = [
     // Should be set to false in production

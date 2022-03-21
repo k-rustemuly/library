@@ -14,10 +14,34 @@ use Slim\Psr7\Factory\StreamFactory;
 use App\Helper\Language;
 use App\Helper\File;
 use App\Helper\Authorization;
+use Slim\Views\Twig;
+use Twig\Loader\FilesystemLoader;
+use Odan\Twig\TwigAssetsExtension;
 
 return [
     'settings' => function () {
         return require __DIR__ . '/settings.php';
+    },
+
+    Twig::class => function (ContainerInterface $container) {
+        $settings = $container->get('settings');
+        $twigSettings = $settings['twig'];
+
+        $twig = Twig::create($twigSettings['path'], [
+            'cache' => $twigSettings['cache_enabled'] ? $twigSettings['cache_path'] : false,
+        ]);
+
+        $loader = $twig->getLoader();
+        if ($loader instanceof FilesystemLoader) {
+            $loader->addPath($settings['public'], 'public');
+        }
+
+        $environment = $twig->getEnvironment();
+
+        // Add Twig extensions
+        $twig->addExtension(new TwigAssetsExtension($environment, (array)$settings['assets']));
+
+        return $twig;
     },
 
     Language::class => function () {

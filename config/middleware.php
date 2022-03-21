@@ -10,7 +10,7 @@ use Slim\Views\Twig;
 return function (App $app) {
     $app->addRoutingMiddleware();
     $app->addBodyParsingMiddleware();
-    $app->add(TwigMiddleware::create($app, Twig::create(MAIN_DIR . 'templates',['cache' => MAIN_DIR.'cache'])));
+    $app->add(TwigMiddleware::createFromContainer($app, Twig::class));
     $app->add(BasePathMiddleware::class);
     $app->add(ErrorMiddleware::class);
 };

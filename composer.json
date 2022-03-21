@@ -16,7 +16,8 @@
         "php-di/php-di": "^6",
         "monolog/monolog": "^2",
         "vlucas/phpdotenv": "^5.3",
-        "bryanjhv/slim-session": "~4.0"
+        "bryanjhv/slim-session": "~4.0",
+        "odan/twig-assets": "^3.2"
     },
     "autoload": {
         "psr-4": {
