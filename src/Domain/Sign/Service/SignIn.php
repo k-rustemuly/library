@@ -18,15 +18,15 @@ final class SignIn {
     }
 
     /**
-     * Sign in center admin by digital signature.
+     * Sign in
      *
-     * @param array<mixed> $post fileds The post fields
+     * @param string $lang the language 
      *
      * @throws DomainException
      * 
      * @return array<mixed> The result
      */
-    public function pkcs(array $post): array{
+    public function get(string $lang): array{
         return array();
     }
 }
