@@ -12,5 +12,9 @@ class Language{
     public function get(string $key = ""){
         return isset($this->string[$key]) ? $this->string[$key] : $key;
     }
+
+    public function getTitle(string $key = "") :string{
+        return isset($this->string["title"][$key]) ? $this->string["title"][$key] : $key;
+    }
 }
 ?>
