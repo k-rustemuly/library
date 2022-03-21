@@ -1,4 +1,5 @@
-var api = function () {
+"use strict";
+var Api = function () {
     return {
         post: function (dest, data) {
             $.post(dest, data, function (data) {

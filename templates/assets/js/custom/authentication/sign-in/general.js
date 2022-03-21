@@ -39,7 +39,7 @@ var KTSigninGeneral = function () {
                     setTimeout((function () {
                         e.removeAttribute("data-kt-indicator"), 
                         e.disabled = !1,
-                        api.post(t.action, { "email": t.querySelector('[name="email"]').value,
+                        Api.post(t.action, { "email": t.querySelector('[name="email"]').value,
                                             "password": t.querySelector('[name="password"]').value}), 
                         Swal.fire({
                             text: "Вы успешно вошли в систему",
