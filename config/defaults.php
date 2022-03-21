@@ -42,7 +42,7 @@ $settings['assets'] = [
     
     // The lifetime (in seconds) for cache items
     // With a value 0 causing items to be stored indefinitely
-    'cache_lifetime' => 0,
+    'cache_lifetime' => 5,
     
     // Enable JavaScript and CSS compression
     // 1 = on, 0 = off
