@@ -14,17 +14,10 @@ use Slim\Psr7\Factory\StreamFactory;
 use App\Helper\Language;
 use App\Helper\File;
 use App\Helper\Authorization;
-use Slim\Views\Twig;
 
 return [
     'settings' => function () {
         return require __DIR__ . '/settings.php';
-    },
-
-    Twig::class => function () {
-        $twig = Twig::create(MAIN_DIR . 'templates',['cache' => MAIN_DIR.'cache']);
-        // $twig->getEnvironment()->addGlobal('url', $_ENV['URL']);
-        return $twig;
     },
 
     Language::class => function () {
