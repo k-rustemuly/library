@@ -15,7 +15,7 @@ if (file_exists(ROOT . 'library.env')) {
     $dotenv->load(true);
 }
 else {
-    exit( ROOT.'.env not found' );
+    exit( ROOT.'library.env not found' );
 }
 
 set_error_handler(function ($severity, $message, $file, $line) {
