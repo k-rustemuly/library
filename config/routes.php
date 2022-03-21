@@ -35,6 +35,8 @@ return function (App $app) {
 
                     $app->get('', \App\Action\Sign\SignInGetAction::class);
 
+                    $app->post('', \App\Action\Sign\SignInPostAction::class)->setName("sign-in-post");
+
                 });
 
                 $app->group('/forgot-password', function (RouteCollectorProxy $app) {
