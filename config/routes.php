@@ -42,6 +42,12 @@ return function (App $app) {
                     $app->get('', \App\Action\Sign\ForgotPasswordGetAction::class)->setName("forgot-password");
 
                 });
+
+                $app->group('/', function (RouteCollectorProxy $app) {
+
+                    $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-dashboard");
+
+                });
             });
 
         });
