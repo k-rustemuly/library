@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Action\Sign\Center;
+namespace App\Action\Sign;
 
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
