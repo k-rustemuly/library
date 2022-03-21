@@ -28,7 +28,7 @@ $settings['assets'] = [
     'path_chmod' => 0755,
     
     // The public url base path
-    'url_base_path' => 'assets/cache/',
+    'url_base_path' => '/assets/cache/',
     
     // Internal cache settings
     //
