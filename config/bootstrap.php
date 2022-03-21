@@ -11,9 +11,9 @@ use Slim\App;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 if (file_exists(ROOT . 'library.env')) {
-    $dotenv = Dotenv\Dotenv::createImmutable(ROOT);
+    $dotenv = Dotenv\Dotenv::createImmutable(ROOT, 'library.env');
     $dotenv->load(true);
-    exit('ss'.$_ENV['URL']);
+    exit(getenv("URL"));
 }
 else {
     exit( ROOT.'library.env not found' );
