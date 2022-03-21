@@ -20,7 +20,7 @@ return function (App $app) {
                 ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     });
 
-    $app->get('', function (Request $request, Response $response){
+    $app->get('/', function (Request $request, Response $response){
         return $response->getBody()->write('Hello World');
     });
 
