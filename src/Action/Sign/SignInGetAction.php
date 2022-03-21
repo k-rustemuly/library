@@ -6,7 +6,7 @@ use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Domain\Sign\Service\SignIn;
-
+use Slim\Views\Twig;
 /**
  * Action.
  */
@@ -42,13 +42,14 @@ final class SignInGetAction {
      * @return ResponseInterface The response
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $args): ResponseInterface{
+        $view = Twig::fromRequest($request);
         $post = (array)$request->getParsedBody();
         $params = $request->getServerParams();
         $post["lang"] = $args['lang'];
         $post["user_agent"] = $params['HTTP_USER_AGENT'];
         $post["user_ip_address"] = $params['REMOTE_ADDR'];
         $data = $this->service->pkcs($post);
-        return $this->view->render($response, 'sign-in.html', [
+        return $view->render($response, 'sign-in.html', [
             'name' => $args['name']
         ]);
         return $this->responder->withJson($response, $data);
