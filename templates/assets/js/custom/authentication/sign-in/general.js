@@ -5,6 +5,7 @@ var KTSigninGeneral = function () {
         init: function () {
             t = document.querySelector("#kt_sign_in_form"), 
             e = document.querySelector("#kt_sign_in_submit"), 
+            d = new FormData(t);
             i = FormValidation.formValidation(t, {
                 fields: {
                     email: {
@@ -40,8 +41,7 @@ var KTSigninGeneral = function () {
                         e.removeAttribute("data-kt-indicator"), 
                         e.disabled = !1,
                         
-                        $.post(t.action, { "email": t.querySelector('[name="email"]').value,
-                        "password": t.querySelector('[name="password"]').value}, function (data) {
+                        $.post(t.action, d, function (data) {
                             alert("success" + data);
                         })
                         .done(function () {
@@ -52,8 +52,7 @@ var KTSigninGeneral = function () {
                         })
                         .always(function () {
                             alert("finished");
-                        })
-                        ,
+                        }),
                         Swal.fire({
                             text: "Вы успешно вошли в систему",
                             icon: "success",
