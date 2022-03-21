@@ -4,8 +4,7 @@ var KTSigninGeneral = function () {
     return {
         init: function () {
             t = document.querySelector("#kt_sign_in_form"), 
-            e = document.querySelector("#kt_sign_in_submit"), 
-            d = new FormData(t);
+            e = document.querySelector("#kt_sign_in_submit"),
             i = FormValidation.formValidation(t, {
                 fields: {
                     email: {
@@ -42,7 +41,7 @@ var KTSigninGeneral = function () {
                         e.removeAttribute("data-kt-indicator"), 
                         e.disabled = !1,
                         
-                        $.post(t.action, d, function (data) {
+                        $.post(t.action, new FormData(t), function (data) {
                             alert("success" + data);
                         })
                         .done(function () {
