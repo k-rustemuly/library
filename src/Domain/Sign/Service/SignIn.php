@@ -36,6 +36,7 @@ final class SignIn {
     public function get(string $lang): array{
         $this->language->locale($lang);
         return array(
+            "lang" => $lang,
             "title" => $this->language->getTitle("sign_in"),
         );
     }

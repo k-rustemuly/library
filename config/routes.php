@@ -35,10 +35,13 @@ return function (App $app) {
 
                     $app->get('', \App\Action\Sign\SignInGetAction::class);
 
-                    $app->post('', \App\Action\Sign\SignInPostAction::class);
-
                 });
 
+                $app->group('/forgot-password', function (RouteCollectorProxy $app) {
+
+                    $app->get('', \App\Action\Sign\ForgotPasswordGetAction::class)->setName("forgot-password");
+
+                });
             });
 
         });
