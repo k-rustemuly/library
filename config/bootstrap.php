@@ -10,8 +10,8 @@ use Slim\App;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-if (file_exists(ROOT . 'library.env')) {
-    $dotenv = Dotenv\Dotenv::createImmutable(ROOT, 'library.env');
+if (file_exists(ROOT . 'library')) {
+    $dotenv = Dotenv\Dotenv::createImmutable(ROOT, 'library');
     $dotenv->load(true);
     exit(getenv('URL')." 5d");
 }
