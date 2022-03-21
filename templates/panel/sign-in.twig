@@ -28,23 +28,23 @@
 					<div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
 						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="../../demo1/dist/index.html" action="#">
 							<div class="text-center mb-10">
-								<h1 class="text-dark mb-3">Sign In to Metronic</h1>
+								<h1 class="text-dark mb-3">{{ h1 }}</h1>
 							</div>
 							<div class="fv-row mb-10">
-								<label class="form-label fs-6 fw-bolder text-dark">Email</label>
+								<label class="form-label fs-6 fw-bolder text-dark">{{ email }}</label>
 								<input class="form-control form-control-lg form-control-solid" type="text" name="email" autocomplete="off" />
 							</div>
 							<div class="fv-row mb-10">
 								<div class="d-flex flex-stack mb-2">
-									<label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
-									<a href="{{ url_for('forgot-password', { 'lang': lang }) }}" class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
+									<label class="form-label fw-bolder text-dark fs-6 mb-0">{{ password }}</label>
+									<a href="{{ url_for('forgot-password', { 'lang': lang }) }}" class="link-primary fs-6 fw-bolder">{{ forgot_password }}</a>
 								</div>
 								<input class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="off" />
 							</div>
 							<div class="text-center">
 								<button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
-									<span class="indicator-label">Continue</span>
-									<span class="indicator-progress">Please wait...
+									<span class="indicator-label">{{ sign_in }}</span>
+									<span class="indicator-progress">{{ please_wait }}
 									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 								</button>
 							</div>

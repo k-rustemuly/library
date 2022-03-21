@@ -34,10 +34,17 @@ final class SignIn {
      * @return array<mixed> The result
      */
     public function get(string $lang): array{
-        $this->language->locale($lang);
+        $l = $this->language;
+        $l->locale($lang);
         return array(
             "lang" => $lang,
-            "title" => $this->language->getTitle("sign_in"),
+            "title" => $l->getTitle("sign_in"),
+            "h1" => $l->getString("sign_in_h1"),
+            "email" => $l->getField("email"),
+            "password" => $l->getField("password"),
+            "forgot_password" => $l->getString("forgot_password"),
+            "sign_in" => $l->getButton("sign_in"),
+            "please_wait" => $l->getString("please_wait"),
         );
     }
 }
