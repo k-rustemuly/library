@@ -3,7 +3,7 @@ defined('DS') ?: define('DS', DIRECTORY_SEPARATOR);
 define('MAIN_DIR', __DIR__. DS. '..' .DS);
 define('TRANSLATE_DIR', MAIN_DIR . 'translate'.DS);
 define('UPLOADS_DIR', MAIN_DIR . '..' .DS. 'uploads');
-defined('ROOT') ?: define('ROOT', dirname(__DIR__) . DS. '..' .DS );
+defined('ROOT') ?: define('ROOT', dirname(__DIR__) . DS. '..' .DS. '..' .DS );
 
 use DI\ContainerBuilder;
 use Slim\App;
