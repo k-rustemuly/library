@@ -1,6 +1,6 @@
 "use strict";
 var KTSigninGeneral = function () {
-    var t, e, i;
+    var t, e, i, d;
     return {
         init: function () {
             t = document.querySelector("#kt_sign_in_form"), 
@@ -32,7 +32,8 @@ var KTSigninGeneral = function () {
                         rowSelector: ".fv-row"
                     })
                 }
-            }), e.addEventListener("click", (function (n) {
+            }), 
+            e.addEventListener("click", (function (n) {
                 n.preventDefault(), 
                 i.validate().then((function (i) {
                     "Valid" == i ? (e.setAttribute("data-kt-indicator", "on"), 
