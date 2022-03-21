@@ -16,7 +16,7 @@ if (file_exists(MAIN_DIR . 'library.env')) {
     exit($_ENV['URL']);
 }
 else {
-    exit( ROOT.'library.env not found' );
+    exit( MAIN_DIR.'library.env not found' );
 }
 
 set_error_handler(function ($severity, $message, $file, $line) {
