@@ -3,14 +3,14 @@ defined('DS') ?: define('DS', DIRECTORY_SEPARATOR);
 define('MAIN_DIR', __DIR__. DS. '..' .DS);
 define('TRANSLATE_DIR', MAIN_DIR . 'translate'.DS);
 define('UPLOADS_DIR', MAIN_DIR . '..' .DS. 'uploads');
-defined('ROOT') ?: define('ROOT', dirname(__DIR__) . DS );
+defined('ROOT') ?: define('ROOT', dirname(__DIR__) . DS. '..' .DS );
 
 use DI\ContainerBuilder;
 use Slim\App;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-if (file_exists(ROOT . '.env')) {
+if (file_exists(ROOT . 'library.env')) {
     $dotenv = Dotenv\Dotenv::createImmutable(ROOT);
     $dotenv->load(true);
 }
