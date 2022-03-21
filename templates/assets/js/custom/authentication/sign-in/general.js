@@ -39,21 +39,21 @@ var KTSigninGeneral = function () {
                     setTimeout((function () {
                         e.removeAttribute("data-kt-indicator"), 
                         e.disabled = !1,
-                        {
-                            $.post(t.action, { "email": t.querySelector('[name="email"]').value,
-                            "password": t.querySelector('[name="password"]').value}, function (data) {
-                                alert("success" + data);
-                            })
-                            .done(function () {
-                                alert("second success");
-                            })
-                            .fail(function () {
-                                alert("error");
-                            })
-                            .always(function () {
-                                alert("finished");
-                            });
-                        },
+                        
+                        $.post(t.action, { "email": t.querySelector('[name="email"]').value,
+                        "password": t.querySelector('[name="password"]').value}, function (data) {
+                            alert("success" + data);
+                        })
+                        .done(function () {
+                            alert("second success");
+                        })
+                        .fail(function () {
+                            alert("error");
+                        })
+                        .always(function () {
+                            alert("finished");
+                        })
+                        ,
                         Swal.fire({
                             text: "Вы успешно вошли в систему",
                             icon: "success",
