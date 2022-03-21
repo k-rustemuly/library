@@ -14,21 +14,13 @@ final class SignInGetAction {
      * @var SignIn
      */
     private $service;
-
-    /**
-     * @var Twig
-     */
-    private $twig;
-
     /**
      * The constructor.
      *
      * @param SignIn $service The service
-     * @param Twig $twig The twig
      */
-    public function __construct(SignIn $service, Twig $twig) {
+    public function __construct(SignIn $service) {
         $this->service = $service;
-        $this->twig = $twig;
     }
 
     /**
@@ -41,14 +33,15 @@ final class SignInGetAction {
      * @return ResponseInterface The response
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $args): ResponseInterface{
+        $view = Twig::fromRequest($request);
         $post = (array)$request->getParsedBody();
         $params = $request->getServerParams();
         $post["lang"] = $args['lang'];
         $post["user_agent"] = $params['HTTP_USER_AGENT'];
         $post["user_ip_address"] = $params['REMOTE_ADDR'];
         $data = $this->service->pkcs($post);
-        return $this->twig->render($response, 'sign-in.html', [
-            'name' => $args['name']
+        return $view->render($response, 'sign-in.html', [
+            'name' => $args['lang']
         ]);
         return $this->responder->withJson($response, $data);
     }
