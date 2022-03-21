@@ -41,6 +41,6 @@ final class SignInGetAction {
      * @return ResponseInterface The response
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $args): ResponseInterface{
-        return $this->twig->render($response, 'sign-in.html', $this->service->get($args['lang']));
+        return $this->twig->render($response, 'panel/sign-in.twig', $this->service->get($args['lang']));
     }
 }
