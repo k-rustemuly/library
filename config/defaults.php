@@ -25,7 +25,7 @@ $settings['assets'] = [
     // Public cache directory permissions (octal)
     // You need to prefix mode with a zero (0)
     // Use -1 to disable chmod
-    'path_chmod' => 0750,
+    'path_chmod' => 0755,
     
     // The public url base path
     'url_base_path' => 'assets/cache/',
