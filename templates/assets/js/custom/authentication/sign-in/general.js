@@ -41,7 +41,7 @@ var KTSigninGeneral = function () {
                         e.removeAttribute("data-kt-indicator"), 
                         e.disabled = !1,
                         
-                        $.post(t.action, new FormData(t), function (data) {
+                        $.post(t.action, $( t ).serialize(), function (data) {
                             alert("success" + data);
                         })
                         .done(function () {
