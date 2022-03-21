@@ -3,7 +3,9 @@ var KTSigninGeneral = function () {
     var t, e, i;
     return {
         init: function () {
-            t = document.querySelector("#kt_sign_in_form"), e = document.querySelector("#kt_sign_in_submit"), i = FormValidation.formValidation(t, {
+            t = document.querySelector("#kt_sign_in_form"), 
+            e = document.querySelector("#kt_sign_in_submit"), 
+            i = FormValidation.formValidation(t, {
                 fields: {
                     email: {
                         validators: {

@@ -1,22 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 	<head>
-		<!-- <base href="../../../"> -->
-		<title>{{ title }}</title>
-		<meta charset="utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta property="og:locale" content="kk_KZ" />
-		<meta property="og:type" content="article" />
-		<meta property="og:title" content="Beyneu library" />
-		<meta property="og:url" content="https://library.beyneu.kz" />
-		<meta property="og:site_name" content="Library | Beyneu" />
-		<!-- <link rel="canonical" href="https://preview.keenthemes.com/metronic8" /> -->
-		<link rel="shortcut icon" href="/favicon.ico" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-		{{ assets({files: ['assets/plugins/global/plugins.bundle.css',
-							'assets/css/style.bundle.css'],  name: 'main.css'}) }}
+		{% include 'head.twig' %}
 	</head>
 	<body id="kt_body" class="bg-body">
 		<div class="d-flex flex-column flex-root">
@@ -54,8 +39,7 @@
 			</div>
 		</div>
 		<script>var hostUrl = "assets/";</script>
-		{{ assets({files: ['assets/plugins/global/plugins.bundle.js',
-							'assets/js/scripts.bundle.js',
-							'assets/js/custom/authentication/sign-in/general.js'],  name: 'login.js'}) }}
+		{% include 'script.twig' %}
+		{{ assets({files: ['assets/js/custom/authentication/sign-in/general.js'],  name: 'login.js'}) }}
 	</body>
 </html>
