@@ -21,8 +21,7 @@ return function (App $app) {
     });
 
     $app->get('', function (Request $request, Response $response){
-        echo 'aaa';
-        return $response->withStatus(201);
+        return $response->getBody()->write('Hello World');
     });
 
     $app->group(
