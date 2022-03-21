@@ -21,7 +21,8 @@ return function (App $app) {
     });
 
     $app->get('/', function (Request $request, Response $response){
-        return $response->getBody()->write('Hello World');
+        $response->getBody()->write('Hello World');
+        return $response;
     });
 
     $app->group(
