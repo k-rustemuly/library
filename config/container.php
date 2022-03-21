@@ -21,7 +21,7 @@ return [
         return require __DIR__ . '/settings.php';
     },
 
-    'view' => function () {
+    Twig::class => function () {
         $twig = Twig::create(MAIN_DIR . 'templates',['cache' => MAIN_DIR.'cache']);
         // $twig->getEnvironment()->addGlobal('url', $_ENV['URL']);
         return $twig;
