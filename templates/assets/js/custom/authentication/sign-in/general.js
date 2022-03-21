@@ -39,7 +39,7 @@ var KTSigninGeneral = function () {
                     setTimeout((function () {
                         e.removeAttribute("data-kt-indicator"), 
                         e.disabled = !1,
-                        api.post(t.attr('action'), t.serialize()), 
+                        api.post(t.action, t.serialize()), 
                         Swal.fire({
                             text: "Вы успешно вошли в систему",
                             icon: "success",
