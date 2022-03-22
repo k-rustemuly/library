@@ -51,7 +51,9 @@ return function (App $app) {
 
                     $app->group('/book', function (RouteCollectorProxy $app) {
 
-                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-book");
+                        $app->get('', \App\Action\Book\ReadAction::class)->setName("panel-book");
+
+                        $app->post('', \App\Action\Book\AddAction::class)->setName("panel-book-add");
 
                     });
 
