@@ -4,7 +4,6 @@ namespace App\Domain\Panel\Service;
 
 use DomainException;
 use App\Helper\Language;
-use SlimSession\Helper as Session;
 use App\Helper\Admin;
 
 /**
@@ -19,18 +18,11 @@ final class Dashboard extends Admin{
     private $language;
 
     /**
-     * @var Session 
-     *
-     */
-    private $session;
-
-    /**
      * The constructor.
      *
      */
     public function __construct() {
         $this->language = new Language();
-        $this->session = new Session();
     }
 
     /**
@@ -46,6 +38,7 @@ final class Dashboard extends Admin{
         $base = $this->getBase($lang);
         $array = array(
             "title" => $l->getTitle("dashboard"),
+            "h1" => $l->getString("dashboard_h1")
         );
         return array_merge($array, $base);
     }
