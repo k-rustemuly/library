@@ -5,6 +5,7 @@ namespace App\Domain\Author\Service;
 use DomainException;
 use App\Helper\Language;
 use App\Helper\Admin;
+use App\Domain\Author\Repository\AuthorFinderRepository as ReadRepository;
 
 /**
  * Service.
@@ -18,11 +19,18 @@ final class Get extends Admin{
     private $language;
 
     /**
+     * @var ReadRepository 
+     *
+     */
+    private $readRepository;
+
+    /**
      * The constructor.
      *
      */
-    public function __construct() {
+    public function __construct(ReadRepository $readRepository) {
         $this->language = new Language();
+        $this->readRepository = $readRepository;
     }
 
     /**
@@ -49,7 +57,8 @@ final class Get extends Admin{
             "full_name" => $l->getField("full_name"),
             "cancel" => $l->getButton("cancel"),
             "add" => $l->getButton("add"),
-            "please_wait" => $l->getString("please_wait")
+            "please_wait" => $l->getString("please_wait"),
+            "authors_list" => $this->readRepository->getAll()
         );
         return array_merge($array, $base);
     }

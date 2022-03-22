@@ -52,6 +52,23 @@
 													</tr>
 													</thead>
 													<tbody class="text-gray-600 fw-bold">
+														{% for author in authors_list %}
+															<tr>
+																<td>
+																	<div class="d-flex align-items-center">
+																		<div class="me-5 position-relative">
+																			<div class="symbol symbol-35px symbol-circle">
+																				<img alt="Pic" src="{{ author.avatar }}">
+																			</div>
+																		</div>
+																		<div class="d-flex flex-column justify-content-center">
+																			<a href="" class="mb-1 text-gray-800 text-hover-primary">{{ author.name }}</a>
+																			<div class="fw-bold fs-6 text-gray-400">{{ author.hash }}</div>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+														{% endfor %}
 													</tbody>
 												</table>
 											</div>
@@ -120,9 +137,6 @@
 		</div>
 		{% include 'panel/scrolltop.twig' %}
 		{% include 'script.twig' %}
-		<script>
-			var getUrl = '{{ url_for('panel-author-list', { 'lang': lang }) }}';
-		</script>
 		{{ assets({files: ['assets/plugins/custom/prismjs/prismjs.bundle.js'],  name: 'prismjs.bundle.js'}) }}
 		{{ assets({files: ['assets/plugins/custom/datatables/datatables.bundle.js'],  name: 'datatables.bundle.js'}) }}
 		{{ assets({files: ['assets/js/authors.js'],  name: 'authors2.js'}) }}
