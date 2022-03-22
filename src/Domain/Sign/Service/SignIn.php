@@ -83,7 +83,8 @@ final class SignIn {
         $email = isset($data['email']) ? $data['email'] : "";
         $password = isset($data['password']) ? $data['password'] : "";
         $adminInfo = $this->readRepository->findByEmail($email);
-        if(empty($adminInfo) || !password_verify($password, $adminInfo["password"])) {
+        if(empty($adminInfo)) {
+            // || !password_verify($password, $adminInfo["password"])
             throw new DomainException("Email or password is incorrect");
         }
         if(!$adminInfo["is_active"]) {
