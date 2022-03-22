@@ -80,6 +80,7 @@ final class SignIn {
      * @return array<mixed>
      */
     public function post(array $data) :array{
+        return $data;
         $email = isset($data['email']) ? $data['email'] : "";
         $password = isset($data['password']) ? $data['password'] : "";
         $adminInfo = $this->readRepository->findByEmail($email);
