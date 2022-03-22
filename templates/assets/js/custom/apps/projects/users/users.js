@@ -4,11 +4,6 @@ var KTProjectUsers = {
         ! function () {
             const t = document.getElementById("kt_project_users_table");
             if (!t) return;
-            t.querySelectorAll("tbody tr").forEach((t => {
-                const e = t.querySelectorAll("td"),
-                    r = moment(e[1].innerHTML, "MMM D, YYYY").format();
-                e[1].setAttribute("data-order", r)
-            }));
             const e = $(t).DataTable({
                 info: !1,
                 order: [],
