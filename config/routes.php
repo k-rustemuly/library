@@ -81,7 +81,9 @@ return function (App $app) {
 
                     $app->group('/tag', function (RouteCollectorProxy $app) {
 
-                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-tag");
+                        $app->get('', \App\Action\Tag\ReadAction::class)->setName("panel-tag");
+
+                        $app->post('', \App\Action\Tag\AddAction::class)->setName("panel-tag-add");
 
                     });
 
