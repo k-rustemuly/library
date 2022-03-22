@@ -1,5 +1,4 @@
 "use strict";
-$("#authors").DataTable();
 $('#authors').DataTable( {
     "processing": true,
     "serverSide": true,
