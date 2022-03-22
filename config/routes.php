@@ -65,7 +65,9 @@ return function (App $app) {
 
                     $app->group('/publisher', function (RouteCollectorProxy $app) {
 
-                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-publisher");
+                        $app->get('', \App\Action\Publisher\ReadAction::class)->setName("panel-publisher");
+
+                        $app->post('', \App\Action\Publisher\AddAction::class)->setName("panel-publisher-add");
 
                     });
 
