@@ -42,33 +42,22 @@ var KTSigninGeneral = function () {
                         e.disabled = !1,
                         
                         $.post(t.action, $( t ).serialize(), function (data) {
-                            alert("success" + data);
-                        })
-                        .done(function () {
-                            alert("second success");
+                            t.querySelector('[name="email"]').value = "", t.querySelector('[name="password"]').value = "";
+                            var i = t.getAttribute("data-kt-redirect-url");
+                            i && (location.href = i)
                         })
                         .fail(function () {
-                            alert("error");
+                            Swal.fire({
+                                text: "Электронная почта или пароль не правильный!",
+                                icon: "error",
+                                buttonsStyling: !1,
+                                confirmButtonText: "Попробовать еще раз!",
+                                customClass: {
+                                    confirmButton: "btn btn-primary"
+                                }
+                            })
                         })
-                        .always(function () {
-                            alert("finished");
-                        }),
-                        Swal.fire({
-                            text: "Вы успешно вошли в систему",
-                            icon: "success",
-                            buttonsStyling: !1,
-                            confirmButtonText: "Начать",
-                            customClass: {
-                                confirmButton: "btn btn-primary"
-                            }
-                        }).then((function (e) {
-                            if (e.isConfirmed) {
-                                t.querySelector('[name="email"]').value = "", t.querySelector('[name="password"]').value = "";
-                                var i = t.getAttribute("data-kt-redirect-url");
-                                i && (location.href = i)
-                            }
-                        }))
-                    }), 2e3)) : Swal.fire({
+                    }), 0)) : Swal.fire({
                         text: "Электронная почта или пароль не правильный!",
                         icon: "error",
                         buttonsStyling: !1,
