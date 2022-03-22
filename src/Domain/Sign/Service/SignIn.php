@@ -80,10 +80,10 @@ final class SignIn {
      * @return array<mixed>
      */
     public function post(array $data) :array{
-        return $data;
         $email = isset($data['email']) ? $data['email'] : "";
         $password = isset($data['password']) ? $data['password'] : "";
         $adminInfo = $this->readRepository->findByEmail($email);
+        return password_verify($password, $adminInfo["password"]);
         if(empty($adminInfo) || !password_verify($password, $adminInfo["password"])) {
             throw new DomainException("Email or password is incorrect");
         }
