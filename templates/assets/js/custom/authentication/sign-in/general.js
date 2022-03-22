@@ -42,10 +42,13 @@ var KTSigninGeneral = function () {
                         e.disabled = !1,
                         
                         $.post(t.action, $( t ).serialize(), function (data) {
+                            var d = data.data;
+                            localStorage.setItem("email", d.email);
+                            localStorage.setItem("full_name", d.full_name);
+                            localStorage.setItem("organization", d.organization);
                             t.querySelector('[name="email"]').value = "", t.querySelector('[name="password"]').value = "";
                             var i = t.getAttribute("data-kt-redirect-url");
-                            // i && (location.href = i)
-                            console.log(data);
+                            i && (location.href = i)
                         })
                         .fail(function () {
                             Swal.fire({
