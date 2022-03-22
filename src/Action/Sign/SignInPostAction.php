@@ -41,7 +41,7 @@ final class SignInPostAction {
      * @return ResponseInterface The response
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $args): ResponseInterface{
-        $data = $request->getParsedBody();
+        $data = (array)$request->getParsedBody();
         return $this->responder->success($response, null, $this->service->post($data));
     }
 }
