@@ -120,6 +120,9 @@
 		</div>
 		{% include 'panel/scrolltop.twig' %}
 		{% include 'script.twig' %}
+		<script>
+			var getUrl = '{{ url_for('panel-author-list', { 'lang': lang }) }}';
+		</script>
 		{{ assets({files: ['assets/plugins/custom/prismjs/prismjs.bundle.js'],  name: 'prismjs.bundle.js'}) }}
 		{{ assets({files: ['assets/plugins/custom/datatables/datatables.bundle.js'],  name: 'datatables.bundle.js'}) }}
 		{{ assets({files: ['assets/js/authors.js'],  name: 'authors2.js'}) }}
