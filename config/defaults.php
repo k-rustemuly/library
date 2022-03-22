@@ -13,7 +13,7 @@ $settings['uploads_dir'] = UPLOADS_DIR . '/news/';
 $settings['twig'] = [
     'path' => $settings['root']. '/templates',
     // Should be set to true in production
-    'cache_enabled' => false,
+    'cache_enabled' => true,
     'cache_path' => $settings['root']. '/tmp/twig-cache',
 ];
 
@@ -42,7 +42,7 @@ $settings['assets'] = [
     
     // The lifetime (in seconds) for cache items
     // With a value 0 causing items to be stored indefinitely
-    'cache_lifetime' => 5,
+    'cache_lifetime' => 0,
     
     // Enable JavaScript and CSS compression
     // 1 = on, 0 = off
