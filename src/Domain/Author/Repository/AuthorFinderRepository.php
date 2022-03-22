@@ -35,4 +35,16 @@ final class AuthorFinderRepository {
         $query = $this->queryFactory->newSelect(self::$tableName)->select(["*"]);
         return $query->execute()->fetchAll("assoc") ?: [];
     }
+
+    /**
+     * @param string $hash
+     * 
+     * @return boolean
+     */
+    public function existsbyHash(string $hash): bool{
+        $query = $this->queryFactory->newSelect(self::$tableName)->select(["*"])->where(["hash" => $hash]);
+        return !empty($query->execute()->fetch("assoc"));
+    }
+
+
 }

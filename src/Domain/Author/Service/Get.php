@@ -6,6 +6,7 @@ use DomainException;
 use App\Helper\Language;
 use App\Helper\Admin;
 use App\Domain\Author\Repository\AuthorFinderRepository as ReadRepository;
+use App\Domain\Author\Repository\AuthorCreatorRepository as CreateRepository;
 
 /**
  * Service.
@@ -25,12 +26,19 @@ final class Get extends Admin{
     private $readRepository;
 
     /**
+     * @var CreateRepository 
+     *
+     */
+    private $createRepository;
+
+    /**
      * The constructor.
      *
      */
-    public function __construct(ReadRepository $readRepository) {
+    public function __construct(ReadRepository $readRepository, CreateRepository $createRepository) {
         $this->language = new Language();
         $this->readRepository = $readRepository;
+        $this->createRepository = $createRepository;
     }
 
     /**
@@ -61,5 +69,43 @@ final class Get extends Admin{
             "authors_list" => $this->readRepository->getAll()
         );
         return array_merge($array, $base);
+    }
+
+    /**
+     * Add new author
+     * 
+     * @param array<mixed> $data
+     * 
+     */
+    public function add(array $data) {
+        $full_name = isset($data["full_name"]) ? $data["full_name"] : "";
+        $this->createRepository->insert(["name" => $full_name, "hash" => $this->generateHash(3)]);
+    }
+
+    /**
+     *  Generating new hash
+     *
+     * @return string The new hash
+     */
+    private function generateHash(int $length = 36, int $attempt = 1) :string{
+        $randomStr = $this->base64url_encode(substr(hash("sha512", mt_rand()), 0, $length));
+        if($this->readRepository->existsbyHash($randomStr)) {
+            if($attempt > 10) {
+                $attempt = 1;
+                $length++;
+            }
+            return $this->generateHash($length, $attempt);
+        }
+        return $randomStr;
+    }
+
+    /**
+     *
+     * @param string $data The data
+     *
+     * @return string The cleaned string
+     */
+    public function base64url_encode(string $data) :string{ 
+        return rtrim(strtr(base64_encode($data), "+/", "-_"), "="); 
     }
 }
