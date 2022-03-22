@@ -44,7 +44,8 @@ var KTSigninGeneral = function () {
                         $.post(t.action, $( t ).serialize(), function (data) {
                             t.querySelector('[name="email"]').value = "", t.querySelector('[name="password"]').value = "";
                             var i = t.getAttribute("data-kt-redirect-url");
-                            i && (location.href = i)
+                            // i && (location.href = i)
+                            console.log(data);
                         })
                         .fail(function () {
                             Swal.fire({
