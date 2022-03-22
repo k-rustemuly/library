@@ -13,7 +13,7 @@ $settings['uploads_dir'] = UPLOADS_DIR . '/news/';
 $settings['twig'] = [
     'path' => $settings['root']. '/templates',
     // Should be set to true in production
-    'cache_enabled' => true,
+    'cache_enabled' => false,
     'cache_path' => $settings['root']. '/tmp/twig-cache',
 ];
 

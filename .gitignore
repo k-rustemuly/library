@@ -2,3 +2,4 @@
 /vendor
 /logs/*.log
 /tmp/*
+/public/assets/cache/*
