@@ -3,7 +3,8 @@
         "sign_in": "Вход в систему для администраторов организации",
         "dashboard": "Панель управления",
         "author": "Авторы",
-        "publisher" : "Издательство"
+        "publisher" : "Издательство",
+        "series" : "Серии"
     },
     "string": {
         "sign_in_h1": "Вход в систему",
@@ -22,7 +23,9 @@
         "cancel_avatar": "Отменить",
         "remove_avatar": "Удалить",
         "publisher_h1": "Издательство",
-        "add_new_publisher": "Добавить издательство"
+        "add_new_publisher": "Добавить издательство",
+        "series_h1": "Серии",
+        "add_new_series": "Добавить новую серию"
     },
     "button": {
         "sign_in": "Войти",

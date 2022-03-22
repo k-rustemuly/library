@@ -73,7 +73,9 @@ return function (App $app) {
 
                     $app->group('/series', function (RouteCollectorProxy $app) {
 
-                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-series");
+                        $app->get('', \App\Action\Series\ReadAction::class)->setName("panel-series");
+
+                        $app->post('', \App\Action\Series\AddAction::class)->setName("panel-series-add");
 
                     });
 
