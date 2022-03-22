@@ -59,6 +59,8 @@ return function (App $app) {
 
                         $app->get('', \App\Action\Panel\AuthorAction::class)->setName("panel-author");
 
+                        $app->post('', \App\Action\Panel\AuthorAddAction::class)->setName("panel-author-add");
+
                     });
 
                     $app->group('/publisher', function (RouteCollectorProxy $app) {
