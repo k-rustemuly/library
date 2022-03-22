@@ -40,6 +40,7 @@
 												<table id="table" class="table align-middle table-row-dashed fs-6 gy-5">
 													<thead>
 													<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+														<th>ISBN</th>
 														<th></th>
 														<th>{{ page_count }}</th>
 														<th>{{ language_code }}</th>
@@ -52,6 +53,7 @@
 													<tbody class="text-gray-600 fw-bold">
 														{% for row in list %}
 															<tr>
+																<td>{{ row.page_count }}</td>
 																<td>
 																	<div class="d-flex align-items-center">
 																		<div class="me-5 position-relative">
@@ -67,7 +69,7 @@
 																</td>
 																<td>{{ row.page_count }}</td>
 																<td>{{ row.language_name }}</td>
-																<td>{{ row.description }}</td>
+																<td> <span class="text-gray-800 fs-7 fw-normal pt-1">{{ row.description }}</span></td>
 																<td>{{ row.publisher_name }}</td>
 																<td>{{ row.authors }}</td>
 																<td>{{ row.series_name }}</td>
