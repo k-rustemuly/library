@@ -57,7 +57,7 @@ return function (App $app) {
 
                     $app->group('/author', function (RouteCollectorProxy $app) {
 
-                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-author");
+                        $app->get('', \App\Action\Panel\AuthorAction::class)->setName("panel-author");
 
                     });
 
