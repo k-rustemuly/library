@@ -61,13 +61,13 @@
                             </a>
                             <div class="menu-sub menu-sub-dropdown w-175px py-4">
                                 <div class="menu-item px-3">
-                                    <a href="{{ url_for('panel-dashboard', { 'lang': 'kk' }) }}" class="menu-link d-flex px-5 active">
+                                    <a href="{{ url_for('panel-dashboard', { 'lang': 'kk' }) }}" class="menu-link d-flex px-5 {% if lang == 'kk' %}active{% endif %}">
                                     <span class="symbol symbol-20px me-4">
                                         <img class="rounded-1" src="/kk.svg" alt="" />
                                     </span>{{ languages.kk }}</a>
                                 </div>
                                 <div class="menu-item px-3">
-                                    <a href="{{ url_for('panel-dashboard', { 'lang': 'ru' }) }}" class="menu-link d-flex px-5">
+                                    <a href="{{ url_for('panel-dashboard', { 'lang': 'ru' }) }}" class="menu-link d-flex px-5 {% if lang == 'ru' %}active{% endif %}">
                                     <span class="symbol symbol-20px me-4">
                                         <img class="rounded-1" src="/ru.svg" alt="" />
                                     </span>{{ languages.ru }}</a>
