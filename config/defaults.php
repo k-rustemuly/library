@@ -99,4 +99,10 @@ $settings['db'] = [
     ],
 ];
 
+$settings['session'] = [
+    'name' => 'library_session',
+    'autorefresh' => true,
+    'lifetime' => '1 hour'
+];
+
 return $settings;

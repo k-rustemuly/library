@@ -19,7 +19,10 @@
     "error": {
         "Internal Server Error": "Произошла ошибка, просим попробовать позднее!",
         "Not found.": "Страница не найдено!",
-        "Reference not added": "Ошибка при добавлении!"
+        "Reference not added": "Ошибка при добавлении!",
+        "Email or password is incorrect": "Неправильный логин или пароль!",
+        "Account is not active": "Аккаунт отключен от системы! Обратитесь в службу поддержки!",
+        "Organization is not active": "Ваша организация отключена от системы! Обратитесь в службу поддержки!"
     },
     "success":{
     }

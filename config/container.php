@@ -17,6 +17,7 @@ use App\Helper\Authorization;
 use Slim\Views\Twig;
 use Twig\Loader\FilesystemLoader;
 use Odan\Twig\TwigAssetsExtension;
+use Slim\Middleware\Session;
 
 return [
     'settings' => function () {
@@ -42,6 +43,12 @@ return [
         $twig->addExtension(new TwigAssetsExtension($environment, (array)$settings['assets']));
 
         return $twig;
+    },
+
+    Session::class => function (ContainerInterface $container) {
+        $settings = $container->get('settings');
+        $session = $settings['session'];
+        return new Session($session);
     },
 
     Language::class => function () {
