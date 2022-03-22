@@ -14,14 +14,22 @@
         "author_h1": "Авторы",
         "all": "Всего",
         "search": "Поиск",
-        "add": "Добавить"
+        "add": "Добавить",
+        "add_new_author": "Добавить нового автора",
+        "avatar": "Аватар",
+        "change_avatar": "Поменять аватар",
+        "cancel_avatar": "Отменить",
+        "remove_avatar": "Удалить"
     },
     "button": {
-        "sign_in": "Войти"
+        "sign_in": "Войти",
+        "cancel": "Отменить",
+        "add": "Добавить"
     },
     "field": {
         "email": "Электронная почта",
-        "password": "Пароль"
+        "password": "Пароль",
+        "full_name": "ФИО"
     },
     "hint": {
     },
