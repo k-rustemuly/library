@@ -332,6 +332,7 @@
 		</div>
 		{% include 'panel/scrolltop.twig' %}
 		{% include 'script.twig' %}
+		{{ assets({files: ['assets/plugins/custom/datatables/datatables.bundle.js'],  name: 'datatables.js'}) }}
 		{{ assets({files: ['assets/js/custom/apps/projects/users/users.js'],  name: 'authors.js'}) }}
 	</body>
 </html>
