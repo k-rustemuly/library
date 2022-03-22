@@ -32,7 +32,7 @@ final class AuthorFinderRepository {
      * @return array<mixed> The list view data
      */
     public function getAll(): array{
-        $query = $this->queryFactory->newSelect(self::$tableName)->select(["*"])->orderDesc("id");
+        $query = $this->queryFactory->newSelect(self::$tableName)->select(["*"]);
         return $query->execute()->fetchAll("assoc") ?: [];
     }
 }
