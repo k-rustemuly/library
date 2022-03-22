@@ -43,10 +43,15 @@ final class Dashboard extends Admin{
     public function get(string $lang): array{
         $l = $this->language;
         $l->locale($lang);
+        $languageList = $l->get("language");
         return array(
             "admin" => $this->getInfo($lang),
             "lang" => $lang,
             "title" => $l->getTitle("dashboard"),
+            "language" => $l->getString("language"),
+            "lang_name" => $languageList[$lang],
+            "languages" => $languageList,
+            "sign_out" => $l->getString("sign_out"),
         );
     }
 }
