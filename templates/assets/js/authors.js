@@ -115,20 +115,6 @@ var KTDatatablesServerSide = function () {
         });
     }
 
-    // Reset Filter
-    var handleResetForm = () => {
-        // Select reset button
-        const resetButton = document.querySelector('[data-kt-docs-table-filter="reset"]');
-
-        // Reset datatable
-        resetButton.addEventListener('click', function () {
-            // Reset payment type
-            filterPayment[0].checked = true;
-
-            // Reset datatable --- official docs reference: https://datatables.net/reference/api/search()
-            dt.search('').draw();
-        });
-    }
 
     // Toggle toolbars
     var toggleToolbars = function () {
@@ -169,7 +155,6 @@ var KTDatatablesServerSide = function () {
         init: function () {
             initDatatable();
             handleSearchDatatable();
-            handleResetForm();
         }
     }
 }();
