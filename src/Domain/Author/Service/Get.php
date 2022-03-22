@@ -38,7 +38,8 @@ final class Get extends Admin{
         $base = $this->getBase($lang);
         $array = array(
             "title" => $l->getTitle("author"),
-            "h1" => $l->getString("author_h1")
+            "h1" => $l->getString("author_h1"),
+            "all" => $l->getString("all"),
         );
         return array_merge($array, $base);
     }
