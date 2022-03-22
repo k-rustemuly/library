@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Metronic - the world's #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel by Keenthemes</title>
-		<meta charset="utf-8" />
-		<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />		
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-		<link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		{% include 'head.twig' %}
 	</head>
 	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
 		<div class="d-flex flex-column flex-root">
@@ -2543,10 +2537,8 @@
 			</span>
 			
 		</div>
-		<script>var hostUrl = "assets/";</script>
-		<script src="assets/plugins/global/plugins.bundle.js"></script>
-		<script src="assets/js/scripts.bundle.js"></script>
-		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		{% include 'script.twig' %}
+		{# <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		<script src="assets/js/custom/apps/user-management/users/list/table.js"></script>
 		<script src="assets/js/custom/apps/user-management/users/list/export-users.js"></script>
 		<script src="assets/js/custom/apps/user-management/users/list/add.js"></script>
@@ -2555,7 +2547,6 @@
 		<script src="assets/js/custom/apps/chat/chat.js"></script>
 		<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
 		<script src="assets/js/custom/utilities/modals/create-app.js"></script>
-		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
+		<script src="assets/js/custom/utilities/modals/users-search.js"></script> #}
 	</body>
-	
 </html>
