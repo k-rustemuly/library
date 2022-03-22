@@ -36,6 +36,7 @@ class Admin{
             "lang_name" => $languageList[$lang],
             "languages" => $languageList,
             "sign_out" => $l->getString("sign_out"),
+            "menu" => $l->get("menu")
         );
     }
 }

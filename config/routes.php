@@ -45,11 +45,55 @@ return function (App $app) {
 
                 });
 
-                $app->group('/', function (RouteCollectorProxy $app) {
+                $app->group('', function (RouteCollectorProxy $app) {
 
-                    $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-dashboard");
+                    $app->get('/', \App\Action\Panel\DashboardAction::class)->setName("panel-dashboard");
+
+                    $app->group('/book', function (RouteCollectorProxy $app) {
+
+                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-book");
+
+                    });
+
+                    $app->group('/author', function (RouteCollectorProxy $app) {
+
+                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-author");
+
+                    });
+
+                    $app->group('/publisher', function (RouteCollectorProxy $app) {
+
+                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-publisher");
+
+                    });
+
+                    $app->group('/series', function (RouteCollectorProxy $app) {
+
+                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-series");
+
+                    });
+
+                    $app->group('/tag', function (RouteCollectorProxy $app) {
+
+                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-tag");
+
+                    });
+
+                    $app->group('/library', function (RouteCollectorProxy $app) {
+
+                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-library");
+
+                    });
+
+                    $app->group('/selection', function (RouteCollectorProxy $app) {
+
+                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-selection");
+
+                    });
 
                 });
+
+                
             });
 
         });
