@@ -3,6 +3,7 @@ use Slim\App;
 use Slim\Routing\RouteCollectorProxy;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use App\Middleware\PanelMiddleware;
 
 return function (App $app) {
 
@@ -101,9 +102,8 @@ return function (App $app) {
 
                     });
 
-                });
+                })->add(PanelMiddleware::class);
 
-                
             });
 
         });

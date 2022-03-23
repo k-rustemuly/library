@@ -5,10 +5,9 @@ namespace App\Middleware;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Slim\Psr7\Response;
-use App\Helper\Role;
-use Slim\Exception\HttpUnauthorizedException;
+use SlimSession\Helper as Session;
 
-class CenterAdminMiddleware extends Authorization
+class PanelMiddleware
 {
 	/**
 	 * JWT Auth existence
@@ -19,8 +18,9 @@ class CenterAdminMiddleware extends Authorization
 	 * @return Response
 	 */
 	public function __invoke(ServerRequestInterface $request, RequestHandlerInterface $handler): Response{
-		$arr = parent::init($request);
-		if(!Role::isCenterAdmin($arr)) throw new HttpUnauthorizedException($request, "Unauthorized user");
-        return $handler->handle($request->withAttribute(self::class, $arr));
+		$session = new Session();
+		$response = $handler->handle($request);
+		if($session->exists("admin")) return $response;
+		return $response->withHeader('Location', '/ru/panel/sign-in')->withStatus(302);
 	}
 }
