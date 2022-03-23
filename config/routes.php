@@ -33,7 +33,7 @@ return function (App $app) {
 
                 $app->group('/sign-in', function (RouteCollectorProxy $app) {
 
-                    $app->get('', \App\Action\Sign\SignInGetAction::class);
+                    $app->get('', \App\Action\Sign\SignInGetAction::class)->setName("sign-in");
 
                     $app->post('', \App\Action\Sign\SignInPostAction::class)->setName("sign-in-post");
 

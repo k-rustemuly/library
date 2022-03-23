@@ -91,7 +91,7 @@
                                     </span>{{ languages.kk }}</a>
                                 </div>
                                 <div class="menu-item px-3">
-                                    <a href="{{ url_for('panel-dashboard', { 'lang': 'ru' }) }}" class="menu-link d-flex px-5 {% if lang == 'ru' %}active{% endif %}">
+                                    <a href="" class="menu-link d-flex px-5 {% if lang == 'ru' %}active{% endif %}">
                                     <span class="symbol symbol-20px me-4">
                                         <img class="rounded-1" src="/ru.svg" alt="" />
                                     </span>{{ languages.ru }}</a>
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                         <div class="menu-item px-5">
-                            <a href="#" class="menu-link px-5">{{ sign_out }}</a>
+                            <a href="{{ url_for('sign-in', { 'lang': 'ru' }) }}" class="menu-link px-5">{{ sign_out }}</a>
                         </div>
                     </div>
                 </div>
