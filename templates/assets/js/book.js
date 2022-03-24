@@ -83,9 +83,10 @@ var tagify = new Tagify(inputElm, {
     tagTextProp: 'name',
     enforceWhitelist: true,
     deferredWhitelist: true, // will load whitelist later
+    skipInvalid: true, // do not remporarily add invalid tags
     dropdown: {
         closeOnSelect: false,
-        enabled: 1,
+        enabled: 0,
         classname: 'users-list',
         searchKeys: ['name']
     },
@@ -108,15 +109,11 @@ function onDropdownShow(e) {
 
     if (tagify.suggestedListItems.length > 1) {
         addAllSuggestionsElm = getAddAllSuggestionsElm();
-
-        // insert "addAllSuggestionsElm" as the first element in the suggestions list
         dropdownContentElm.insertBefore(addAllSuggestionsElm, dropdownContentElm.firstChild)
     }
 }
 
-// create a "add all" custom suggestion element every time the dropdown changes
 function getAddAllSuggestionsElm() {
-    // suggestions items should be based on "dropdownItem" template
     return tagify.parseTemplate('dropdownItem', [{
         class: "addAll",
         name: "Add all",
