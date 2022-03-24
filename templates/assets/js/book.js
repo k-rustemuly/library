@@ -13,47 +13,7 @@ $('#description').maxlength({
 });
 
 var inputElm = document.querySelector('#authors');
-var usersList = [{
-        value: 1,
-        name: 'Emma Smith',
-        avatar: 'avatars/300-6.jpg'
-    },
-    {
-        value: 2,
-        name: 'Max Smith',
-        avatar: 'avatars/300-1.jpg'
-    },
-    {
-        value: 3,
-        name: 'Sean Bean',
-        avatar: 'avatars/300-5.jpg'
-    },
-    {
-        value: 4,
-        name: 'Brian Cox',
-        avatar: 'avatars/300-25.jpg'
-    },
-    {
-        value: 5,
-        name: 'Francis Mitcham',
-        avatar: 'avatars/300-9.jpg'
-    },
-    {
-        value: 6,
-        name: 'Dan Wilson',
-        avatar: 'avatars/300-23.jpg'
-    },
-    {
-        value: 7,
-        name: 'Ana Crown',
-        avatar: 'avatars/300-12.jpg'
-    },
-    {
-        value: 8,
-        name: 'John Miller',
-        avatar: 'avatars/300-13.jpg'
-    }
-];
+
 $("#kt_modal_add").on('shown.bs.modal', function (e) {
     tagifyRefresh();
     $.get(languageUrl, function (data) {
@@ -133,7 +93,7 @@ var tagify = new Tagify(inputElm, {
         tag: tagTemplate,
         dropdownItem: suggestionItemTemplate
     },
-    whitelist: usersList,
+    whitelist: [],
     maxTags:5
 })
 
@@ -172,7 +132,8 @@ async function tagifyRefresh() {
     tagify.loading(true).dropdown.hide.call(tagify);
     $.get(authorList, function (data) {
         var newWhitelist = data.data;
-        tagify.settings.whitelist.push(...newWhitelist)
+        tagify.settings.whitelist.push(...newWhitelist);
+        tagify.whitelistLoaded();
         tagify.loading(false);
     });
 
