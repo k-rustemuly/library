@@ -12,7 +12,7 @@ $('#description').maxlength({
     limitReachedClass: "badge badge-success"
 });
 
-$( "#kt_modal_add" ).on('shown', function(){
+$( "#kt_modal_add" ).on('shown.bs.modal', function (e) {
     alert("I want this to appear after the modal has opened!");
 });
 
