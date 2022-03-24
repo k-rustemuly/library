@@ -105,17 +105,17 @@
 											<div class="row mb-7">
 												<div class="col-md-4 fv-row">
 													<label class="required fw-bold fs-6 mb-2">ISBN</label>
-													<input type="text" name="isbn" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="ISBN"  id="isbn" maxlength="13" required>
+													<input type="text" name="isbn" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="ISBN"  id="isbn" minlength="13" maxlength="13" required>
 													<div class="fv-plugins-message-container invalid-feedback"></div>
 												</div>
 												<div class="col-md-8 fv-row">
-													<label class="required fw-bold fs-6 mb-2">Name</label>
-													<input type="text" name="name" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="name" required>
+													<label class="required fw-bold fs-6 mb-2">{{ name }}</label>
+													<input type="text" name="name" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="{{ name }}" required>
 													<div class="fv-plugins-message-container invalid-feedback"></div>
 												</div>
 											</div>
 											<div class="fv-row mb-7">
-												<label class="d-block fw-bold fs-6 mb-5">{{ avatar }}</label>
+												<label class="d-block fw-bold fs-6 mb-5">{{ image }}</label>
 												<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('/user.svg')">
 													<div class="image-input-wrapper w-125px h-125px" style="background-image: url(/user.jpg);"></div>
 													<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="{{ change_avatar }}">
@@ -134,7 +134,7 @@
 											</div>
 											<div class="row mb-7">
 												<div class="col-md-4 fv-row">
-													<label class="required fs-6 fw-bold form-label mb-2">Published year</label>
+													<label class="required fs-6 fw-bold form-label mb-2">{{ published_year }}</label>
 													<div class="row fv-row fv-plugins-icon-container">
 														<div class="col-12">
 															<select name="published_year" class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" tabindex="-1" aria-hidden="true">
@@ -147,15 +147,15 @@
 												</div>
 												<div class="col-md-4 fv-row fv-plugins-icon-container">
 													<label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-														<span class="required">Page count</span>
+														<span class="required">{{ page_count }}</span>
 													</label>
 													<div class="position-relative">
-														<input type="text" class="form-control form-control-solid" minlength="3" maxlength="4" placeholder="CVV" name="page_count">
+														<input type="text" class="form-control form-control-solid" minlength="1" placeholder="CVV" name="page_count" required>
 													</div>
 													<div class="fv-plugins-message-container invalid-feedback"></div>
 												</div>
 												<div class="col-md-4 fv-row">
-													<label class="required fs-6 fw-bold form-label mb-2">Language code </label>
+													<label class="required fs-6 fw-bold form-label mb-2">{{ language_code }}</label>
 													<div class="row fv-row fv-plugins-icon-container">
 														<div class="col-12">
 															<select name="language_code" class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" tabindex="-1" aria-hidden="true">
@@ -167,7 +167,7 @@
 											</div>
 											<div class="row mb-7">
 												<div class="col-md-6 fv-row">
-													<label class="required fs-6 fw-bold form-label mb-2">Publisher</label>
+													<label class="required fs-6 fw-bold form-label mb-2">{{ publisher }}</label>
 													<div class="row fv-row fv-plugins-icon-container">
 														<div class="col-12">
 															<select name="publisher_id" class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" tabindex="-1" aria-hidden="true">
@@ -177,7 +177,7 @@
 													</div>
 												</div>
 												<div class="col-md-6 fv-row">
-													<label class="required fs-6 fw-bold form-label mb-2">Series</label>
+													<label class="required fs-6 fw-bold form-label mb-2">{{ series }}</label>
 													<div class="row fv-row fv-plugins-icon-container">
 														<div class="col-12">
 															<select name="series_id" class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" tabindex="-1" aria-hidden="true">
@@ -188,11 +188,11 @@
 												</div>
 											</div>
 											<div class="fv-row mb-7 fv-plugins-icon-container">
-												<label class="required fw-bold fs-6 mb-2">Authors</label>
+												<label class="required fw-bold fs-6 mb-2">{{ authors }}</label>
 												<input class="form-control d-flex align-items-center" value="" id="authors" />
 											</div>
 											<div class="fv-row mb-7 fv-plugins-icon-container">
-												<label class="required fw-bold fs-6 mb-2">Description</label>
+												<label class="required fw-bold fs-6 mb-2">{{ description }}</label>
 												<textarea class="form-control" id="description" maxlength="255" placeholder="description" rows="6" required></textarea>
 											</div>
 										</div>

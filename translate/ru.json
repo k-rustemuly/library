@@ -51,7 +51,8 @@
         "publisher": "Издательство",
         "authors": "Авторы",
         "series" : "Серия",
-        "description" : "Описание"
+        "description" : "Описание",
+        "image": "Изображение"
     },
     "hint": {
     },

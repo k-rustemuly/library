@@ -59,6 +59,7 @@ final class Read extends Admin{
             "authors" => $l->getField("authors"),
             "series" => $l->getField("series"),
             "description" => $l->getField("description"),
+            "image" => $l->getField("image"),
             "list" => $this->readRepository->getAll($lang)
         );
         return array_merge($array, $base);
