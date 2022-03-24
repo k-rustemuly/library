@@ -7,6 +7,13 @@ $('#isbn').maxlength({
 });
 
 
+$('#description').maxlength({
+    warningClass: "badge badge-primary",
+    limitReachedClass: "badge badge-success"
+});
+
+
+
 const t = document.getElementById("table");
 const e = $(t).DataTable();
 var r = document.getElementById("kt_filter_search");
