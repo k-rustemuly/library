@@ -81,7 +81,7 @@ function suggestionItemTemplate(tagData) {
 
 var tagify = new Tagify(inputElm, {
     tagTextProp: 'name',
-    enforceWhitelist: true,
+    // enforceWhitelist: true,
     skipInvalid: true,
     dropdown: {
         closeOnSelect: false,
@@ -93,8 +93,7 @@ var tagify = new Tagify(inputElm, {
         tag: tagTemplate,
         dropdownItem: suggestionItemTemplate
     },
-    whitelist: [],
-    maxTags:5
+    whitelist: []
 })
 
 
@@ -103,7 +102,7 @@ async function tagifyRefresh() {
     tagify.loading(true).dropdown.hide.call(tagify);
     $.get(authorList, function (data) {
         var newWhitelist = data.data;
-        tagify.settings.whitelist.push(...newWhitelist);
+        tagify.settings.whitelist.push(newWhitelist);
         tagify.loading(false);
     });
 
