@@ -139,6 +139,7 @@ function getAddAllSuggestionsElm() {
 function tagifyRefresh(){
 	tagify.settings.whitelist.length = 0;
     tagify.loading(true).dropdown.hide.call(tagify);
+    console.log(getWhitelistFromServer());
     tagify.settings.whitelist.push(...getWhitelistFromServer(), ...tagify.value)
     tagify.loading(false).dropdown.show.call(tagify, e.detail.value);
 }
