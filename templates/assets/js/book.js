@@ -105,7 +105,7 @@ async function tagifyRefresh() {
         var newWhitelist = data.data;
         console.log(newWhitelist);
         tagify.settings.whitelist.push(newWhitelist);
-        tagify.loading(false).dropdown.show.call(tagify);
+        tagify.loading(false);
     });
 
 }
