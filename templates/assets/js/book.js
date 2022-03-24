@@ -13,7 +13,7 @@ $('#description').maxlength({
 });
 
 $("#kt_modal_add").on('shown.bs.modal', function (e) {
-    tagifyRefresh();
+
     $.get(languageUrl, function (data) {
         var languages = data.data;
         $('#language_code').empty();
