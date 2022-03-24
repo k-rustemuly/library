@@ -170,7 +170,7 @@
 													<label class="required fs-6 fw-bold form-label mb-2">{{ publisher }}</label>
 													<div class="row fv-row fv-plugins-icon-container">
 														<div class="col-12">
-															<select name="publisher_id" class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" tabindex="-1" aria-hidden="true">
+															<select name="publisher_id" id="publisher" class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" tabindex="-1" aria-hidden="true">
 																<option value="1">Izdatel</option>
 															</select>
 														<div class="fv-plugins-message-container invalid-feedback"></div></div>
@@ -180,7 +180,7 @@
 													<label class="required fs-6 fw-bold form-label mb-2">{{ series }}</label>
 													<div class="row fv-row fv-plugins-icon-container">
 														<div class="col-12">
-															<select name="series_id" class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" tabindex="-1" aria-hidden="true">
+															<select name="series_id" id="series" class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" tabindex="-1" aria-hidden="true">
 																<option value="1">No</option>
 															</select>
 														<div class="fv-plugins-message-container invalid-feedback"></div></div>
@@ -219,6 +219,8 @@
 		{{ assets({files: ['assets/plugins/custom/datatables/datatables.bundle.js'],  name: 'datatables.bundle.js'}) }}
 		<script>
 			var languageUrl = '{{ url_for('panel-language', { 'lang': lang }) }}';
+			var publisherUrl = '{{ url_for('panel-publisher-list', { 'lang': lang })}}';
+			var seriesUrl = '{{ url_for('panel-series-list', { 'lang': lang })}}';
 		</script>
 		{{ assets({files: ['assets/js/book.js'],  name: 'book.js'}) }}
 	</body>

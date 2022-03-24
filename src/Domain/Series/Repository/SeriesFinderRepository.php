@@ -45,4 +45,13 @@ final class SeriesFinderRepository {
         $query = $this->queryFactory->newSelect(self::$tableName)->select(["*"])->where(["hash" => $hash]);
         return !empty($query->execute()->fetch("assoc"));
     }
+
+    /**
+     *
+     * @return array<mixed> The list view data
+     */
+    public function getAllByLang(string $lang): array{
+        $query = $this->queryFactory->newSelect(self::$tableName)->select(["id", "name_".$lang." as name"]);
+        return $query->execute()->fetchAll("assoc") ?: [];
+    }
 }

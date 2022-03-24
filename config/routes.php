@@ -70,6 +70,8 @@ return function (App $app) {
 
                         $app->get('', \App\Action\Publisher\ReadAction::class)->setName("panel-publisher");
 
+                        $app->get('/list', \App\Action\Publisher\ListAction::class)->setName("panel-publisher-list");
+
                         $app->post('', \App\Action\Publisher\AddAction::class)->setName("panel-publisher-add");
 
                     });
@@ -77,6 +79,8 @@ return function (App $app) {
                     $app->group('/series', function (RouteCollectorProxy $app) {
 
                         $app->get('', \App\Action\Series\ReadAction::class)->setName("panel-series");
+
+                        $app->get('/list', \App\Action\Series\ListAction::class)->setName("panel-series-list");
 
                         $app->post('', \App\Action\Series\AddAction::class)->setName("panel-series-add");
 

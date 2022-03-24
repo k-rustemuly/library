@@ -26,10 +26,27 @@ var usersList = [
 $( "#kt_modal_add" ).on('shown.bs.modal', function (e) {
     $.get( languageUrl, function( data ) {
         var languages = data.data;
+        $('#language_code').empty();
         for ( var i = 0; i < languages.length; i++) {
-            $('#language_code').append(new Option(languages[i].code, languages[i].name));
+            $('#language_code').append(new Option(languages[i].name, languages[i].code ));
         }
         $('#language_code').select2();
+    });
+    $.get( publisherUrl, function( data ) {
+        var d = data.data;
+        $('#publisher').empty();
+        for ( var i = 0; i < d.length; i++) {
+            $('#publisher').append(new Option(d[i].name, d[i].id ));
+        }
+        $('#publisher').select2();
+    });
+    $.get( seriesUrl, function( data ) {
+        var d = data.data;
+        $('#series').empty();
+        for ( var i = 0; i < d.length; i++) {
+            $('#series').append(new Option(d[i].name, d[i].id ));
+        }
+        $('#series').select2();
     });
 });
 

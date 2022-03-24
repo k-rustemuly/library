@@ -57,4 +57,14 @@ final class Read extends Admin{
         );
         return array_merge($array, $base);
     }
+
+    /**
+     *
+     * @param string $lang the language 
+     * 
+     * @return array<mixed> The result
+     */
+    public function list(string $lang): array{
+        return $this->readRepository->getAllByLang($lang);
+    }
 }
