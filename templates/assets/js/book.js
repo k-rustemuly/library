@@ -24,7 +24,7 @@ var usersList = [
     { value: 8, name: 'John Miller', avatar: 'avatars/300-13.jpg'}
 ];
 $( "#kt_modal_add" ).on('shown.bs.modal', function (e) {
-    tagifyRefresh();
+    await tagifyRefresh();
     $.get( languageUrl, function( data ) {
         var languages = data.data;
         $('#language_code').empty();
@@ -136,7 +136,7 @@ function getAddAllSuggestionsElm() {
     )
 }
 
-function tagifyRefresh(){
+async function tagifyRefresh(){
 	tagify.settings.whitelist.length = 0;
     tagify.loading(true).dropdown.hide.call(tagify);
 	var newWhitelist = await getWhitelistFromServer();
@@ -144,7 +144,7 @@ function tagifyRefresh(){
     tagify.loading(false).dropdown.show.call(tagify, e.detail.value);
 }
 
-function getWhitelistFromServer(){
+async function getWhitelistFromServer(){
     $.get( authorList, function( data ) {
         return data.data;
     });
