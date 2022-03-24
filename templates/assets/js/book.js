@@ -81,7 +81,7 @@ function suggestionItemTemplate(tagData) {
 
 var tagify = new Tagify(inputElm, {
     tagTextProp: 'name',
-    // enforceWhitelist: true,
+    enforceWhitelist: true,
     skipInvalid: true,
     dropdown: {
         closeOnSelect: false,
