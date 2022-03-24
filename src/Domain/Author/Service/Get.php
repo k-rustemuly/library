@@ -42,7 +42,6 @@ final class Get extends Admin{
     }
 
     /**
-     * Sign in
      *
      * @param string $lang the language 
      * 
@@ -69,6 +68,14 @@ final class Get extends Admin{
             "authors_list" => $this->readRepository->getAll()
         );
         return array_merge($array, $base);
+    }
+
+    /**
+     * 
+     * @return array<mixed> The result
+     */
+    public function list(): array{
+        return $this->readRepository->getAll();
     }
 
     /**

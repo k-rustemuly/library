@@ -24,6 +24,7 @@ var usersList = [
     { value: 8, name: 'John Miller', avatar: 'avatars/300-13.jpg'}
 ];
 $( "#kt_modal_add" ).on('shown.bs.modal', function (e) {
+    tagifyRefresh();
     $.get( languageUrl, function( data ) {
         var languages = data.data;
         $('#language_code').empty();
@@ -135,10 +136,18 @@ function getAddAllSuggestionsElm() {
     )
 }
 
-
+function tagifyRefresh(){
+	tagify.settings.whitelist.length = 0;
+    tagify.loading(true).dropdown.hide.call(tagify);
+	var newWhitelist = await getWhitelistFromServer();
+    tagify.settings.whitelist.push(...newWhitelist, ...tagify.value)
+    tagify.loading(false).dropdown.show.call(tagify, e.detail.value);
+}
 
 function getWhitelistFromServer(){
-
+    $.get( authorList, function( data ) {
+        return data.data;
+    });
 }
 
 const t = document.getElementById("table");

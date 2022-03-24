@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Action\Panel;
+namespace App\Action\Author;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Domain\Author\Service\Get as Service;
-use Slim\Views\Twig;
+use App\Responder\Responder;
 /**
  * Action.
  */
-final class AuthorAction {
+final class AddAction {
     /**
      * @var Service
      */
     private $service;
 
     /**
-     * @var Twig
+     * @var Responder
      */
-    private $twig;
+    private $responder;
 
     /**
      * The constructor.
@@ -26,9 +26,9 @@ final class AuthorAction {
      * @param Service $service The service
      * @param Twig $twig The twig engine
      */
-    public function __construct(Service $service, Twig $twig) {
+    public function __construct(Service $service, Responder $responder) {
         $this->service = $service;
-        $this->twig = $twig;
+        $this->responder = $responder;
     }
 
     /**
@@ -41,6 +41,9 @@ final class AuthorAction {
      * @return ResponseInterface The response
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $args): ResponseInterface{
-        return $this->twig->render($response, 'panel/authors.twig', $this->service->get($args['lang']));
+        $data = (array)$request->getParsedBody();
+        $lang = $args['lang'];
+        $this->service->add($data);
+        return $this->responder->withRedirectFor($response, 'panel-author', ["lang" => $lang]);
     }
 }

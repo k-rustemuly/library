@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Action\Panel;
+namespace App\Action\Author;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -9,7 +9,7 @@ use App\Responder\Responder;
 /**
  * Action.
  */
-final class AuthorAddAction {
+final class ListAction {
     /**
      * @var Service
      */
@@ -24,7 +24,7 @@ final class AuthorAddAction {
      * The constructor.
      *
      * @param Service $service The service
-     * @param Twig $twig The twig engine
+     * @param Responder $responder The responder
      */
     public function __construct(Service $service, Responder $responder) {
         $this->service = $service;
@@ -41,9 +41,6 @@ final class AuthorAddAction {
      * @return ResponseInterface The response
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $args): ResponseInterface{
-        $data = (array)$request->getParsedBody();
-        $lang = $args['lang'];
-        $this->service->add($data);
-        return $this->responder->withRedirectFor($response, 'panel-author', ["lang" => $lang]);
+        return $this->responder->success($response, null, $this->service->list());
     }
 }

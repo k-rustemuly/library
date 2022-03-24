@@ -60,9 +60,11 @@ return function (App $app) {
 
                     $app->group('/author', function (RouteCollectorProxy $app) {
 
-                        $app->get('', \App\Action\Panel\AuthorAction::class)->setName("panel-author");
+                        $app->get('', \App\Action\Author\ReadAction::class)->setName("panel-author");
 
-                        $app->post('', \App\Action\Panel\AuthorAddAction::class)->setName("panel-author-add");
+                        $app->get('/list', \App\Action\Author\ListAction::class)->setName("panel-author-list");
+
+                        $app->post('', \App\Action\Author\AddAction::class)->setName("panel-author-add");
 
                     });
 
