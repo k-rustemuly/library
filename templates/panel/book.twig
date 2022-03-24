@@ -134,10 +134,10 @@
 													<label class="required fs-6 fw-bold form-label mb-2">Expiration Date</label>
 													<div class="row fv-row fv-plugins-icon-container" data-select2-id="select2-data-122-cwnx">
 														<div class="col-12">
-															<select name="card_expiry_year" class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" data-select2-id="select2-data-67-tg0d" tabindex="-1" aria-hidden="true">
+															<select name="published_year" class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" tabindex="-1" aria-hidden="true">
 																<option data-select2-id="select2-data-69-hykk"></option>
 																{% for i in "now"|date("Y").."now"|date("Y")-75 %}
-																<option value="{{ i }}" data-select2-id="select2-data-144-894k">{{ i }}</option>
+																<option value="{{ i }}">{{ i }}</option>
 																{% endfor %}
 															</select>
 														<div class="fv-plugins-message-container invalid-feedback"></div></div>
@@ -146,10 +146,9 @@
 												<div class="col-md-6 fv-row fv-plugins-icon-container">
 													<label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
 														<span class="required">CVV</span>
-														<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="" data-bs-original-title="Enter a card CVV code" aria-label="Enter a card CVV code"></i>
 													</label>
 													<div class="position-relative">
-														<input type="text" class="form-control form-control-solid" minlength="3" maxlength="4" placeholder="CVV" name="card_cvv">
+														<input type="text" class="form-control form-control-solid" minlength="3" maxlength="4" placeholder="CVV" name="page_count">
 													</div>
 												<div class="fv-plugins-message-container invalid-feedback"></div></div>
 											</div>
