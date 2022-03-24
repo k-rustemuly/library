@@ -83,16 +83,11 @@ var tagify = new Tagify(inputElm, {
     tagTextProp: 'name',
     enforceWhitelist: true,
     deferredWhitelist: true, // will load whitelist later
-    skipInvalid: true,
     dropdown: {
         closeOnSelect: false,
         enabled: 1,
         classname: 'users-list',
-        fuzzySearch: true,
-        searchKeys: ['name'],
-        mapValueTo: 'name',
-        position: 'text',
-        highlightFirst: true
+        searchKeys: ['name']
     },
     templates: {
         tag: tagTemplate,
