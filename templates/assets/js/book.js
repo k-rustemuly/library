@@ -82,19 +82,23 @@ function suggestionItemTemplate(tagData) {
 var tagify = new Tagify(inputElm, {
     tagTextProp: 'name',
     enforceWhitelist: true,
+    deferredWhitelist: true, // will load whitelist later
     skipInvalid: true,
     dropdown: {
         closeOnSelect: false,
-        enabled: 0,
+        enabled: 1,
         classname: 'users-list',
-        searchKeys: ['name']
+        fuzzySearch: true,
+        searchKeys: ['name'],
+        mapValueTo: 'name',
+        position: 'text',
+        highlightFirst: true
     },
     templates: {
         tag: tagTemplate,
         dropdownItem: suggestionItemTemplate
     },
     whitelist: [
-        {value:1,name:"Emma Smith",avatar:"/user.png"}
     ]
 })
 
