@@ -136,7 +136,7 @@ function getAddAllSuggestionsElm() {
     )
 }
 
-function tagifyRefresh(){
+async function tagifyRefresh(){
 	tagify.settings.whitelist.length = 0;
     tagify.loading(true).dropdown.hide.call(tagify);
 	var newWhitelist = await getWhitelistFromServer();
@@ -144,7 +144,7 @@ function tagifyRefresh(){
     tagify.loading(false).dropdown.show.call(tagify, e.detail.value);
 }
 
-async function getWhitelistFromServer(){
+function getWhitelistFromServer(){
     $.get( authorList, function( data ) {
         return data.data;
     });
