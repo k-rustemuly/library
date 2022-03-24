@@ -93,7 +93,9 @@ var tagify = new Tagify(inputElm, {
         tag: tagTemplate,
         dropdownItem: suggestionItemTemplate
     },
-    whitelist: []
+    whitelist: [
+        {value:1,name:"Emma Smith",avatar:"/user.png"}
+    ]
 })
 
 
