@@ -13,39 +13,70 @@ $('#description').maxlength({
 });
 
 var inputElm = document.querySelector('#authors');
-var usersList = [
-    { value: 1, name: 'Emma Smith', avatar: 'avatars/300-6.jpg' },
-    { value: 2, name: 'Max Smith', avatar: 'avatars/300-1.jpg' },
-    { value: 3, name: 'Sean Bean', avatar: 'avatars/300-5.jpg' },
-    { value: 4, name: 'Brian Cox', avatar: 'avatars/300-25.jpg' },
-    { value: 5, name: 'Francis Mitcham', avatar: 'avatars/300-9.jpg' },
-    { value: 6, name: 'Dan Wilson', avatar: 'avatars/300-23.jpg' },
-    { value: 7, name: 'Ana Crown', avatar: 'avatars/300-12.jpg'},
-    { value: 8, name: 'John Miller', avatar: 'avatars/300-13.jpg'}
+var usersList = [{
+        value: 1,
+        name: 'Emma Smith',
+        avatar: 'avatars/300-6.jpg'
+    },
+    {
+        value: 2,
+        name: 'Max Smith',
+        avatar: 'avatars/300-1.jpg'
+    },
+    {
+        value: 3,
+        name: 'Sean Bean',
+        avatar: 'avatars/300-5.jpg'
+    },
+    {
+        value: 4,
+        name: 'Brian Cox',
+        avatar: 'avatars/300-25.jpg'
+    },
+    {
+        value: 5,
+        name: 'Francis Mitcham',
+        avatar: 'avatars/300-9.jpg'
+    },
+    {
+        value: 6,
+        name: 'Dan Wilson',
+        avatar: 'avatars/300-23.jpg'
+    },
+    {
+        value: 7,
+        name: 'Ana Crown',
+        avatar: 'avatars/300-12.jpg'
+    },
+    {
+        value: 8,
+        name: 'John Miller',
+        avatar: 'avatars/300-13.jpg'
+    }
 ];
-$( "#kt_modal_add" ).on('shown.bs.modal', function (e) {
+$("#kt_modal_add").on('shown.bs.modal', function (e) {
     tagifyRefresh();
-    $.get( languageUrl, function( data ) {
+    $.get(languageUrl, function (data) {
         var languages = data.data;
         $('#language_code').empty();
-        for ( var i = 0; i < languages.length; i++) {
-            $('#language_code').append(new Option(languages[i].name, languages[i].code ));
+        for (var i = 0; i < languages.length; i++) {
+            $('#language_code').append(new Option(languages[i].name, languages[i].code));
         }
         $('#language_code').select2();
     });
-    $.get( publisherUrl, function( data ) {
+    $.get(publisherUrl, function (data) {
         var d = data.data;
         $('#publisher').empty();
-        for ( var i = 0; i < d.length; i++) {
-            $('#publisher').append(new Option(d[i].name, d[i].id ));
+        for (var i = 0; i < d.length; i++) {
+            $('#publisher').append(new Option(d[i].name, d[i].id));
         }
         $('#publisher').select2();
     });
-    $.get( seriesUrl, function( data ) {
+    $.get(seriesUrl, function (data) {
         var d = data.data;
         $('#series').empty();
-        for ( var i = 0; i < d.length; i++) {
-            $('#series').append(new Option(d[i].name, d[i].id ));
+        for (var i = 0; i < d.length; i++) {
+            $('#series').append(new Option(d[i].name, d[i].id));
         }
         $('#series').select2();
     });
@@ -132,24 +163,20 @@ function getAddAllSuggestionsElm() {
         value: tagify.settings.whitelist.reduce(function (remainingSuggestions, item) {
             return tagify.isTagDuplicate(item.value) ? remainingSuggestions : remainingSuggestions + 1
         }, 0) + " Members"
-    }]
-    )
+    }])
 }
 
-async function tagifyRefresh(){
-	tagify.settings.whitelist.length = 0;
+async function tagifyRefresh() {
+    tagify.settings.whitelist.length = 0;
     tagify.loading(true).dropdown.hide.call(tagify);
-    var newWhitelist = await getWhitelistFromServer();
-    console.log(newWhitelist);
-    tagify.settings.whitelist.push(...newWhitelist)
-    tagify.loading(false).dropdown.show.call(tagify);
+    $.get(authorList, function (data) {
+        var newWhitelist = data.data;
+        tagify.settings.whitelist.push(...newWhitelist)
+        tagify.loading(false).dropdown.show.call(tagify);
+    });
+
 }
 
-async function getWhitelistFromServer(){
-    return await $.get( authorList, function( data ) {
-        return data.data;
-    });
-}
 
 const t = document.getElementById("table");
 const e = $(t).DataTable();
@@ -157,4 +184,3 @@ var r = document.getElementById("kt_filter_search");
 r && r.addEventListener("keyup", (function (t) {
     e.search(t.target.value).draw()
 }))
-
