@@ -96,6 +96,12 @@ return function (App $app) {
 
                     });
 
+                    $app->group('/language', function (RouteCollectorProxy $app) {
+
+                        $app->get('', \App\Action\Language\ReadAction::class)->setName("panel-language");
+
+                    });
+
                     $app->group('/selection', function (RouteCollectorProxy $app) {
 
                         $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-selection");

@@ -26,4 +26,13 @@ final class LanguageFinderRepository {
     public function __construct(QueryFactory $queryFactory) {
         $this->queryFactory = $queryFactory;
     }
+
+    /**
+     *
+     * @return array<mixed> The list view data
+     */
+    public function getAllByLang(string $lang): array{
+        $query = $this->queryFactory->newSelect(self::$tableName)->select(["code", "name_".$lang." as name"]);
+        return $query->execute()->fetchAll("assoc") ?: [];
+    }
 }

@@ -217,6 +217,9 @@
 		{% include 'script.twig' %}
 		{{ assets({files: ['assets/plugins/custom/prismjs/prismjs.bundle.js'],  name: 'prismjs.bundle.js'}) }}
 		{{ assets({files: ['assets/plugins/custom/datatables/datatables.bundle.js'],  name: 'datatables.bundle.js'}) }}
+		<script>
+			var languageUrl = '{{ url_for('panel-language', { 'lang': lang }) }}';
+		</script>
 		{{ assets({files: ['assets/js/book.js'],  name: 'book.js'}) }}
 	</body>
 </html>

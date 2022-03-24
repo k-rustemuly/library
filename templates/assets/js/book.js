@@ -15,6 +15,9 @@ $('#description').maxlength({
 var inputElm = document.querySelector('#authors');
 
 $( "#kt_modal_add" ).on('shown.bs.modal', function (e) {
+    $.get( languageUrl, function( data ) {
+        console.log( data );
+    });
     const usersList = [
         { value: 1, name: 'Emma Smith', avatar: 'avatars/300-6.jpg' },
         { value: 2, name: 'Max Smith', avatar: 'avatars/300-1.jpg' },
