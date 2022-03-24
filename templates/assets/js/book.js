@@ -139,7 +139,7 @@ function getAddAllSuggestionsElm() {
 async function tagifyRefresh(){
 	tagify.settings.whitelist.length = 0;
     tagify.loading(true).dropdown.hide.call(tagify);
-    var newWhitelist = await take_type();
+    var newWhitelist = await getWhitelistFromServer();
     newWhitelist = JSON.parse(newWhitelist);
     console.log(newWhitelist);
     tagify.settings.whitelist.push(...newWhitelist)
