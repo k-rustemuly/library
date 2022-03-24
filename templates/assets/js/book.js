@@ -55,4 +55,18 @@ const e = $(t).DataTable();
 var r = document.getElementById("kt_filter_search");
 r && r.addEventListener("keyup", (function (t) {
     e.search(t.target.value).draw()
-}))
+}));
+
+function formSubmit() {
+    var tagsValue;
+    try {
+        tagsValue = JSON.parse(document.getElementById('authors').value);
+    } catch(err) {}
+
+    if (tagsValue && isNaN(tagsValue[0].value)) {
+        return false;
+    }
+
+    document.getElementById('authors_output').value = '@'+tagsValue.map(item => item.value).join('@')+'@';
+    return true;
+}
