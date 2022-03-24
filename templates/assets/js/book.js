@@ -145,10 +145,12 @@ function tagifyRefresh(){
 }
 
 function getWhitelistFromServer(){
+    var d = [];
     $.get( authorList, function( data ) {
-        var data = JSON.parse(data);
-        return data.data;
+        var dd = JSON.parse(data);
+        d = dd.data;
     });
+    return d;
 }
 
 const t = document.getElementById("table");
