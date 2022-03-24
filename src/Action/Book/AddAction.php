@@ -43,6 +43,7 @@ final class AddAction {
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $args): ResponseInterface{
         $data = (array)$request->getParsedBody();
         $lang = $args['lang'];
+        return $this->responder->success($response, null, $request->getUploadedFiles());
         $this->service->add($data);
         return $this->responder->withRedirectFor($response, 'panel-book', ["lang" => $lang]);
     }
