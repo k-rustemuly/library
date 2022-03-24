@@ -40,11 +40,11 @@ $("#kt_modal_add").on('shown.bs.modal', function (e) {
     });
     $.get(authorList, function (data) {
         var d = data.data;
-        $('#series').empty();
+        $('#authors').empty();
         for (var i = 0; i < d.length; i++) {
-            $('#series').append(new Option(d[i].name, d[i].id));
+            $('#authors').append(new Option(d[i].name, d[i].id));
         }
-        $('#series').select2();
+        $('#authors').select2();
     });
     
 });
