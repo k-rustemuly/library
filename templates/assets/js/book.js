@@ -146,6 +146,7 @@ async function tagifyRefresh(){
 
 function getWhitelistFromServer(){
     $.get( authorList, function( data ) {
+        var data = JSON.parse(data);
         return data.data;
     });
 }
