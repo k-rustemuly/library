@@ -42,6 +42,6 @@ final class ReadAction {
      * @return ResponseInterface The response
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $args): ResponseInterface{
-        return $this->twig->render($response, 'panel/main.twig', $this->service->get($args['lang']));
+        return $this->twig->render($response, 'main.twig', $this->service->get($args['lang']));
     }
 }
