@@ -12,7 +12,9 @@ $('#description').maxlength({
     limitReachedClass: "badge badge-success"
 });
 
-
+$( "#kt_modal_add" ).on('shown', function(){
+    alert("I want this to appear after the modal has opened!");
+});
 
 var inputElm = document.querySelector('#authors');
 
@@ -105,7 +107,7 @@ function getAddAllSuggestionsElm() {
     return tagify.parseTemplate('dropdownItem', [{
         class: "addAll",
         name: "Add all",
-        email: tagify.settings.whitelist.reduce(function (remainingSuggestions, item) {
+        value: tagify.settings.whitelist.reduce(function (remainingSuggestions, item) {
             return tagify.isTagDuplicate(item.value) ? remainingSuggestions : remainingSuggestions + 1
         }, 0) + " Members"
     }]
