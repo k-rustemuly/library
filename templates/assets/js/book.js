@@ -102,8 +102,9 @@ async function tagifyRefresh() {
     tagify.loading(true).dropdown.hide.call(tagify);
     $.get(authorList, function (data) {
         var newWhitelist = data.data;
+        console.log(newWhitelist);
         tagify.settings.whitelist.push(newWhitelist);
-        tagify.loading(false);
+        tagify.loading(false).dropdown.show.call(tagify);
     });
 
 }
