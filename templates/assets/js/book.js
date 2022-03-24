@@ -146,7 +146,9 @@ async function tagifyRefresh(){
 }
 
 async function getWhitelistFromServer(){
-    return await $.get( authorList);
+    return await $.get( authorList, function( data ) {
+        return data.data;
+    });
 }
 
 const t = document.getElementById("table");
