@@ -24,7 +24,7 @@ var usersList = [
     { value: 8, name: 'John Miller', avatar: 'avatars/300-13.jpg'}
 ];
 $( "#kt_modal_add" ).on('shown.bs.modal', function (e) {
-    await tagifyRefresh();
+    tagifyRefresh();
     $.get( languageUrl, function( data ) {
         var languages = data.data;
         $('#language_code').empty();
@@ -136,7 +136,7 @@ function getAddAllSuggestionsElm() {
     )
 }
 
-async function tagifyRefresh(){
+function tagifyRefresh(){
 	tagify.settings.whitelist.length = 0;
     tagify.loading(true).dropdown.hide.call(tagify);
 	var newWhitelist = await getWhitelistFromServer();
