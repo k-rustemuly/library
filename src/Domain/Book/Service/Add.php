@@ -48,7 +48,7 @@ final class Add extends Admin{
         $isbn = isset($data["isbn"]) && is_numeric($data["isbn"]) && strlen($data["isbn"]) == 13 ? $insert["isbn"] = $data["isbn"] : 0;
         $name = isset($data["name"]) ? $insert["name"] = trim($data["name"]) : null;
         $published_year = isset($data["published_year"]) && is_numeric($data["published_year"]) && strlen($data["published_year"]) == 4  ? $insert["published_year"] = $data["published_year"] : date("Y");
-        $page_count = isset($data["page_count"]) && is_numeric($data["page_count"]) && $data["page_count"] > 0 ? $insert["name"] = $data["page_count"] : 1;
+        $page_count = isset($data["page_count"]) && is_numeric($data["page_count"]) && $data["page_count"] > 0 ? $insert["page_count"] = $data["page_count"] : 1;
         $language_code = isset($data["language_code"]) && strlen($data["language_code"]) == 2 ? $insert["language_code"] = $data["language_code"] : "ru";
         $publisher_id = isset($data["publisher_id"]) && is_numeric($data["publisher_id"]) && $data["publisher_id"] > 0 ? $insert["publisher_id"] = $data["publisher_id"] : 0;
         $description = isset($data["description"]) ? $insert["description"] = trim($data["description"]) : null;
