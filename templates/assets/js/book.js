@@ -14,7 +14,7 @@ $('#description').maxlength({
 
 
 
-var inputElm = document.querySelector('#kt_tagify_users');
+var inputElm = document.querySelector('#authors');
 
 const usersList = [
     { value: 1, name: 'Emma Smith', avatar: 'avatars/300-6.jpg' },
