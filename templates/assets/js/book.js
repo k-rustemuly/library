@@ -93,7 +93,7 @@ function tagTemplate(tagData) {
             <x title='' class='tagify__tag__removeBtn' role='button' aria-label='remove tag'></x>
             <div class="d-flex align-items-center">
                 <div class='tagify__tag__avatar-wrap ps-0'>
-                    <img onerror="this.style.visibility='hidden'" class="rounded-circle w-25px me-2" src="/assets/media/${tagData.avatar}">
+                    <img onerror="this.style.visibility='hidden'" class="rounded-circle w-25px me-2" src="${tagData.avatar}">
                 </div>
                 <span class='tagify__tag-text'>${tagData.name}</span>
             </div>
@@ -109,7 +109,7 @@ function suggestionItemTemplate(tagData) {
             role="option">
             ${tagData.avatar ? `
                     <div class='tagify__dropdown__item__avatar-wrap me-2'>
-                        <img onerror="this.style.visibility='hidden'"  class="rounded-circle w-50px me-2" src="/assets/media/${tagData.avatar}">
+                        <img onerror="this.style.visibility='hidden'"  class="rounded-circle w-50px me-2" src="${tagData.avatar}">
                     </div>` : ''
                 }
             <div class="d-flex flex-column">
@@ -133,7 +133,8 @@ var tagify = new Tagify(inputElm, {
         tag: tagTemplate,
         dropdownItem: suggestionItemTemplate
     },
-    whitelist: usersList
+    whitelist: usersList,
+    maxTags:5
 })
 
 tagify.on('dropdown:show dropdown:updated', onDropdownShow)
@@ -172,7 +173,7 @@ async function tagifyRefresh() {
     $.get(authorList, function (data) {
         var newWhitelist = data.data;
         tagify.settings.whitelist.push(...newWhitelist)
-        tagify.loading(false).dropdown.show.call(tagify);
+        tagify.loading(false);
     });
 
 }
