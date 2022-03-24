@@ -12,22 +12,21 @@ $('#description').maxlength({
     limitReachedClass: "badge badge-success"
 });
 
-$( "#kt_modal_add" ).on('shown.bs.modal', function (e) {
-    alert("I want this to appear after the modal has opened!");
-});
-
 var inputElm = document.querySelector('#authors');
 
-const usersList = [
-    { value: 1, name: 'Emma Smith', avatar: 'avatars/300-6.jpg' },
-    { value: 2, name: 'Max Smith', avatar: 'avatars/300-1.jpg' },
-    { value: 3, name: 'Sean Bean', avatar: 'avatars/300-5.jpg' },
-    { value: 4, name: 'Brian Cox', avatar: 'avatars/300-25.jpg' },
-    { value: 5, name: 'Francis Mitcham', avatar: 'avatars/300-9.jpg' },
-    { value: 6, name: 'Dan Wilson', avatar: 'avatars/300-23.jpg' },
-    { value: 7, name: 'Ana Crown', avatar: 'avatars/300-12.jpg'},
-    { value: 8, name: 'John Miller', avatar: 'avatars/300-13.jpg'}
-];
+$( "#kt_modal_add" ).on('shown.bs.modal', function (e) {
+    const usersList = [
+        { value: 1, name: 'Emma Smith', avatar: 'avatars/300-6.jpg' },
+        { value: 2, name: 'Max Smith', avatar: 'avatars/300-1.jpg' },
+        { value: 3, name: 'Sean Bean', avatar: 'avatars/300-5.jpg' },
+        { value: 4, name: 'Brian Cox', avatar: 'avatars/300-25.jpg' },
+        { value: 5, name: 'Francis Mitcham', avatar: 'avatars/300-9.jpg' },
+        { value: 6, name: 'Dan Wilson', avatar: 'avatars/300-23.jpg' },
+        { value: 7, name: 'Ana Crown', avatar: 'avatars/300-12.jpg'},
+        { value: 8, name: 'John Miller', avatar: 'avatars/300-13.jpg'}
+    ];
+});
+
 
 function tagTemplate(tagData) {
     return `
