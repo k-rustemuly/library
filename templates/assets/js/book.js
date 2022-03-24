@@ -147,8 +147,7 @@ function tagifyRefresh(){
 function getWhitelistFromServer(){
     var d = [];
     $.get( authorList, function( data ) {
-        var dd = JSON.parse(data);
-        d = dd.data;
+        d = data.data;
     });
     return d;
 }
