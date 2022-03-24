@@ -136,20 +136,18 @@ function getAddAllSuggestionsElm() {
     )
 }
 
-function tagifyRefresh(){
+async function tagifyRefresh(){
 	tagify.settings.whitelist.length = 0;
     tagify.loading(true).dropdown.hide.call(tagify);
-    console.log(getWhitelistFromServer());
-    tagify.settings.whitelist.push(...getWhitelistFromServer(), ...tagify.value)
-    tagify.loading(false).dropdown.show.call(tagify, e.detail.value);
+    var newWhitelist = await take_type();
+    newWhitelist = JSON.parse(newWhitelist);
+    console.log(newWhitelist);
+    tagify.settings.whitelist.push(...newWhitelist)
+    tagify.loading(false).dropdown.show.call(tagify);
 }
 
-function getWhitelistFromServer(){
-    var d = [];
-    $.get( authorList, function( data ) {
-        d = data.data;
-    });
-    return d;
+async function getWhitelistFromServer(){
+    return await $.get( authorList);
 }
 
 const t = document.getElementById("table");
