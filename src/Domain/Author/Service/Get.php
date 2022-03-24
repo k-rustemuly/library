@@ -75,7 +75,7 @@ final class Get extends Admin{
      * @return array<mixed> The result
      */
     public function list(): array{
-        return $this->readRepository->getAll();
+        return $this->readRepository->getAllWithoutHash();
     }
 
     /**

@@ -97,35 +97,6 @@ var tagify = new Tagify(inputElm, {
     maxTags:5
 })
 
-tagify.on('dropdown:show dropdown:updated', onDropdownShow)
-tagify.on('dropdown:select', onSelectSuggestion)
-
-var addAllSuggestionsElm;
-
-function onDropdownShow(e) {
-    var dropdownContentElm = e.detail.tagify.DOM.dropdown.content;
-
-    if (tagify.suggestedListItems.length > 1) {
-        addAllSuggestionsElm = getAddAllSuggestionsElm();
-
-        dropdownContentElm.insertBefore(addAllSuggestionsElm, dropdownContentElm.firstChild)
-    }
-}
-
-function onSelectSuggestion(e) {
-    if (e.detail.elm == addAllSuggestionsElm)
-        tagify.dropdown.selectAll.call(tagify);
-}
-
-function getAddAllSuggestionsElm() {
-    return tagify.parseTemplate('dropdownItem', [{
-        class: "addAll",
-        name: "Add all",
-        value: tagify.settings.whitelist.reduce(function (remainingSuggestions, item) {
-            return tagify.isTagDuplicate(item.value) ? remainingSuggestions : remainingSuggestions + 1
-        }, 0) + " Members"
-    }])
-}
 
 async function tagifyRefresh() {
     tagify.settings.whitelist.length = 0;
@@ -133,7 +104,6 @@ async function tagifyRefresh() {
     $.get(authorList, function (data) {
         var newWhitelist = data.data;
         tagify.settings.whitelist.push(...newWhitelist);
-        tagify.whitelistLoaded();
         tagify.loading(false);
     });
 

@@ -37,6 +37,15 @@ final class AuthorFinderRepository {
     }
 
     /**
+     *
+     * @return array<mixed> The list view data
+     */
+    public function getAllWithoutHash(): array{
+        $query = $this->queryFactory->newSelect(self::$tableName)->select(["id", "avatar", "name"]);
+        return $query->execute()->fetchAll("assoc") ?: [];
+    }
+
+    /**
      * @param string $hash
      * 
      * @return boolean
