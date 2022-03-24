@@ -58,15 +58,7 @@ r && r.addEventListener("keyup", (function (t) {
 }));
 
 function formSubmit() {
-    var tagsValue;
-    try {
-        tagsValue = JSON.parse(document.getElementById('authors').value);
-    } catch(err) {}
-
-    if (tagsValue && isNaN(tagsValue[0].value)) {
-        return false;
-    }
-
-    document.getElementById('authors_output').value = '@'+tagsValue.map(item => item.value).join('@')+'@';
+    var options = document.getElementById('authors').selectedOptions;
+    document.getElementById('authors_output').value = '@'+Array.from(options).map(({ value }) => value).join('@')+'@';
     return true;
 }
