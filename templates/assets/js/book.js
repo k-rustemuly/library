@@ -140,7 +140,6 @@ async function tagifyRefresh(){
 	tagify.settings.whitelist.length = 0;
     tagify.loading(true).dropdown.hide.call(tagify);
     var newWhitelist = await getWhitelistFromServer();
-    newWhitelist = JSON.parse(newWhitelist);
     console.log(newWhitelist);
     tagify.settings.whitelist.push(...newWhitelist)
     tagify.loading(false).dropdown.show.call(tagify);
