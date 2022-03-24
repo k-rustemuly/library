@@ -7,8 +7,20 @@ $settings['root'] = dirname(__DIR__);
 $settings['temp'] = $settings['root'] . '/tmp';
 $settings['public'] = $settings['root'] . '/public';
 $settings['template'] = $settings['root'] . '/templates';
-$settings['uploads_public_dir'] = 'uploads/news/';
-$settings['uploads_dir'] = UPLOADS_DIR . '/news/';
+
+$settings['file'] = [
+    'default' => [
+        'save' => PUBLIC_DIR.'/uploads',
+        'return' => '/uploads'
+    ],
+    'image' => [
+        'book' => [
+            'save' => PUBLIC_DIR.'/uploads/images/books',
+            'return' => '/uploads/images/books'
+        ]
+    ],    
+];
+
 // Twig settings
 $settings['twig'] = [
     'path' => $settings['root']. '/templates',

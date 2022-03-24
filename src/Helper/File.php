@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Helper;
 use Exception;
-
+use Psr\Http\Message\UploadedFileInterface;
 /**
  * Class File
  *
@@ -14,15 +14,13 @@ use Exception;
 class File{
 
     /**
-     * @var string $dir Директория для сохранение или чтение файла
+     * @var array $settings Директория для сохранение или чтение файла
      */
-    private $dir;
+    private $settings;
 
-    private $public_dir;
 
-    public function __construct(string $dir = '',string $public_dir = ''){
-        $this->dir = $dir;
-        $this->public_dir = $public_dir;
+    public function __construct(array $settings = array()) {
+        $this->settings = $settings;
     }
 
     /**
@@ -32,10 +30,10 @@ class File{
      *
      * @return array|bool
      */
-    public function save(string $base64)
-    {
-        $dir = $this->dir.md5(date('Y')).DIRECTORY_SEPARATOR.md5(date('m')).DIRECTORY_SEPARATOR;
-        $public_dir = $this->public_dir.md5(date('Y')).DIRECTORY_SEPARATOR.md5(date('m')).DIRECTORY_SEPARATOR;
+    public function saveB64Image(string $base64, string $type = 'book') {
+        $s = $this->settings['image'][$type];
+        $dir = $s["save"].md5(date('Y')).DIRECTORY_SEPARATOR.md5(date('m')).DIRECTORY_SEPARATOR;
+        $public_dir = $s["return"].md5(date('Y')).DIRECTORY_SEPARATOR.md5(date('m')).DIRECTORY_SEPARATOR;
         $array = $this->getBase64ImageSize($base64);
         $decoded_file = base64_decode($base64);
         $mime_type = finfo_buffer(finfo_open(), $decoded_file, FILEINFO_MIME_TYPE);
@@ -73,7 +71,7 @@ class File{
         return unlink($this->dir);
     }
     
-    private function getBase64ImageSize($base64Image){ //return memory size in B, KB, MB
+    private function getBase64ImageSize($base64Image){ 
         try{
             $array = array();
             $size_in_bytes = (int) (strlen(rtrim($base64Image, '=')) * 3 / 4);
@@ -140,6 +138,15 @@ class File{
             if(array_search($mime,$value) !== false) return $key;
         }
         return false;
+    }
+
+    public function saveFile(UploadedFileInterface $uploadedFile, string $type = 'image', string $category = 'book') {
+        $s = $this->settings[$type][$category];
+        $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);
+        $basename = bin2hex(random_bytes(8));
+        $filename = sprintf('%s.%0.8s', $basename, $extension);
+        $uploadedFile->moveTo($s["save"] . DIRECTORY_SEPARATOR . $filename);
+        return $s["return"] . DIRECTORY_SEPARATOR .$filename;
     }
 }   
 ?>

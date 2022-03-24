@@ -2,7 +2,7 @@
 defined('DS') ?: define('DS', DIRECTORY_SEPARATOR);
 define('MAIN_DIR', __DIR__. DS. '..' .DS);
 define('TRANSLATE_DIR', MAIN_DIR . 'translate'.DS);
-define('UPLOADS_DIR', MAIN_DIR . '..' .DS. 'uploads');
+define('PUBLIC_DIR', MAIN_DIR . '..' .DS. 'public');
 defined('ROOT') ?: define('ROOT', MAIN_DIR . DS. '..' .DS );
 
 use DI\ContainerBuilder;

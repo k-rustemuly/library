@@ -61,7 +61,7 @@ return [
 
     File::class => function (ContainerInterface $container) {
         $settings = $container->get('settings');
-        return new File($settings["uploads_dir"], $settings["uploads_public_dir"]);
+        return new File($settings["file"]);
     },
 
     App::class => function (ContainerInterface $container) {
