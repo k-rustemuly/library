@@ -27,7 +27,7 @@ $( "#kt_modal_add" ).on('shown.bs.modal', function (e) {
     $.get( languageUrl, function( data ) {
         var languages = data.data;
         for ( var i = 0; i < languages.length; i++) {
-            $('#language_code').append(new Option(languages[i].code, languages[i].name))
+            $('#language_code').append(new Option(languages[i].code, languages[i].name));
         }
         $('#language_code').select2();
     });
@@ -118,19 +118,7 @@ function getAddAllSuggestionsElm() {
     )
 }
 
-function async onTagifyInput() {
-    // clear current whitelist
-	tagify.settings.whitelist.length = 0; // reset current whitelist
-    tagify.loading(true).dropdown.hide.call(tagify)
-	var newWhitelist = await getWhitelistFromServer()
 
-	// replace tagify "whitelist" array values with new values 
-    // and add back the ones already choses as Tags
-    tagify.settings.whitelist.push(...newWhitelist, ...tagify.value)
-
-    // render the suggestions dropdown
-    tagify.loading(false).dropdown.show.call(tagify, e.detail.value);
-}
 
 function getWhitelistFromServer(){
 
