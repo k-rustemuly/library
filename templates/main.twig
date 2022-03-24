@@ -419,7 +419,7 @@
 					<div class="text-center mb-13"  id="modal_content">
 						<h1 class="mb-3">Мүнхаузеннің басынан кешкен хикаясы</h1>
 						<div class="text-muted fw-bold fs-5">Эрих Рас,Отбасы хрестоматиясы</div>
-						<div class="bgi-position-center bgi-size-cover card-rounded w-250px h-250px" style="background-image:url('/assets/media/qr/default.png');margin: auto;"></div>
+						<div class="bgi-position-center bgi-size-cover card-rounded w-250px h-250px" style="background-image:url('/qr.png');margin: auto;"></div>
 						<!-- <h1 class="mb-3"></h1>
 						<div class="text-muted fw-bold fs-5"></div>
 						<div class="bgi-position-center bgi-size-cover card-rounded w-250px h-250px" style="background-image:url('');margin: auto;"></div> -->
@@ -436,8 +436,8 @@
 		{{ assets({files: ['assets/js/widgets.bundle.js'],  name: 'widgets.bundle.js'}) }}
 	<script>
 		var target = document.querySelector("#modal_content");
-		var blockUI = new KTBlockUI(target);
-		blockUI.block();
+		{# var blockUI = new KTBlockUI(target);
+		blockUI.block(); #}
 	</script>
 </body>
 </html>
