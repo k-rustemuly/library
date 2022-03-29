@@ -5,6 +5,7 @@ namespace App\Domain\Library\Service;
 use App\Helper\Language;
 use App\Helper\Admin;
 use App\Domain\Library\Repository\LibraryFinderRepository as ReadRepository;
+use SlimSession\Helper as Session;
 
 /**
  * Service.
@@ -24,12 +25,19 @@ final class Read extends Admin{
     private $readRepository;
 
     /**
+     * @var Session 
+     *
+     */
+    private $session;
+
+    /**
      * The constructor.
      *
      */
     public function __construct(ReadRepository $readRepository) {
         $this->language = new Language();
         $this->readRepository = $readRepository;
+        $this->session = new Session();
     }
 
     /**
@@ -54,7 +62,8 @@ final class Read extends Admin{
             "cancel" => $l->getButton("cancel"),
             "add" => $l->getButton("add"),
             "please_wait" => $l->getString("please_wait"),
-            "list" => $this->readRepository->getAll()
+            //"list" => $this->readRepository->getAll(),
+            "asa" => $this->session->get("admin")
         );
         return array_merge($array, $base);
     }
