@@ -3,6 +3,7 @@
 namespace App\Domain\Library\Repository;
 
 use App\Factory\QueryFactory;
+use App\Domain\Book\Repository\BookFinderRepository;
 
 /**
  * Repository.
@@ -32,17 +33,10 @@ final class LibraryFinderRepository {
      * @return array<mixed> The list view data
      */
     public function getAll(): array{
-        $query = $this->queryFactory->newSelect($this->tableName)->select(["*"]);
+        $query = $this->queryFactory->newSelect(["l" => $this->tableName]);
+        $query->select(["l.*",
+                        "b.image", "b.name", "b.published_year",])
+        ->innerJoin(["b" => BookFinderRepository::$tableName], ["b.isbn = l.isbn"]);
         return $query->execute()->fetchAll("assoc") ?: [];
-    }
-
-    /**
-     * @param string $hash
-     * 
-     * @return boolean
-     */
-    public function existsbyHash(string $hash): bool{
-        $query = $this->queryFactory->newSelect($this->tableName)->select(["*"])->where(["hash" => $hash]);
-        return !empty($query->execute()->fetch("assoc"));
     }
 }
