@@ -15,8 +15,8 @@ $settings['file'] = [
     ],
     'image' => [
         'book' => [
-            'save' => PUBLIC_DIR.'/uploads/images/books',
-            'return' => '/uploads/images/books'
+            'save' => PUBLIC_DIR.'/uploads/images/books/',
+            'return' => '/uploads/images/books/'
         ]
     ],    
 ];
