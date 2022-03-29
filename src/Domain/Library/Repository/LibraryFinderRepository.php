@@ -32,7 +32,7 @@ final class LibraryFinderRepository {
      * @return array<mixed> The list view data
      */
     public function getAll(): array{
-        $query = $this->queryFactory->newSelect(self::$tableName)->select(["*"]);
+        $query = $this->queryFactory->newSelect($this->tableName)->select(["*"]);
         return $query->execute()->fetchAll("assoc") ?: [];
     }
 
@@ -42,7 +42,7 @@ final class LibraryFinderRepository {
      * @return boolean
      */
     public function existsbyHash(string $hash): bool{
-        $query = $this->queryFactory->newSelect(self::$tableName)->select(["*"])->where(["hash" => $hash]);
+        $query = $this->queryFactory->newSelect($this->tableName)->select(["*"])->where(["hash" => $hash]);
         return !empty($query->execute()->fetch("assoc"));
     }
 }
