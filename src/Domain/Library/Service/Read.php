@@ -38,6 +38,7 @@ final class Read extends Admin{
         $this->language = new Language();
         $this->readRepository = $readRepository;
         $this->session = new Session();
+        $this->readRepository->tableName = $this->readRepository->tableName.$this->session->get("admin")["organization_bin"];
     }
 
     /**
@@ -62,8 +63,7 @@ final class Read extends Admin{
             "cancel" => $l->getButton("cancel"),
             "add" => $l->getButton("add"),
             "please_wait" => $l->getString("please_wait"),
-            //"list" => $this->readRepository->getAll(),
-            "asa" => $this->session->get("admin")
+            "list" => $this->readRepository->getAll()
         );
         return array_merge($array, $base);
     }

@@ -11,7 +11,7 @@ final class LibraryFinderRepository {
     /**
      * @var string
      */
-    public static $tableName = "library_";
+    public $tableName = "library_";
 
     /**
      * @var QueryFactory
