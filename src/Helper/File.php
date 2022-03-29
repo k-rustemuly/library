@@ -148,8 +148,8 @@ class File{
         $basename = bin2hex(random_bytes(8));
         $filename = sprintf('%s.%0.8s', $basename, $extension);
         try {
-            if(!file_exists($public_dir)){
-                mkdir($public_dir, 0777,true);
+            if(!file_exists($dir)){
+                mkdir($dir, 0777,true);
             }
             $uploadedFile->moveTo($dir . DIRECTORY_SEPARATOR . $filename);
             return $public_dir . DIRECTORY_SEPARATOR .$filename;
