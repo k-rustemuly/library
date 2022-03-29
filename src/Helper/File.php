@@ -142,11 +142,21 @@ class File{
 
     public function saveFile(UploadedFileInterface $uploadedFile, string $type = 'image', string $category = 'book') {
         $s = $this->settings[$type][$category];
+        $dir = $s["save"].md5(date('Y')).DIRECTORY_SEPARATOR.md5(date('m')).DIRECTORY_SEPARATOR;
+        $public_dir = $s["return"].md5(date('Y')).DIRECTORY_SEPARATOR.md5(date('m')).DIRECTORY_SEPARATOR;
         $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);
         $basename = bin2hex(random_bytes(8));
         $filename = sprintf('%s.%0.8s', $basename, $extension);
-        $uploadedFile->moveTo($s["save"] . DIRECTORY_SEPARATOR . $filename);
-        return $s["return"] . DIRECTORY_SEPARATOR .$filename;
+        $uploadedFile->moveTo($dir . DIRECTORY_SEPARATOR . $filename);
+        try {
+            if(!file_exists($public_dir)){
+                mkdir($public_dir, 0777,true);
+            }
+            return $public_dir . DIRECTORY_SEPARATOR .$filename;
+        } catch (Exception $e) {
+            return false;
+        }
+        
     }
 }   
 ?>
