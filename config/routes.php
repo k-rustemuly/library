@@ -100,7 +100,7 @@ return function (App $app) {
 
                     $app->group('/library', function (RouteCollectorProxy $app) {
 
-                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-library");
+                        $app->get('', \App\Action\Library\ReadAction::class)->setName("panel-library");
 
                     });
 

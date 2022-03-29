@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{{ assets({files: ['assets/plugins/custom/datatables/datatables.bundle.css'],  name: 'datatables.bundle.css'}) }}
+		{{ assets({files: ['assets/plugins/custom/prismjs/prismjs.bundle.css'],  name: 'prismjs.bundle.css'}) }}
+		{% include 'head.twig' %}
+	</head>
+	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+		<div class="d-flex flex-column flex-root">
+			<div class="page d-flex flex-row flex-column-fluid">
+				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+					{% include 'panel/header.twig' %}
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						{% include 'panel/toolbar.twig' %}
+						<div class="post d-flex flex-column-fluid" id="kt_post">
+							<div id="kt_content_container" class="container-xxl">
+								<div class="card card-docs mb-2">
+									<div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+										<div class="p-0">
+											<div class="py-5">
+												<div class="d-flex flex-stack mb-5">
+													<div class="d-flex align-items-center position-relative my-1 mb-2 mb-md-0">
+													<span class="svg-icon svg-icon-1 position-absolute ms-6">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black"></rect>
+															<path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black"></path>
+														</svg>
+													</span>
+													<input id="kt_filter_search" type="text" data-kt-docs-table-filter="search" class="form-control  w-250px ps-15" placeholder="{{ search }}">
+												</div>
+													<div class="d-flex justify-content-end" data-kt-docs-table-toolbar="base">
+														<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add">
+															<span class="svg-icon svg-icon-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black"></rect>
+															<rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black"></rect>
+														</svg></span>
+															{{ add }}
+														</button>
+													</div>
+												</div>
+												<table id="table" class="table align-middle table-row-dashed fs-6 gy-5">
+													<thead>
+													<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+														<th>ISBN</th>
+														<th></th>
+														<th>{{ tags }}</th>
+														<th>{{ pdf }}</th>
+														<th>{{ view_count }}</th>
+														<th>{{ count }}</th>
+													</tr>
+													</thead>
+													<tbody class="text-gray-600 fw-bold">
+														{% for row in list %}
+															<tr>
+																<td>{{ row.isbn }}</td>
+																<td>
+																	<div class="d-flex align-items-center">
+																		<div class="me-5 position-relative">
+																			<div class="symbol symbol-100px">
+																				<img alt="Pic" src="{{ row.image }}">
+																			</div>
+																		</div>
+																		<div class="d-flex flex-column justify-content-center">
+																			<a href="" class="mb-1 text-gray-900 fs-6 fw-bolder text-hover-primary">{{ row.name }}</a>
+																			<div class="fw-bold fs-6 text-gray-400">{{ row.published_year }}</div>
+																		</div>
+																	</div>
+																</td>
+																<td>{{ row.tags }}</td>
+																<td>{{ row.pdf }}</td>
+																<td> <span class="text-gray-800 fs-7 fw-normal pt-1">{{ row.view_count }}</span></td>
+																<td>{{ row.count }}</td>
+															</tr>
+														{% endfor %}
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal fade" id="kt_modal_add" tabindex="-1" style="display: none;" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered mw-650px">
+							<div class="modal-content">
+								<div class="modal-header" id="kt_modal_add_header">
+									<h2 class="fw-bolder">{{ add_new }}</h2>
+									<div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
+										<span class="svg-icon svg-icon-1">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black"></rect>
+												<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black"></rect>
+											</svg>
+										</span>
+									</div>
+								</div>
+								<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+									<form id="kt_modal_add_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="{{ url_for('panel-book-add', { 'lang': lang }) }}" method="post" enctype="multipart/form-data"  onsubmit="return formSubmit();">
+										<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px" style="max-height: 323px;">
+											<div class="row mb-7">
+												<div class="col-md-4 fv-row">
+													<label class="required fw-bold fs-6 mb-2">ISBN</label>
+													<input type="text" name="isbn" class="form-control  mb-3 mb-lg-0" placeholder="ISBN"  id="isbn" minlength="13" maxlength="13" required>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+												<div class="col-md-8 fv-row">
+													<label class="required fw-bold fs-6 mb-2">{{ name }}</label>
+													<input type="text" name="name" class="form-control  mb-3 mb-lg-0" placeholder="{{ name }}" required>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+											</div>
+											<div class="fv-row mb-7">
+												<label class="d-block fw-bold fs-6 mb-5">{{ image }}</label>
+												<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('/uploads/images/books/default.jpg')">
+													<div class="image-input-wrapper w-125px h-125px" style="background-image: url(/uploads/images/books/default.jpg);"></div>
+													<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="{{ change_avatar }}">
+														<i class="bi bi-pencil-fill fs-7"></i>
+														<input type="file" name="image" accept=".png, .jpg, .jpeg">
+														<input type="hidden" name="avatar_remove">
+													</label>
+													<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="" data-bs-original-title="{{ cancel_avatar }}">
+														<i class="bi bi-x fs-2"></i>
+													</span>
+													<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="" data-bs-original-title="{{ remove_avatar }}">
+														<i class="bi bi-x fs-2"></i>
+													</span>
+												</div>
+												<div class="form-text">png, jpg, jpeg.</div>
+											</div>
+											<div class="row mb-7">
+												<div class="col-md-4 fv-row">
+													<label class="required fs-6 fw-bold form-label mb-2">{{ published_year }}</label>
+													<div class="row fv-row fv-plugins-icon-container">
+														<div class="col-12">
+															<select name="published_year" class="form-select select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" tabindex="-1" aria-hidden="true" required>
+																{% for i in "now"|date("Y").."now"|date("Y")-75 %}
+																	<option value="{{ i }}">{{ i }}</option>
+																{% endfor %}
+															</select>
+														<div class="fv-plugins-message-container invalid-feedback"></div></div>
+													</div>
+												</div>
+												<div class="col-md-4 fv-row fv-plugins-icon-container">
+													<label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+														<span class="required">{{ page_count }}</span>
+													</label>
+													<div class="position-relative">
+														<input type="text" class="form-control " minlength="1" name="page_count" required>
+													</div>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+												<div class="col-md-4 fv-row">
+													<label class="required fs-6 fw-bold form-label mb-2">{{ language_code }}</label>
+													<div class="row fv-row fv-plugins-icon-container">
+														<div class="col-12">
+															<select name="language_code" id="language_code" class="form-select select2-hidden-accessible" data-control="select2" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
+																<option>*</option>
+															</select>
+														<div class="fv-plugins-message-container invalid-feedback"></div></div>
+													</div>
+												</div>
+											</div>
+											<div class="row mb-7">
+												<div class="col-md-6 fv-row">
+													<label class="required fs-6 fw-bold form-label mb-2">{{ publisher }}</label>
+													<div class="row fv-row fv-plugins-icon-container">
+														<div class="col-12">
+															<select name="publisher_id" id="publisher" class="form-select select2-hidden-accessible" data-control="select2" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
+																<option>*</option>
+															</select>
+														<div class="fv-plugins-message-container invalid-feedback"></div></div>
+													</div>
+												</div>
+												<div class="col-md-6 fv-row">
+													<label class="required fs-6 fw-bold form-label mb-2">{{ series }}</label>
+													<div class="row fv-row fv-plugins-icon-container">
+														<div class="col-12">
+															<select name="series_id" id="series" class="form-select select2-hidden-accessible" data-control="select2" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
+																<option>*</option>
+															</select>
+														<div class="fv-plugins-message-container invalid-feedback"></div></div>
+													</div>
+												</div>
+											</div>
+											<div class="fv-row mb-7">
+												<label class="required fw-bold fs-6 mb-2">{{ authors }}</label>
+												<div class="row fv-row fv-plugins-icon-container">
+														<div class="col-12">
+															<select id="authors" class="form-select select2-hidden-accessible" data-placeholder="." multiple="multiple" data-control="select2" data-allow-clear="true" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
+																<option>*</option>
+															</select>
+															<input type="hidden" name="author_ids" id="authors_output">
+														<div class="fv-plugins-message-container invalid-feedback"></div></div>
+													</div>
+											</div>
+											<div class="fv-row mb-7">
+												<label class="required fw-bold fs-6 mb-2">{{ description }}</label>
+												<textarea class="form-control" id="description" name="description" maxlength="255" rows="6" required></textarea>
+											</div>
+										</div>
+										<div class="text-center pt-15">
+											<button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">{{ cancel }}</button>
+											<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+												<span class="indicator-label">{{ add }}</span>
+												<span class="indicator-progress">{{ please_wait }}
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% include 'panel/footer.twig' %}
+				</div>
+			</div>
+		</div>
+		{% include 'panel/scrolltop.twig' %}
+		{% include 'script.twig' %}
+		{{ assets({files: ['assets/plugins/custom/prismjs/prismjs.bundle.js'],  name: 'prismjs.bundle.js'}) }}
+		{{ assets({files: ['assets/plugins/custom/datatables/datatables.bundle.js'],  name: 'datatables.bundle.js'}) }}
+		<script>
+			var languageUrl = '{{ url_for('panel-language', { 'lang': lang }) }}';
+			var publisherUrl = '{{ url_for('panel-publisher-list', { 'lang': lang })}}';
+			var seriesUrl = '{{ url_for('panel-series-list', { 'lang': lang })}}';
+			var authorList = '{{ url_for('panel-author-list', { 'lang': lang })}}';
+		</script>
+		{{ assets({files: ['assets/js/book.js'],  name: 'book.js'}) }}
+	</body>
+</html>
