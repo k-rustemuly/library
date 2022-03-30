@@ -67,7 +67,7 @@
 																	</div>
 																</td>
 																<td>{{ row.tags }}</td>
-																<td>{% if row.pdf != null %}<a href="{{ row.pdf }}" class="text-primary">file</a>{% endif %} </td>
+																<td>{% if row.pdf != null %}<a href="{{ row.pdf }}" class="text-primary" target="_blank">file</a>{% endif %} </td>
 																<td> <span class="text-gray-800 fs-7 fw-normal pt-1">{{ row.view_count }}</span></td>
 																<td>{{ row.count }}</td>
 															</tr>
@@ -96,107 +96,35 @@
 									</div>
 								</div>
 								<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-									<form id="kt_modal_add_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="{{ url_for('panel-book-add', { 'lang': lang }) }}" method="post" enctype="multipart/form-data"  onsubmit="return formSubmit();">
+									<form id="kt_modal_add_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="{{ url_for('panel-library-add', { 'lang': lang }) }}" method="post" enctype="multipart/form-data"  onsubmit="return formSubmit();">
 										<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px" style="max-height: 323px;">
 											<div class="row mb-7">
-												<div class="col-md-4 fv-row">
+												<div class="col-md-6 fv-row">
 													<label class="required fw-bold fs-6 mb-2">ISBN</label>
 													<input type="text" name="isbn" class="form-control  mb-3 mb-lg-0" placeholder="ISBN"  id="isbn" minlength="13" maxlength="13" required>
 													<div class="fv-plugins-message-container invalid-feedback"></div>
 												</div>
-												<div class="col-md-8 fv-row">
-													<label class="required fw-bold fs-6 mb-2">{{ name }}</label>
-													<input type="text" name="name" class="form-control  mb-3 mb-lg-0" placeholder="{{ name }}" required>
+												<div class="col-md-6 fv-row">
+													<label class="required fw-bold fs-6 mb-2">{{ count }}</label>
+													<input type="number" name="count" class="form-control  mb-3 mb-lg-0" placeholder="{{ count }}" required>
 													<div class="fv-plugins-message-container invalid-feedback"></div>
 												</div>
 											</div>
 											<div class="fv-row mb-7">
-												<label class="d-block fw-bold fs-6 mb-5">{{ image }}</label>
-												<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('/uploads/images/books/default.jpg')">
-													<div class="image-input-wrapper w-125px h-125px" style="background-image: url(/uploads/images/books/default.jpg);"></div>
-													<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="{{ change_avatar }}">
-														<i class="bi bi-pencil-fill fs-7"></i>
-														<input type="file" name="image" accept=".png, .jpg, .jpeg">
-														<input type="hidden" name="avatar_remove">
-													</label>
-													<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="" data-bs-original-title="{{ cancel_avatar }}">
-														<i class="bi bi-x fs-2"></i>
-													</span>
-													<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="" data-bs-original-title="{{ remove_avatar }}">
-														<i class="bi bi-x fs-2"></i>
-													</span>
-												</div>
-												<div class="form-text">png, jpg, jpeg.</div>
-											</div>
-											<div class="row mb-7">
-												<div class="col-md-4 fv-row">
-													<label class="required fs-6 fw-bold form-label mb-2">{{ published_year }}</label>
-													<div class="row fv-row fv-plugins-icon-container">
-														<div class="col-12">
-															<select name="published_year" class="form-select select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" tabindex="-1" aria-hidden="true" required>
-																{% for i in "now"|date("Y").."now"|date("Y")-75 %}
-																	<option value="{{ i }}">{{ i }}</option>
-																{% endfor %}
-															</select>
-														<div class="fv-plugins-message-container invalid-feedback"></div></div>
-													</div>
-												</div>
-												<div class="col-md-4 fv-row fv-plugins-icon-container">
-													<label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-														<span class="required">{{ page_count }}</span>
-													</label>
-													<div class="position-relative">
-														<input type="text" class="form-control " minlength="1" name="page_count" required>
-													</div>
-													<div class="fv-plugins-message-container invalid-feedback"></div>
-												</div>
-												<div class="col-md-4 fv-row">
-													<label class="required fs-6 fw-bold form-label mb-2">{{ language_code }}</label>
-													<div class="row fv-row fv-plugins-icon-container">
-														<div class="col-12">
-															<select name="language_code" id="language_code" class="form-select select2-hidden-accessible" data-control="select2" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
-																<option>*</option>
-															</select>
-														<div class="fv-plugins-message-container invalid-feedback"></div></div>
-													</div>
-												</div>
-											</div>
-											<div class="row mb-7">
-												<div class="col-md-6 fv-row">
-													<label class="required fs-6 fw-bold form-label mb-2">{{ publisher }}</label>
-													<div class="row fv-row fv-plugins-icon-container">
-														<div class="col-12">
-															<select name="publisher_id" id="publisher" class="form-select select2-hidden-accessible" data-control="select2" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
-																<option>*</option>
-															</select>
-														<div class="fv-plugins-message-container invalid-feedback"></div></div>
-													</div>
-												</div>
-												<div class="col-md-6 fv-row">
-													<label class="required fs-6 fw-bold form-label mb-2">{{ series }}</label>
-													<div class="row fv-row fv-plugins-icon-container">
-														<div class="col-12">
-															<select name="series_id" id="series" class="form-select select2-hidden-accessible" data-control="select2" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
-																<option>*</option>
-															</select>
-														<div class="fv-plugins-message-container invalid-feedback"></div></div>
-													</div>
-												</div>
+												<label class="d-block fw-bold fs-6 mb-5">{{ pdf }}</label>
+												
+												<div class="form-text">pdf.</div>
 											</div>
 											<div class="fv-row mb-7">
 												<label class="required fw-bold fs-6 mb-2">{{ authors }}</label>
 												<div class="row fv-row fv-plugins-icon-container">
 														<div class="col-12">
-															<select id="authors" class="form-select select2-hidden-accessible" data-placeholder="." multiple="multiple" data-control="select2" data-allow-clear="true" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
+															<select id="tags" class="form-select select2-hidden-accessible" data-placeholder="." multiple="multiple" data-control="select2" data-allow-clear="true" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
 																<option>*</option>
 															</select>
-															<input type="hidden" name="author_ids" id="authors_output">
+															<input type="hidden" name="tag_ids" id="tags_output">
 														<div class="fv-plugins-message-container invalid-feedback"></div></div>
 													</div>
-											</div>
-											<div class="fv-row mb-7">
-												<label class="required fw-bold fs-6 mb-2">{{ description }}</label>
-												<textarea class="form-control" id="description" name="description" maxlength="255" rows="6" required></textarea>
 											</div>
 										</div>
 										<div class="text-center pt-15">
@@ -221,11 +149,8 @@
 		{{ assets({files: ['assets/plugins/custom/prismjs/prismjs.bundle.js'],  name: 'prismjs.bundle.js'}) }}
 		{{ assets({files: ['assets/plugins/custom/datatables/datatables.bundle.js'],  name: 'datatables.bundle.js'}) }}
 		<script>
-			var languageUrl = '{{ url_for('panel-language', { 'lang': lang }) }}';
-			var publisherUrl = '{{ url_for('panel-publisher-list', { 'lang': lang })}}';
-			var seriesUrl = '{{ url_for('panel-series-list', { 'lang': lang })}}';
-			var authorList = '{{ url_for('panel-author-list', { 'lang': lang })}}';
+			var languageUrl = '{{ url_for('panel-tag-list', { 'lang': lang }) }}';
 		</script>
-		{{ assets({files: ['assets/js/book.js'],  name: 'book.js'}) }}
+		{{ assets({files: ['assets/js/library.js'],  name: 'library.js'}) }}
 	</body>
 </html>

@@ -94,6 +94,8 @@ return function (App $app) {
 
                         $app->get('', \App\Action\Tag\ReadAction::class)->setName("panel-tag");
 
+                        $app->get('/list', \App\Action\Tag\ListAction::class)->setName("panel-tag-list");
+
                         $app->post('', \App\Action\Tag\AddAction::class)->setName("panel-tag-add");
 
                     });
@@ -101,6 +103,8 @@ return function (App $app) {
                     $app->group('/library', function (RouteCollectorProxy $app) {
 
                         $app->get('', \App\Action\Library\ReadAction::class)->setName("panel-library");
+
+                        $app->post('', \App\Action\Library\AddAction::class)->setName("panel-library-add");
 
                     });
 

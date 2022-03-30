@@ -52,8 +52,12 @@ final class Read extends Admin{
             "cancel" => $l->getButton("cancel"),
             "add" => $l->getButton("add"),
             "please_wait" => $l->getString("please_wait"),
-            "list" => $this->readRepository->getAll()
+            "list" => $this->list()
         );
         return array_merge($array, $base);
+    }
+
+    public function list() :array {
+        return $this->readRepository->getAll();
     }
 }
