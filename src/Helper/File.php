@@ -142,8 +142,8 @@ class File{
 
     public function saveFile(UploadedFileInterface $uploadedFile, string $type = 'image', string $category = 'book') {
         $s = $this->settings[$type][$category];
-        $dir = $s["save"].md5(date('Y')).DIRECTORY_SEPARATOR.md5(date('m')).DIRECTORY_SEPARATOR;
-        $public_dir = $s["return"].md5(date('Y')).DIRECTORY_SEPARATOR.md5(date('m')).DIRECTORY_SEPARATOR;
+        $dir = $s["save"].md5(date('Y')).DIRECTORY_SEPARATOR.md5(date('m'));
+        $public_dir = $s["return"].md5(date('Y')).DIRECTORY_SEPARATOR.md5(date('m'));
         $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);
         $basename = bin2hex(random_bytes(8));
         $filename = sprintf('%s.%0.8s', $basename, $extension);
