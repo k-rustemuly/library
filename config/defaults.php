@@ -18,7 +18,13 @@ $settings['file'] = [
             'save' => PUBLIC_DIR.'/uploads/images/books/',
             'return' => '/uploads/images/books/'
         ]
-    ],    
+    ],
+    'pdf' => [
+        'book' => [
+            'save' => PUBLIC_DIR.'/uploads/files/books/pdf/',
+            'return' => '/uploads/files/books/pdf/'
+        ]
+    ], 
 ];
 
 // Twig settings

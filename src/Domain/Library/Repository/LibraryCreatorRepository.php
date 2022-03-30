@@ -12,7 +12,7 @@ final class LibraryCreatorRepository {
     /**
      * @var string
      */
-    public static $tableName = "library_";
+    public $tableName = "library_";
 
     /**
      * @var QueryFactory
@@ -37,7 +37,7 @@ final class LibraryCreatorRepository {
      */
     public function insert(array $row): int{
         try {
-            return (int) $this->queryFactory->newInsert(self::$tableName, $row)->execute()->lastInsertId();
+            return (int) $this->queryFactory->newInsert($this->tableName, $row)->execute()->lastInsertId();
         } catch(PDOException $e) {
             return 0;
         }

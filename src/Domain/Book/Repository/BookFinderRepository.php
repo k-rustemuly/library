@@ -46,4 +46,16 @@ final class BookFinderRepository {
         ->innerJoin(["s" => SeriesFinderRepository::$tableName], ["s.id = b.series_id"]);
         return $query->execute()->fetchAll("assoc") ?: [];
     }
+
+    /**
+     * Check exist item on db by ISBN
+     * 
+     * @param string $isbn
+     * 
+     * @return bool
+     */
+    public function existByIsbn(string $isbn) :bool{
+        $query = $this->queryFactory->newSelect(self::$tableName)->select(["*"])->where(["isbn" => $isbn]);
+        return $query->execute()->fetch("assoc") ? true : false;
+    }
 }
