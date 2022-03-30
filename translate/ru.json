@@ -70,7 +70,8 @@
         "Email or password is incorrect": "Неправильный логин или пароль!",
         "Account is not active": "Аккаунт отключен от системы! Обратитесь в службу поддержки!",
         "Organization is not active": "Ваша организация отключена от системы! Обратитесь в службу поддержки!",
-        "Book not found by Isbn": "Книга не найдено в базе, проверьте правильность ISBN!"
+        "Book not found by Isbn": "Книга не найдено в базе, проверьте правильность ISBN!",
+        "The book already exist on your db" : "Книга уже существует у вас в базе!"
     },
     "success":{
     },

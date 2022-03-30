@@ -64,7 +64,7 @@ final class Add extends Admin{
             $insert["pdf"] = $this->file->saveFile($uploadedFile, 'pdf', 'book');
         }
         $count = isset($data["count"]) && $data["count"] >= 0 ? $insert["count"] = $data["count"] : "";
-        $tag_ids = isset($data["tag_ids"]) && $data["tag_ids"] != "@" ? $insert["tag_ids"] = trim($data["tag_ids"]) : "";
-        $this->createRepository->insert($insert);
+        $tag_ids = isset($data["tag_ids"]) && $data["tag_ids"] != "@" ? $insert["tags"] = trim($data["tag_ids"]) : "";
+        if($this->createRepository->insert($insert) == 0) throw new DomainException("The book already exist on your db");
     }
 }
