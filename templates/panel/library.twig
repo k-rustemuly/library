@@ -149,7 +149,7 @@
 		{{ assets({files: ['assets/plugins/custom/prismjs/prismjs.bundle.js'],  name: 'prismjs.bundle.js'}) }}
 		{{ assets({files: ['assets/plugins/custom/datatables/datatables.bundle.js'],  name: 'datatables.bundle.js'}) }}
 		<script>
-			var languageUrl = '{{ url_for('panel-tag-list', { 'lang': lang }) }}';
+			var tagListUrl = '{{ url_for('panel-tag-list', { 'lang': lang }) }}';
 		</script>
 		{{ assets({files: ['assets/js/library.js'],  name: 'library.js'}) }}
 	</body>

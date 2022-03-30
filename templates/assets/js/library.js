@@ -9,7 +9,7 @@ $('#isbn').maxlength({
 
 $("#kt_modal_add").on('shown.bs.modal', function (e) {
 
-    $.get(authorList, function (data) {
+    $.get(tagListUrl, function (data) {
         var d = data.data;
         $('#tags').empty();
         for (var i = 0; i < d.length; i++) {
