@@ -4,6 +4,7 @@ namespace App\Domain\Library\Repository;
 
 use App\Factory\QueryFactory;
 use PDOException;
+use DomainException;
 
 /**
  * Repository.
@@ -39,6 +40,7 @@ final class LibraryCreatorRepository {
         try {
             return (int) $this->queryFactory->newInsert($this->tableName, $row)->execute()->lastInsertId();
         } catch(PDOException $e) {
+            throw new DomainException($e->getMessage());
             return 0;
         }
     }
