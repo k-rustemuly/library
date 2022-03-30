@@ -4,6 +4,7 @@ namespace App\Domain\Library\Repository;
 
 use App\Factory\QueryFactory;
 use App\Domain\Book\Repository\BookFinderRepository;
+use PDOException;
 
 /**
  * Repository.
@@ -37,6 +38,10 @@ final class LibraryFinderRepository {
         $query->select(["l.*",
                         "b.image", "b.name", "b.published_year",])
         ->innerJoin(["b" => BookFinderRepository::$tableName], ["b.isbn = l.isbn"]);
-        return $query->execute()->fetchAll("assoc") ?: [];
+        try{
+            return $query->execute()->fetchAll("assoc") ?: [];
+        }catch(PDOException $e){
+            return [];
+        }
     }
 }
