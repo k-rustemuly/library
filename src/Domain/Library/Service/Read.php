@@ -6,6 +6,7 @@ use App\Helper\Language;
 use App\Helper\Admin;
 use App\Domain\Library\Repository\LibraryFinderRepository as ReadRepository;
 use SlimSession\Helper as Session;
+use App\Domain\Tag\Repository\TagFinderRepository;
 
 /**
  * Service.
@@ -31,14 +32,27 @@ final class Read extends Admin{
     private $session;
 
     /**
+     * @var array<int>
+     * 
+     */
+    private $tags = array();
+
+    /**
+     * @var TagFinderRepository 
+     *
+     */
+    private $tagFinderRepository;
+
+    /**
      * The constructor.
      *
      */
-    public function __construct(ReadRepository $readRepository) {
+    public function __construct(ReadRepository $readRepository, TagFinderRepository $tagFinderRepository) {
         $this->language = new Language();
         $this->readRepository = $readRepository;
         $this->session = new Session();
         $this->readRepository->tableName = $this->readRepository->tableName.$this->session->get("admin")["organization_bin"];
+        $this->tagFinderRepository = $tagFinderRepository;
     }
 
     /**
@@ -63,8 +77,55 @@ final class Read extends Admin{
             "cancel" => $l->getButton("cancel"),
             "add" => $l->getButton("add"),
             "please_wait" => $l->getString("please_wait"),
-            "list" => $this->readRepository->getAll()
+            "list" => $this->getLibrary($lang)
         );
         return array_merge($array, $base);
+    }
+
+    /**
+     * Get list of books on library
+     * 
+     * @param string $lang the language
+     * 
+     * @return array<mixed> The list
+     */
+    private function getLibrary(string $lang) :array{
+        $list = $this->readRepository->getAll($lang);
+        foreach($list as $i => $item) {
+            $tags = $item["tags"];
+            $list[$i]["tags"] = $this->parseTags($tags);
+        }
+        $list = $this->tagFinderRepository->getByIds(array_keys($this->tags));
+        $tags = array();
+        foreach ($list as $tag) {
+            $tags[$tag["id"]] = $tag["name"];
+        }
+        foreach ($list as $i => $item){
+            $string = "";
+            $ids = $item["tags"];
+            foreach ($ids as $id) {
+                $string.=$tags[$id].", ";
+            }
+            $list[$i]["tags"] = substr($string, 0, -2);
+        }
+        return $list;
+    }
+
+    /**
+     * parse ids and set to array
+     * 
+     * @param string $ids
+     */
+    private function parseTags(string $ids) {
+        $array = array();
+        $ids = explode('@', $ids);
+        foreach ($ids as $id) {
+            if($id > 0) {
+                $array[] = $id;
+                if(!isset($this->tags[$id]))
+                $this->tags[$id] = $id;
+            }
+        }
+        return $array;
     }
 }

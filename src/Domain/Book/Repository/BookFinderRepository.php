@@ -6,7 +6,6 @@ use App\Factory\QueryFactory;
 use App\Domain\Language\Repository\LanguageFinderRepository;
 use App\Domain\Publisher\Repository\PublisherFinderRepository;
 use App\Domain\Series\Repository\SeriesFinderRepository;
-use App\Domain\Tag\Repository\TagFinderRepository;
 
 /**
  * Repository.

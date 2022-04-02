@@ -45,4 +45,15 @@ final class TagFinderRepository {
         $query = $this->queryFactory->newSelect(self::$tableName)->select(["*"])->where(["hash" => $hash]);
         return !empty($query->execute()->fetch("assoc"));
     }
+
+    /**
+     * Get list by ids
+     * 
+     * @param array $ids
+     * 
+     * @return array<mixed>
+     */
+    public function getByIds(array $ids): array{
+        return $this->queryFactory->newSelect(self::$tableName)->select(["*"])->whereInList("id", $ids)->execute()->fetchAll("assoc") ?: [];
+    }
 }
