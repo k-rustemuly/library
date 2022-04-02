@@ -13,19 +13,247 @@
 						{% include 'panel/toolbar.twig' %}
 						<div class="post d-flex flex-column-fluid" id="kt_post">
 							<div id="kt_content_container" class="container-xxl">
-								<div class="card card-docs mb-2">
-									<div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
-										<div class="d-flex justify-content-end" data-kt-docs-table-toolbar="base">
-											<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add">
-												<span class="svg-icon svg-icon-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black"></rect>
-												<rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black"></rect>
-											</svg></span>
-												{{ add }}
-											</button>
-										</div>
-									</div>
+								<div class="d-flex justify-content-end">
+									<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add">
+										<span class="svg-icon svg-icon-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+										<rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black"></rect>
+										<rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black"></rect>
+									</svg></span>
+										{{ add }}
+									</button>
 								</div>
+								<div class="card card-flush h-xl-100">
+											<!--begin::Header-->
+											<div class="card-header pt-5">
+												<!--begin::Title-->
+												<h3 class="card-title align-items-start flex-column">
+													<span class="card-label fw-bolder text-gray-800">Mining Status</span>
+													<span class="text-gray-400 mt-1 fw-bold fs-6">8k social visitors</span>
+												</h3>
+												<!--end::Title-->
+												<!--begin::Toolbar-->
+												<div class="card-toolbar">
+													<a href="#" class="btn btn-sm btn-light">All Courses</a>
+												</div>
+												<!--end::Toolbar-->
+											</div>
+											<!--end::Header-->
+											<!--begin::Body-->
+											<div class="card-body">
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Section-->
+													<div class="d-flex align-items-center me-5">
+														<!--begin::Symbol-->
+														<div class="symbol symbol-40px me-3">
+															<span class="symbol-label bg-light-info">
+																<!--begin::Svg Icon | path: icons/duotune/abstract/abs025.svg-->
+																<span class="svg-icon svg-icon-2x svg-icon-info">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																		<path d="M16.925 3.90078V8.00077L12.025 10.8008V5.10078L15.525 3.10078C16.125 2.80078 16.925 3.20078 16.925 3.90078ZM2.525 13.5008L6.025 15.5008L10.925 12.7008L6.025 9.90078L2.525 11.9008C1.825 12.3008 1.825 13.2008 2.525 13.5008ZM18.025 19.7008V15.6008L13.125 12.8008V18.5008L16.625 20.5008C17.225 20.8008 18.025 20.4008 18.025 19.7008Z" fill="black"></path>
+																		<path opacity="0.3" d="M8.52499 3.10078L12.025 5.10078V10.8008L7.125 8.00077V3.90078C7.125 3.20078 7.92499 2.80078 8.52499 3.10078ZM7.42499 20.5008L10.925 18.5008V12.8008L6.02499 15.6008V19.7008C6.02499 20.4008 6.82499 20.8008 7.42499 20.5008ZM21.525 11.9008L18.025 9.90078L13.125 12.7008L18.025 15.5008L21.525 13.5008C22.225 13.2008 22.225 12.3008 21.525 11.9008Z" fill="black"></path>
+																	</svg>
+																</span>
+																<!--end::Svg Icon-->
+															</span>
+														</div>
+														<!--end::Symbol-->
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">GPUs mining</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<span class="fw-bold fs-7 d-block text-start text-success ps-0">Running</span>
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+													</div>
+													<!--end::Section-->
+													<!--begin::Wrapper-->
+													<div class="d-flex align-items-center">
+														<!--begin::Info-->
+														<div class="d-flex flex-center">
+															<!--begin::Action-->
+															<div class="form-check form-switch form-check-custom form-check-solid">
+																<input class="form-check-input h-20px w-30px" type="checkbox" value="" id="flexSwitchChecked" checked="checked">
+															</div>
+															<!--end::Action-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Wrapper-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-4"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Section-->
+													<div class="d-flex align-items-center me-5">
+														<!--begin::Symbol-->
+														<div class="symbol symbol-40px me-3">
+															<span class="symbol-label bg-light-success">
+																<!--begin::Svg Icon | path: icons/duotune/medicine/med005.svg-->
+																<span class="svg-icon svg-icon-2x svg-icon-success">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																		<path opacity="0.3" d="M17.9061 13H11.2061C11.2061 12.4 10.8061 12 10.2061 12C9.60605 12 9.20605 12.4 9.20605 13H6.50606L9.20605 8.40002V4C8.60605 4 8.20605 3.6 8.20605 3C8.20605 2.4 8.60605 2 9.20605 2H15.2061C15.8061 2 16.2061 2.4 16.2061 3C16.2061 3.6 15.8061 4 15.2061 4V8.40002L17.9061 13ZM13.2061 9C12.6061 9 12.2061 9.4 12.2061 10C12.2061 10.6 12.6061 11 13.2061 11C13.8061 11 14.2061 10.6 14.2061 10C14.2061 9.4 13.8061 9 13.2061 9Z" fill="black"></path>
+																		<path d="M18.9061 22H5.40605C3.60605 22 2.40606 20 3.30606 18.4L6.40605 13H9.10605C9.10605 13.6 9.50605 14 10.106 14C10.706 14 11.106 13.6 11.106 13H17.8061L20.9061 18.4C21.9061 20 20.8061 22 18.9061 22ZM14.2061 15C13.1061 15 12.2061 15.9 12.2061 17C12.2061 18.1 13.1061 19 14.2061 19C15.3061 19 16.2061 18.1 16.2061 17C16.2061 15.9 15.3061 15 14.2061 15Z" fill="black"></path>
+																	</svg>
+																</span>
+																<!--end::Svg Icon-->
+															</span>
+														</div>
+														<!--end::Symbol-->
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">GPUs mining</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<span class="fw-bold fs-7 d-block text-start text-success ps-0">Running</span>
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+													</div>
+													<!--end::Section-->
+													<!--begin::Wrapper-->
+													<div class="d-flex align-items-center">
+														<!--begin::Info-->
+														<div class="d-flex flex-center">
+															<!--begin::Action-->
+															<div class="form-check form-switch form-check-custom form-check-solid">
+																<input class="form-check-input h-20px w-30px" type="checkbox" value="" id="flexSwitchChecked" checked="checked">
+															</div>
+															<!--end::Action-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Wrapper-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-4"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Section-->
+													<div class="d-flex align-items-center me-5">
+														<!--begin::Symbol-->
+														<div class="symbol symbol-40px me-3">
+															<span class="symbol-label bg-light-danger">
+																<!--begin::Svg Icon | path: icons/duotune/abstract/abs036.svg-->
+																<span class="svg-icon svg-icon-2x svg-icon-danger">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																		<path d="M22 12C22 12.2 22 12.5 22 12.7L19.5 10.2L16.9 12.8C16.9 12.5 17 12.3 17 12C17 9.5 15.2 7.50001 12.8 7.10001L10.2 4.5L12.7 2C17.9 2.4 22 6.7 22 12ZM11.2 16.9C8.80001 16.5 7 14.5 7 12C7 11.7 7.00001 11.5 7.10001 11.2L4.5 13.8L2 11.3C2 11.5 2 11.8 2 12C2 17.3 6.09999 21.6 11.3 22L13.8 19.5L11.2 16.9Z" fill="black"></path>
+																		<path opacity="0.3" d="M22 12.7C21.6 17.9 17.3 22 12 22C11.8 22 11.5 22 11.3 22L13.8 19.5L11.2 16.9C11.5 16.9 11.7 17 12 17C14.5 17 16.5 15.2 16.9 12.8L19.5 10.2L22 12.7ZM10.2 4.5L12.7 2C12.5 2 12.2 2 12 2C6.7 2 2.4 6.1 2 11.3L4.5 13.8L7.10001 11.2C7.50001 8.8 9.5 7 12 7C12.3 7 12.5 7.00001 12.8 7.10001L10.2 4.5Z" fill="black"></path>
+																	</svg>
+																</span>
+																<!--end::Svg Icon-->
+															</span>
+														</div>
+														<!--end::Symbol-->
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Est. daily USD</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<span class="fw-bold fs-7 d-block text-start text-gray-400 ps-0">$48.02</span>
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+													</div>
+													<!--end::Section-->
+													<!--begin::Wrapper-->
+													<div class="d-flex align-items-center">
+														<!--begin::Info-->
+														<div class="d-flex flex-center">
+															<!--begin::Action-->
+															<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px">
+																<!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+																<span class="svg-icon svg-icon-5 svg-icon-gray-700">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																		<path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="black"></path>
+																		<path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="black"></path>
+																	</svg>
+																</span>
+																<!--end::Svg Icon-->
+															</a>
+															<!--end::Action-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Wrapper-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-4"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Section-->
+													<div class="d-flex align-items-center me-5">
+														<!--begin::Symbol-->
+														<div class="symbol symbol-40px me-3">
+															<span class="symbol-label bg-light-primary">
+																<!--begin::Svg Icon | path: icons/duotune/abstract/abs020.svg-->
+																<span class="svg-icon svg-icon-2x svg-icon-primary">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																		<path d="M17.302 11.35L12.002 20.55H21.202C21.802 20.55 22.202 19.85 21.902 19.35L17.302 11.35Z" fill="black"></path>
+																		<path opacity="0.3" d="M12.002 20.55H2.802C2.202 20.55 1.80202 19.85 2.10202 19.35L6.70203 11.45L12.002 20.55ZM11.302 3.45L6.70203 11.35H17.302L12.702 3.45C12.402 2.85 11.602 2.85 11.302 3.45Z" fill="black"></path>
+																	</svg>
+																</span>
+																<!--end::Svg Icon-->
+															</span>
+														</div>
+														<!--end::Symbol-->
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Team Members</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<span class="fw-bold fs-7 d-block text-start text-gray-400 ps-0">6</span>
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+													</div>
+													<!--end::Section-->
+													<!--begin::Wrapper-->
+													<div class="d-flex align-items-center">
+														<!--begin::Info-->
+														<div class="d-flex flex-center">
+															<!--begin::Action-->
+															<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px">
+																<!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+																<span class="svg-icon svg-icon-5 svg-icon-gray-700">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																		<path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="black"></path>
+																		<path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="black"></path>
+																	</svg>
+																</span>
+																<!--end::Svg Icon-->
+															</a>
+															<!--end::Action-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Wrapper-->
+												</div>
+												<!--end::Item-->
+											</div>
+											<!--end::Body-->
+											<!--begin::Footer-->
+											<div class="card-footer mx-auto pt-0">
+												<!--begin::Actions-->
+												<a href="#" class="btn btn-primary btn-sm me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_view_users">Add PC</a>
+												<a href="#" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search">Buy GPU</a>
+												<!--end::Actions-->
+											</div>
+											<!--end::Footer-->
+										</div>
 							</div>
 						</div>
 					</div>
