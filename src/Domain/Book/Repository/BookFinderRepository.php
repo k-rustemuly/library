@@ -37,7 +37,7 @@ final class BookFinderRepository {
      */
     public function getAll(string $lang): array{
         $query = $this->queryFactory->newSelect(["b" => self::$tableName]);
-        $query->select(["b.id", "b.isbn", "b.image", "b.name", "b.published_year", "b.page_count", "b.description", "b.author_ids as authors",
+        $query->select(["b.id", "b.isbn", "b.image", "b.name", "b.published_year", "b.page_count", "b.description", "b.author_ids",
                         "l.name_".$lang." as language_name", 
                         "p.name_".$lang." as publisher_name", 
                         "s.name_".$lang." as series_name", ])
