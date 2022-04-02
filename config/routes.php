@@ -116,7 +116,7 @@ return function (App $app) {
 
                     $app->group('/selection', function (RouteCollectorProxy $app) {
 
-                        $app->get('', \App\Action\Panel\DashboardAction::class)->setName("panel-selection");
+                        $app->get('', \App\Action\Selection\ReadAction::class)->setName("panel-selection");
 
                     });
 

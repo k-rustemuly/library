@@ -7,7 +7,8 @@
         "series" : "Серии",
         "tag" : "Теги",
         "book" : "Книги",
-        "library" : "Библиотека"
+        "library" : "Библиотека",
+        "selection" : "Подборки"
     },
     "string": {
         "sign_in_h1": "Вход в систему",
@@ -35,7 +36,9 @@
         "add_new_book": "Добавить новую книгу",
         "library_h1" : "Библиотека",
         "add_new_library" : "Добавить",
-        "view_count" : "Кол. просмотров"
+        "view_count" : "Кол. просмотров",
+        "selection_h1" : "Подборки",
+        "add_new_selection" : "Добавить"
     },
     "button": {
         "sign_in": "Войти",
