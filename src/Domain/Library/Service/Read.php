@@ -90,25 +90,25 @@ final class Read extends Admin{
      * @return array<mixed> The list
      */
     private function getLibrary(string $lang) :array{
-        $list = $this->readRepository->getAll($lang);
-        foreach($list as $i => $item) {
+        $library_list = $this->readRepository->getAll($lang);
+        foreach($library_list as $i => $item) {
             $tags = $item["tags"];
-            $list[$i]["tags"] = $this->parseTags($tags);
+            $library_list[$i]["tags"] = $this->parseTags($tags);
         }
         $list = $this->tagFinderRepository->getByIds(array_keys($this->tags));
         $tags = array();
         foreach ($list as $tag) {
             $tags[$tag["id"]] = $tag["name"];
         }
-        foreach ($list as $i => $item){
+        foreach ($library_list as $i => $item){
             $string = "";
             $ids = $item["tags"];
             foreach ($ids as $id) {
                 $string.=$tags[$id].", ";
             }
-            $list[$i]["tags"] = substr($string, 0, -2);
+            $library_list[$i]["tags"] = substr($string, 0, -2);
         }
-        return $list;
+        return $library_list;
     }
 
     /**
