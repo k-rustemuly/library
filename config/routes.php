@@ -118,6 +118,8 @@ return function (App $app) {
 
                         $app->get('', \App\Action\Selection\ReadAction::class)->setName("panel-selection");
 
+                        $app->post('', \App\Action\Selection\AddAction::class)->setName("panel-selection-add");
+
                     });
 
                 })->add(PanelMiddleware::class);

@@ -64,6 +64,8 @@
         "pdf" : "PDF файл",
         "count" : "Кол. книг",
         "type" : "Тип",
+        "description_ru": "Описание на русском",
+        "description_kk": "Описание на казахском",
         "max_book_show" : "Мак. кол. книг"
     },
     "hint": {

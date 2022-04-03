@@ -73,8 +73,10 @@ final class Read extends Admin{
             "cancel" => $l->getButton("cancel"),
             "add" => $l->getButton("add"),
             "please_wait" => $l->getString("please_wait"),
-            "name" => $l->getField("name"),
-            "description" => $l->getField("description"),
+            "name_ru" => $l->getField("name_ru"),
+            "name_kk" => $l->getField("name_kk"),
+            "description_ru" => $l->getField("description_ru"),
+            "description_kk" => $l->getField("description_kk"),
             "type" => $l->getField("type"),
             "max_book_show" => $l->getField("max_book_show"),
             "list" => $this->readRepository->getAllByLang($lang)
