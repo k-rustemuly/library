@@ -11,7 +11,7 @@ final class SelectionTypeFinderRepository {
     /**
      * @var string
      */
-    public $tableName = "rb_selection_types";
+    public static $tableName = "rb_selection_types";
 
     /**
      * @var QueryFactory
