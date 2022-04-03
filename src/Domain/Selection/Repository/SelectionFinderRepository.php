@@ -3,7 +3,7 @@
 namespace App\Domain\Selection\Repository;
 
 use App\Factory\QueryFactory;
-use App\Domain\Book\Repository\BookFinderRepository;
+use App\Domain\SelectionType\Repository\SelectionTypeFinderRepository;
 use PDOException;
 
 /**
@@ -33,11 +33,12 @@ final class SelectionFinderRepository {
      *
      * @return array<mixed> The list view data
      */
-    public function getAll(): array{
-        $query = $this->queryFactory->newSelect(["l" => $this->tableName]);
-        $query->select(["l.*",
-                        "b.image", "b.name", "b.published_year",])
-        ->innerJoin(["b" => BookFinderRepository::$tableName], ["b.isbn = l.isbn"]);
+    public function getAllByLang(string $lang): array{
+        $query = $this->queryFactory->newSelect(["s" => $this->tableName]);
+        $query->select(["s.id", "s.order_num", "s.name_".$lang." as name", "s.description_".$lang." as description", "s.max_count", "s.is_active",
+                        "t.name_".$lang." as type_name",])
+        ->innerJoin(["t" => SelectionTypeFinderRepository::$tableName], ["t.id = s.type_id"])
+        ->orderAsc("s.order_num");
         try{
             return $query->execute()->fetchAll("assoc") ?: [];
         }catch(PDOException $e){

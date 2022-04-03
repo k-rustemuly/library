@@ -37,18 +37,68 @@
 											</div>
 											<div class="d-flex align-items-center me-5">
 												<div class="me-5">
-													<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Название</a>
-													<span class="d-block text-start ps-0">Описание</span>
+													<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">{{ name }}</a>
+													<span class="d-block text-start ps-0">{{ description }}</span>
 												</div>
 											</div>
 											<div class="d-flex align-items-center me-5">
 												<div class="me-5">
-													<span class="fw-bold fs-7 d-block text-start ps-0">Тип</span>
+													<span class="fw-bold fs-7 d-block text-start ps-0">{{ type }}</span>
 												</div>
 											</div>
 											<div class="d-flex align-items-center me-5">
 												<div class="me-5">
-													<span class="d-block text-start ps-0">Мак. кол. книг</span>
+													<span class="d-block text-start ps-0">{{ max_book_show }}</span>
+												</div>
+											</div>
+											<div class="d-flex align-items-end">
+												<div class="me-5">
+													
+												</div>
+											</div>
+											<div class="d-flex align-items-end">
+												<div class="me-5">
+													
+												</div>
+											</div>
+											<div class="d-flex align-items-end">
+												<div class="me-5">
+													
+												</div>
+											</div>
+											<div class="d-flex align-items-end">
+												<div class="me-5">
+													
+												</div>
+											</div>
+											<div class="d-flex align-items-center">
+												<div class="me-5">
+													
+												</div>
+											</div>
+										</div>
+										<div class="separator separator-dashed my-4"></div>
+										{% for l in list %}
+										<div class="d-flex flex-stack">
+											<div class="d-flex align-items-center me-5">
+												<div class="me-5">
+													<span class="d-block text-start ps-0">{{ l.order_num }}</span>
+												</div>
+											</div>
+											<div class="d-flex align-items-center me-5">
+												<div class="me-5">
+													<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">{{ l.name }}</a>
+													<span class="d-block text-start ps-0">{{ l.description }}</span>
+												</div>
+											</div>
+											<div class="d-flex align-items-center me-5">
+												<div class="me-5">
+													<span class="fw-bold fs-7 d-block text-start ps-0">{{ l.type_name }}</span>
+												</div>
+											</div>
+											<div class="d-flex align-items-center me-5">
+												<div class="me-5">
+													<span class="d-block text-start ps-0">{{ l.max_count }}</span>
 												</div>
 											</div>
 											<div class="d-flex align-items-end">
@@ -82,12 +132,13 @@
 											<div class="d-flex align-items-center">
 												<div class="d-flex flex-center">
 													<div class="form-check form-switch form-check-custom form-check-solid">
-														<input class="form-check-input h-20px w-30px" type="checkbox" value="" id="flexSwitchChecked" checked="checked">
+														<input class="form-check-input h-20px w-30px" type="checkbox" value="" {% if l.is_active == 1 %}checked="checked"{% endif %}>
 													</div>
 												</div>
 											</div>
 										</div>
 										<div class="separator separator-dashed my-4"></div>
+										{% endfor %}
 									</div>
 								</div>
 							</div>

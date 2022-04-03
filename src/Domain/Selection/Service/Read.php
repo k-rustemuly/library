@@ -72,7 +72,12 @@ final class Read extends Admin{
             "add_new" => $l->getString("add_new_selection"),
             "cancel" => $l->getButton("cancel"),
             "add" => $l->getButton("add"),
-            "please_wait" => $l->getString("please_wait")
+            "please_wait" => $l->getString("please_wait"),
+            "name" => $l->getField("name"),
+            "description" => $l->getField("description"),
+            "type" => $l->getField("type"),
+            "max_book_show" => $l->getField("max_book_show"),
+            "list" => $this->readRepository->getAllByLang($lang)
         );
         return array_merge($array, $base);
     }
