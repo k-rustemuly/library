@@ -79,6 +79,7 @@ final class Read extends Admin{
             "description_kk" => $l->getField("description_kk"),
             "type" => $l->getField("type"),
             "max_book_show" => $l->getField("max_book_show"),
+            "tags" => $l->getField("tags"),
             "list" => $this->readRepository->getAllByLang($lang)
         );
         return array_merge($array, $base);
