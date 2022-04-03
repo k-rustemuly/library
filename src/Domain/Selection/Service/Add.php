@@ -53,18 +53,16 @@ final class Add extends Admin{
      * @param array<mixed> $data
      * 
      */
-    public function add(array $data, $files = null) {
+    public function add(array $data) {
         $insert = array();
-        $uploadedFile = $files['pdf'];
-        $isbn = isset($data["isbn"]) ? $insert["isbn"] = $data["isbn"] : "";
-        if(!$this->readRepository->existByIsbn($isbn)) {
-            throw new DomainException("Book not found by Isbn");
-        }
-        if($uploadedFile->getError() === UPLOAD_ERR_OK) {
-            $insert["pdf"] = $this->file->saveFile($uploadedFile, 'pdf', 'book');
-        }
-        $count = isset($data["count"]) && $data["count"] >= 0 ? $insert["count"] = $data["count"] : "";
-        $tag_ids = isset($data["tag_ids"]) && $data["tag_ids"] != "@" ? $insert["tags"] = trim($data["tag_ids"]) : "";
-        if($this->createRepository->insert($insert) == 0) throw new DomainException("The book already exist on your db");
+        $type_id = isset($data["type_id"]) && $data["type_id"] >= 0 ? $insert["type_id"] = $data["type_id"] : "";
+        $name_ru = isset($data["name_ru"]) ? $insert["name_ru"] = trim($data["name_ru"]) : "";
+        $description_ru = isset($data["description_ru"]) ? $insert["description_ru"] = trim($data["description_ru"]) : "";
+        $name_kk = isset($data["name_kk"]) ? $insert["name_kk"] = trim($data["name_kk"]) : "";
+        $description_kk = isset($data["description_kk"]) ? $insert["description_kk"] = trim($data["description_kk"]) : "";
+        $max_count = isset($data["max_count"]) && $data["max_count"] >= 0 ? $insert["max_count"] = trim($data["max_count"]) : "";
+        if($type_id == 2)
+            $tags = isset($data["tags"]) ? $insert["tags"] = trim($data["tags"]) : "";
+        $this->createRepository->insert($insert);
     }
 }
