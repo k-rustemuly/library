@@ -29,67 +29,68 @@
 										</div>
 									</div>
 									<div class="card-body">
+										<tbody>
 										{% for l in list %}
-										<div class="d-flex flex-stack">
-											<div class="d-flex align-items-center me-5">
+										<tr>
+											<td>
 												<div class="me-5">
 													<span class="d-block text-start ps-0">{{ l.order_num }}</span>
 												</div>
-											</div>
-											<div class="d-flex align-items-center me-5">
+											</td>
+											<td>
 												<div class="me-5">
 													<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">{{ l.name }}</a>
 													<span class="d-block text-start ps-0">{{ l.description }}</span>
 												</div>
-											</div>
-											<div class="d-flex align-items-center me-5">
+											</td>
+											<td>
 												<div class="me-5">
 													<span class="fw-bold fs-7 d-block text-start ps-0">{{ l.type_name }}</span>
 												</div>
-											</div>
-											<div class="d-flex align-items-center me-5">
+											</td>
+											<td>
 												<div class="me-5">
 													<span class="d-block text-start ps-0">{{ l.max_count }}</span>
 												</div>
-											</div>
-											<div class="d-flex align-items-end">
+											</td>
+											<td>
 												<div class="d-flex flex-center">
 													<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px">
 														<i class="las la-eye"></i>
 													</a>
 												</div>
-											</div>
-											<div class="d-flex align-items-end">
+											</td>
+											<td>
 												<div class="d-flex flex-center">
 													<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px">
 														<i class="las la-pencil-alt"></i>
 													</a>
 												</div>
-											</div>
-											<div class="d-flex align-items-end">
+											</td>
+											<td>
 												<div class="d-flex flex-center">
 													<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px">
 														<i class="las la-arrow-up"></i>
 													</a>
 												</div>
-											</div>
-											<div class="d-flex align-items-end">
+											</td>
+											<td>
 												<div class="d-flex flex-center">
 													<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px">
 														<i class="las la-arrow-down"></i>
 													</a>
 												</div>
-											</div>
-											<div class="d-flex align-items-center">
+											</td>
+											<td>
 												<div class="d-flex flex-center">
 													<div class="form-check form-switch form-check-custom form-check-solid">
 														<input class="form-check-input h-20px w-30px" type="checkbox" value="" {% if l.is_active == 1 %}checked="checked"{% endif %}>
 													</div>
 												</div>
-											</div>
-										</div>
-										<div class="separator separator-dashed my-4"></div>
+											</td>
+										</tr>
 										{% endfor %}
+										</tbody>
 									</div>
 								</div>
 							</div>
