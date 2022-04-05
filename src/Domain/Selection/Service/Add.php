@@ -2,9 +2,8 @@
 
 namespace App\Domain\Selection\Service;
 
-use App\Helper\Language;
 use App\Helper\Admin;
-use App\Domain\Book\Repository\BookFinderRepository as ReadRepository;
+use App\Domain\Selection\Repository\SelectionFinderRepository as ReadRepository;
 use App\Domain\Selection\Repository\SelectionCreatorRepository as CreateRepository;
 use SlimSession\Helper as Session;
 use App\Helper\File;
@@ -63,6 +62,7 @@ final class Add extends Admin{
         $max_count = isset($data["max_count"]) && $data["max_count"] >= 0 ? $insert["max_count"] = trim($data["max_count"]) : "";
         if($type_id == 2)
             $tags = isset($data["tags"]) ? $insert["tags"] = trim($data["tags"]) : "";
+        $insert["order_num"] = $this->readRepository->getLastOrderNumber()+1;
         $this->createRepository->insert($insert);
     }
 }

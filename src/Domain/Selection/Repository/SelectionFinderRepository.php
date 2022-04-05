@@ -45,4 +45,9 @@ final class SelectionFinderRepository {
             return [];
         }
     }
+
+    public function getLastOrderNumber() :int{
+        $res = $this->queryFactory->newSelect(self::$tableName)->select(["order_num"])->orderDesc("order_num")->limit(1)->execute()->fetchAll("assoc");
+        return $res ? (int)$res["order_num"]: 0;
+    }
 }
