@@ -41,6 +41,7 @@ final class Add extends Admin{
         $this->readRepository = $readRepository;
         $this->createRepository = $createRepository;
         $this->file = $file;
+        $this->readRepository->tableName = $readRepository->tableName.$session->get("admin")["organization_bin"];
         $this->createRepository->tableName = $this->createRepository->tableName.$session->get("admin")["organization_bin"];
     }
 
