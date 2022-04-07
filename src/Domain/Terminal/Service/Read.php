@@ -64,6 +64,7 @@ final class Read extends Admin{
             }
         }
         $array = array(
+            "bin" => $bin,
             "title" => $orgInfo["name"],
             "selection" => $selections
         );
