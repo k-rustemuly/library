@@ -14,11 +14,12 @@
         <div id='viewer' style="position: relative; overflow: hidden;"></div>
     </body>
     <script>
-        WebViewer({
+        var d = new WebViewer({
             path: '/assets/js/lib', // path to the PDF.js Express'lib' folder on your server
             licenseKey: 'eIxUH92VbxnbChA105KP',
             initialDoc: '{{file}}',
         }, document.getElementById('viewer'));
+        d.setFitMode(instance.FitMode.FitWidth);
     </script>
 
 </html>
