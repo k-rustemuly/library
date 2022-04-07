@@ -91,7 +91,7 @@
 				<div class="modal-body scroll-y mx-5 mx-xl-18 pt-0 pb-15">
 					<div class="text-center mb-13"  id="modal_content">
 						<h1 class="mb-3" id="book_name"></h1>
-						<div class="bgi-position-center bgi-size-cover card-rounded w-250px h-250px" id="qrcode"></div>
+						<div class="bgi-position-center bgi-size-cover card-rounded w-250px h-250px" id="qrcode" style="margin: auto;"></div>
 						<!-- <h1 class="mb-3"></h1>
 						<div class="text-muted fw-bold fs-5"></div>
 						<div class="bgi-position-center bgi-size-cover card-rounded w-250px h-250px" style="background-image:url('');margin: auto;"></div> -->
@@ -110,8 +110,8 @@
 	<script>
 	var qrcode = new QRCode(document.getElementById("qrcode"), {
 					text: "test",
-					width: 128,
-					height: 128,
+					width: 250,
+					height: 250,
 					colorDark : "#000000",
 					colorLight : "#ffffff",
 					correctLevel : QRCode.CorrectLevel.H
