@@ -51,7 +51,6 @@ final class Read extends Admin{
             if($selection["type_id"] == 1) {
                 $limit = (int)$selection["max_count"];
                 $books = $this->libraryFinder->getAllByView($limit);
-                $selections[$s]["books"] = $books;
                 $bookList = array();
                 for($i = 0; $i < count($books); $i=$i+6) {
                     $arr = array();

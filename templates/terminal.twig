@@ -19,7 +19,6 @@
 					<div class="post d-flex flex-column-fluid" id="kt_post">
 						<div id="kt_content_container" class="container-xxl">
 							<div class="row gy-5 g-xl-10">
-							{{ selection | json_encode(constant('JSON_PRETTY_PRINT')) }}
 								{% for sel in selection %}
 								<div class="col-xl-12 mb-12 mb-xl-12">
 									<div class="card card-flush h-lg-100">
@@ -46,7 +45,7 @@
 																	</a>
 																	<div class="mt-5">
 																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">{{b.name}}</a>
-																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">{{b.description}}</div>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">{{b.description|slice(0, 84)}}</div>
 																	</div>
 																</div>
 															</div>
