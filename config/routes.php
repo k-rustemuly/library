@@ -34,7 +34,7 @@ return function (App $app) {
 
                 $app->group('/terminal', function (RouteCollectorProxy $app) { 
 
-                    $app->get('', \App\Action\Terminal\ReadACtion::class);
+                    $app->get('', \App\Action\Terminal\ReadAction::class);
 
                 });
 
