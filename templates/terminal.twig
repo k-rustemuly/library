@@ -36,7 +36,8 @@
 															{% for b in l %}
 															<div class="col-md-2">
 																<div class="card-xl-stretch me-md-3">
-																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view" data-isbn="{{b.isbn}}">
+																{# data-bs-toggle="modal" data-bs-target="#book_view" #}
+																	<a class="d-block overlay quick-view" data-fslightbox="lightbox-hot-sales" href="#" data-isbn="{{b.isbn}}" data-name="{{b.name}}">
 																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" 
 																		style="background-image:url('{{b.image}}')"></div>
 																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -107,6 +108,9 @@
 		{{ assets({files: ['assets/js/scripts.bundle.js'],  name: 'scripts.bundle.js'}) }}
 		{{ assets({files: ['assets/js/widgets.bundle.js'],  name: 'widgets.bundle.js'}) }}
 	<script>
+		$( ".quick-view" ).click(function() {
+			alert($( this ).data("isbn"));
+		});
 		var target = document.querySelector("#modal_content");
 		{# var blockUI = new KTBlockUI(target);
 		blockUI.block(); #}
