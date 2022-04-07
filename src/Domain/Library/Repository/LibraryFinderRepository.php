@@ -68,7 +68,7 @@ final class LibraryFinderRepository {
      */
     public function findByIsbn(string $isbn ): array{
         $query = $this->queryFactory->newSelect(["l" => $this->tableName]);
-        $query->select(["b.name", "l.pdf"])
+        $query->select(["l.id", "b.name", "l.pdf"])
         ->innerJoin(["b" => BookFinderRepository::$tableName], ["b.isbn = l.isbn"])
         ->where(["l.isbn" => $isbn]);
         try{
