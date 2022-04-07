@@ -57,7 +57,7 @@ final class SelectionFinderRepository {
      */
     public function getAll(string $lang): array{
         $query = $this->queryFactory->newSelect(["s" => $this->tableName]);
-        $query->select(["s.name_".$lang." as name", "s.description_".$lang." as description", "s.max_count", "s.isbns", "s.tags"])
+        $query->select(["s.name_".$lang." as name", "s.description_".$lang." as description", "s.max_count", "s.isbns", "s.tags", "s.type_id"])
         ->where(["s.is_active" => 1])
         ->orderAsc("s.order_num");
         try{

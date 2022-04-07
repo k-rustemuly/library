@@ -48,7 +48,6 @@ final class Read extends Admin{
         $selections = $this->selectionFinder->getAll($lang);
 
         foreach($selections as $s => $selection) {
-            $selections[$s]["yrdy"] = "sdfs856";
             if($selection["type_id"] == 1) {
                 $limit = (int)$selection["max_count"];
                 $books = $this->libraryFinder->getAllByView($limit);
