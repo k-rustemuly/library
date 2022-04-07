@@ -30,6 +30,16 @@ return function (App $app) {
         '/{lang:(?:kk|ru)}',
         function (RouteCollectorProxy $app) {
 
+            $app->group('/{bin:[0-9]+}', function (RouteCollectorProxy $app) {
+
+                $app->group('/terminal', function (RouteCollectorProxy $app) { 
+
+                    $app->get('', \App\Action\Terminal\ReadACtion::class);
+
+                });
+
+            });
+
             $app->get('', \App\Action\Main\ReadAction::class)->setName("main-page");
 
             $app->group('/panel', function (RouteCollectorProxy $app) {

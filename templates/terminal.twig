@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>{{ title }}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+	{{ assets({files: ['assets/plugins/custom/datatables/datatables.bundle.css'],  name: 'datatables.bundle.css'}) }}
+	{{ assets({files: ['assets/plugins/custom/vis-timeline/vis-timeline.bundle.css'],  name: 'vis-timeline.bundle.css'}) }}
+	{{ assets({files: ['assets/plugins/global/plugins.bundle.css'],  name: 'plugins.bundle.css'}) }}
+	{{ assets({files: ['assets/css/style.bundle.css'],  name: 'style.bundle.css'}) }}
+</head>
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed">
+	<div class="d-flex flex-column flex-root">
+		<div class="page d-flex flex-row flex-column-fluid">
+			<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+				<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+					<div class="post d-flex flex-column-fluid" id="kt_post">
+						<div id="kt_content_container" class="container-xxl">
+							<div class="row gy-5 g-xl-10">
+								<div class="col-xl-12 mb-12 mb-xl-12">
+									<div class="card card-flush h-lg-100">
+										<div class="card-header pt-5">
+											<h3 class="card-title align-items-start flex-column">
+												<span class="card-label fw-bolder text-dark">Көп оқылым</span>
+											</h3>
+										</div>
+										<div class="card-body pt-9 pb-5">
+											<div class="tns">
+												<div data-tns="true" data-tns-nav-position="bottom"
+													data-tns-controls="false">
+													<div class="mb-3">
+														<div class="row g-10">
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/d4038bc5e51f93f81522e7cf84a2b456.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/565feaccb657f101fd5576a03fe6efff.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/5958d51307214274c47cd5d1c4f4324e.jpg')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/a570abe64c3e676dbd473fd22d2dcbc3.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/ed8d97f1a269093b29d3636587521aa1.jpg')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/4e914ecc39bb4463feeeef4ee77c7a27.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="mb-3">
+														<div class="row g-10">
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/d4038bc5e51f93f81522e7cf84a2b456.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/565feaccb657f101fd5576a03fe6efff.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/5958d51307214274c47cd5d1c4f4324e.jpg')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/a570abe64c3e676dbd473fd22d2dcbc3.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/ed8d97f1a269093b29d3636587521aa1.jpg')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/4e914ecc39bb4463feeeef4ee77c7a27.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="mb-3">
+														<div class="row g-10">
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/d4038bc5e51f93f81522e7cf84a2b456.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/565feaccb657f101fd5576a03fe6efff.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/5958d51307214274c47cd5d1c4f4324e.jpg')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/a570abe64c3e676dbd473fd22d2dcbc3.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/ed8d97f1a269093b29d3636587521aa1.jpg')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/4e914ecc39bb4463feeeef4ee77c7a27.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="mb-3">
+														<div class="row g-10">
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/d4038bc5e51f93f81522e7cf84a2b456.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/565feaccb657f101fd5576a03fe6efff.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/5958d51307214274c47cd5d1c4f4324e.jpg')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/a570abe64c3e676dbd473fd22d2dcbc3.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/ed8d97f1a269093b29d3636587521aa1.jpg')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="card-xl-stretch me-md-3">
+																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view">
+																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('https://cdn.kitap.kz/storage/book/4e914ecc39bb4463feeeef4ee77c7a27.png')"></div>
+																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+																			<i class="bi bi-eye-fill fs-2x text-white"></i>
+																		</div>
+																	</a>
+																	<div class="mt-5">
+																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">Мүнхаузеннің басынан кешкен хикаясы</a>
+																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">Эрих Рас,Отбасы хрестоматиясы</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+		<span class="svg-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+				<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+				<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black" />
+			</svg>
+		</span>
+	</div>
+	<div class="modal fade" id="book_view" tabindex="-1" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog mw-650px">
+			<div class="modal-content">
+				<div class="modal-header pb-0 border-0 justify-content-end">
+					<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+						<span class="svg-icon svg-icon-1">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black"></rect>
+								<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black"></rect>
+							</svg>
+						</span>
+					</div>
+				</div>
+				<div class="modal-body scroll-y mx-5 mx-xl-18 pt-0 pb-15">
+					<div class="text-center mb-13"  id="modal_content">
+						<h1 class="mb-3">Мүнхаузеннің басынан кешкен хикаясы</h1>
+						<div class="text-muted fw-bold fs-5">Эрих Рас,Отбасы хрестоматиясы</div>
+						<div class="bgi-position-center bgi-size-cover card-rounded w-250px h-250px" style="background-image:url('/qr.png');margin: auto;"></div>
+						<!-- <h1 class="mb-3"></h1>
+						<div class="text-muted fw-bold fs-5"></div>
+						<div class="bgi-position-center bgi-size-cover card-rounded w-250px h-250px" style="background-image:url('');margin: auto;"></div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var hostUrl = "assets/";
+	</script>
+		{{ assets({files: ['assets/plugins/global/plugins.bundle.js'],  name: 'plugins.bundle.js'}) }}
+		{{ assets({files: ['assets/js/scripts.bundle.js'],  name: 'scripts.bundle.js'}) }}
+		{{ assets({files: ['assets/js/widgets.bundle.js'],  name: 'widgets.bundle.js'}) }}
+	<script>
+		var target = document.querySelector("#modal_content");
+		{# var blockUI = new KTBlockUI(target);
+		blockUI.block(); #}
+	</script>
+</body>
+</html>
