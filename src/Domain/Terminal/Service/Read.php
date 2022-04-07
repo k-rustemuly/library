@@ -54,7 +54,8 @@ final class Read extends Admin{
                 $bookList = array();
                 for($i = 0; $i < count($books); $i=$i+6) {
                     $arr = array();
-                    for($j=$i; $j< count($books); $j++) {
+                    $c = $i+6 > count($books) ? count($books) : $i+6;
+                    for($j=$i; $j < $c; $j++) {
                         $arr[] = $books[$j];
                     }
                     $bookList[] = $arr;
