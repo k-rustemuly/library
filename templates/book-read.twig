@@ -20,15 +20,8 @@
             initialDoc: '{{file}}',
         }, document.getElementById('viewer'))
         .then(instance => {
-            instance.setFitMode(instance.FitMode.FitWidth)
-            // Create a new instance of the utility SDK
-            const utils = new ExpressUtils();
-
-            const { documentViewer, annotationManager } = instance.Core;
-
-            document.getElementById('download-button').onclick = () => {
-                alert("Error");
-            }
+            instance.setFitMode(instance.FitMode.FitWidth);
+            instance.UI.disableFeatures([instance.UI.Feature.Print]);
         });
     </script>
 
