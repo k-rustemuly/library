@@ -108,11 +108,20 @@
 		{{ assets({files: ['assets/js/widgets.bundle.js'],  name: 'widgets.bundle.js'}) }}
 		{{ assets({files: ['assets/js/qrcode.js'],  name: 'qrcode.js'}) }}
 	<script>
+	var qrcode = new QRCode(document.getElementById("qrcode"), {
+					text: "test",
+					width: 128,
+					height: 128,
+					colorDark : "#000000",
+					colorLight : "#ffffff",
+					correctLevel : QRCode.CorrectLevel.H
+				});
 		$( ".quick-view" ).click(function() {
 			var isbn = $( this ).data("isbn");
 			var name = $( this ).data("name");
 			$("#book_name").text(name);
-			new QRCode(document.getElementById("qrcode"), window.location.href+"/"+isbn);
+			qrcode.clear(); 
+			qrcode.makeCode(window.location.href+"/"+isbn);
 			$("#book_view").modal("show");
 		});
 		var target = document.querySelector("#modal_content");
