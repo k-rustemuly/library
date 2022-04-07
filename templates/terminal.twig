@@ -37,7 +37,7 @@
 															<div class="col-md-2">
 																<div class="card-xl-stretch me-md-3">
 																{# data-bs-toggle="modal" data-bs-target="#book_view" #}
-																	<a class="d-block overlay quick-view" data-fslightbox="lightbox-hot-sales" href="#" data-isbn="{{b.isbn}}" data-name="{{b.name}}">
+																	<a class="d-block overlay quick-view" data-fslightbox="lightbox-hot-sales" data-isbn="{{b.isbn}}" data-name="{{b.name}}">
 																		<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" 
 																		style="background-image:url('{{b.image}}')"></div>
 																		<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
@@ -45,7 +45,7 @@
 																		</div>
 																	</a>
 																	<div class="mt-5">
-																		<a href="#" class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">{{b.name}}</a>
+																		<a class="fs-6 text-dark fw-bolder text-hover-primary text-dark lh-base">{{b.name}}</a>
 																		<div class="fw-bold fs-7 text-gray-600 text-dark mt-3">{{b.description|slice(0, 84)}}</div>
 																	</div>
 																</div>
