@@ -33,7 +33,7 @@
 													{% for l in sel.list %}
 													<div class="mb-3">
 														<div class="row g-10">
-															{% for b in l if b.isbn != null %}
+															{% for b in l %}
 															<div class="col-md-2">
 																<div class="card-xl-stretch me-md-3">
 																	<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="#" data-bs-toggle="modal" data-bs-target="#book_view" data-isbn="{{b.isbn}}">
