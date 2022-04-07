@@ -44,4 +44,23 @@ final class LibraryFinderRepository {
             return [];
         }
     }
+
+    
+
+    /**
+     *
+     * @return array<mixed> The list view data
+     */
+    public function getAllByView(int $limit = 0): array{
+        $query = $this->queryFactory->newSelect(["l" => $this->tableName]);
+        $query->select(["b.image", "b.name", "b.isbn", "b.description", "b.published_year"])
+        ->innerJoin(["b" => BookFinderRepository::$tableName], ["b.isbn = l.isbn"])
+        ->orderDesc("l.view_count")
+        ->limit($limit);
+        try{
+            return $query->execute()->fetchAll("assoc") ?: [];
+        }catch(PDOException $e){
+            return [];
+        }
+    }
 }

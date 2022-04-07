@@ -50,4 +50,20 @@ final class SelectionFinderRepository {
         $res = $this->queryFactory->newSelect($this->tableName)->select(["order_num"])->orderDesc("order_num")->limit(1)->execute()->fetch("assoc");
         return $res ? (int)$res["order_num"]: 0;
     }
+
+    /**
+     *
+     * @return array<mixed> The list view data
+     */
+    public function getAll(string $lang): array{
+        $query = $this->queryFactory->newSelect(["s" => $this->tableName]);
+        $query->select(["s.name_".$lang." as name", "s.description_".$lang." as description", "s.max_count", "s.isbns", "s.tags"])
+        ->where(["s.is_active" => 1])
+        ->orderAsc("s.order_num");
+        try{
+            return $query->execute()->fetchAll("assoc") ?: [];
+        }catch(PDOException $e){
+            return [];
+        }
+    }
 }
