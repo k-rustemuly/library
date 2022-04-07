@@ -90,8 +90,7 @@
 				</div>
 				<div class="modal-body scroll-y mx-5 mx-xl-18 pt-0 pb-15">
 					<div class="text-center mb-13"  id="modal_content">
-						<h1 class="mb-3">Мүнхаузеннің басынан кешкен хикаясы</h1>
-						<div class="text-muted fw-bold fs-5">Эрих Рас,Отбасы хрестоматиясы</div>
+						<h1 class="mb-3" id="book_name"></h1>
 						<div class="bgi-position-center bgi-size-cover card-rounded w-250px h-250px" style="background-image:url('/qr.png');margin: auto;"></div>
 						<!-- <h1 class="mb-3"></h1>
 						<div class="text-muted fw-bold fs-5"></div>
@@ -109,7 +108,10 @@
 		{{ assets({files: ['assets/js/widgets.bundle.js'],  name: 'widgets.bundle.js'}) }}
 	<script>
 		$( ".quick-view" ).click(function() {
-			alert($( this ).data("isbn"));
+			var isbn = $( this ).data("isbn");
+			var name = $( this ).data("name");
+			$("#book_name").text(name);
+			$("#book_view").modal("show");
 		});
 		var target = document.querySelector("#modal_content");
 		{# var blockUI = new KTBlockUI(target);
