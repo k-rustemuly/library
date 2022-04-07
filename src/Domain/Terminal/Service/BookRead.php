@@ -47,7 +47,8 @@ final class BookRead extends Admin{
         $this->libraryUpdaterRepository->tableName.=$bin;
         $book = $this->libraryFinder->findByIsbn($isbn);
         $id = (int) $book["id"];
-        $this->libraryUpdaterRepository->updateView($id);
+        $count = $book["count"];
+        $this->libraryUpdaterRepository->updateView($id, $count);
         if(empty($book)) return array();
         $name = $book["name"];
         $file = $book["pdf"];

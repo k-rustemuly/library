@@ -37,9 +37,9 @@ final class LibraryUpdaterRepository {
      *
      * @return void
      */
-    public function updateView(int $id): int{
+    public function updateView(int $id, string $count): int{
         try {
-            return (int) $this->queryFactory->newUpdate($this->tableName, ["view_count=+" => 1])->where(array("id" => $id))->execute()->rowCount();
+            return (int) $this->queryFactory->newUpdate($this->tableName, ["view_count" => $count])->where(array("id" => $id))->execute()->rowCount();
         } catch(PDOException $e) {
             return 0;
         }
