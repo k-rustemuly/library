@@ -21,7 +21,7 @@
         }, document.getElementById('viewer'))
         .then(instance => {
             instance.setFitMode(instance.FitMode.FitWidth);
-            instance.UI.disableFeatures([instance.UI.Feature.Print]);
+            instance.UI.disableFeatures([instance.UI.Feature.Print, instance.UI.Feature.Download]);
         });
     </script>
 
