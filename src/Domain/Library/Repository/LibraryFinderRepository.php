@@ -45,8 +45,6 @@ final class LibraryFinderRepository {
         }
     }
 
-    
-
     /**
      *
      * @return array<mixed> The list view data
@@ -59,6 +57,22 @@ final class LibraryFinderRepository {
         ->limit($limit);
         try{
             return $query->execute()->fetchAll("assoc") ?: [];
+        }catch(PDOException $e){
+            return [];
+        }
+    }
+
+    /**
+     *
+     * @return array<mixed> The list view data
+     */
+    public function findByIsbn(string $isbn ): array{
+        $query = $this->queryFactory->newSelect(["l" => $this->tableName]);
+        $query->select(["b.name", "l.pdf"])
+        ->innerJoin(["b" => BookFinderRepository::$tableName], ["b.isbn = l.isbn"])
+        ->where(["l.isbn" => $isbn]);
+        try{
+            return $query->execute()->fetch("assoc") ?: [];
         }catch(PDOException $e){
             return [];
         }

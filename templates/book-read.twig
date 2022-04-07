@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+    </head>
+    {{ assets({files: ['assets/js/lib/webviewer.min.js'],  name: 'webviewer.min.js'}) }}
+
+    <body>
+        <div id='viewer' style={{"width":"1024px","height":"600px","margin":"0 auto"}}></div>
+    </body>
+    <script>
+        WebViewer({
+            path: 'assets/js/lib', // path to the PDF.js Express'lib' folder on your server
+            licenseKey: 'eIxUH92VbxnbChA105KP',
+            initialDoc: '{{file}}',
+        }, document.getElementById('viewer'));
+    </script>
+
+</html>

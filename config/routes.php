@@ -36,6 +36,8 @@ return function (App $app) {
 
                     $app->get('', \App\Action\Terminal\ReadAction::class)->setName("terminal");
 
+                    $app->get('/{isbn:[0-9]+}', \App\Action\Terminal\BookReadAction::class)->setName("book-read");
+
                 });
 
             });
