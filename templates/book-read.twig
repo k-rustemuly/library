@@ -29,6 +29,8 @@
     var url = '{{file}}';
 
 
+  //
+  pdfjsLib.GlobalWorkerOptions.workerSrc = '/assets/js/pdfjs/build/pdf.worker.js';
 // Asynchronous download of PDF
 var loadingTask = pdfjsLib.getDocument(url);
 loadingTask.promise.then(function(pdf) {
