@@ -10,8 +10,8 @@
     </style>
     <script src='/assets/js/lib/webviewer.min.js'></script>
     <body>
-        <div id='viewer' style="position: relative; overflow: hidden;"></div>
-        <canvas id="the-canvas"></canvas>
+        {# <div id='viewer' style="position: relative; overflow: hidden;"></div> #}
+        <canvas id="viewer"></canvas>
     </body>
     {# <script>
         var d = new WebViewer({
@@ -43,7 +43,7 @@ loadingTask.promise.then(function(pdf) {
     var viewport = page.getViewport({scale: scale});
 
     // Prepare canvas using PDF page dimensions
-    var canvas = document.getElementById('the-canvas');
+    var canvas = document.getElementById('viewer');
     var context = canvas.getContext('2d');
     canvas.height = viewport.height;
     canvas.width = viewport.width;
