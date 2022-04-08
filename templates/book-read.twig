@@ -28,8 +28,6 @@
     <script>
     var url = '{{file}}';
 
-// Loaded via <script> tag, create shortcut to access PDF.js exports.
-var pdfjsLib = window['/assets/js/pdfjs/build/pdf'];
 
 // Asynchronous download of PDF
 var loadingTask = pdfjsLib.getDocument(url);
