@@ -77,4 +77,21 @@ final class LibraryFinderRepository {
             return [];
         }
     }
+
+    /**
+     *
+     * @return array<mixed> The list view data
+     */
+    public function getAllByTags(int $limit = 0, array $tags = array()): array{
+        $query = $this->queryFactory->newSelect(["l" => $this->tableName]);
+        $query->select(["b.image", "b.name", "b.isbn", "b.description", "b.published_year"])
+        ->innerJoin(["b" => BookFinderRepository::$tableName], ["b.isbn = l.isbn"])
+        ->where(["OR" => $tags])
+        ->limit($limit);
+        try{
+            return $query->execute()->fetchAll("assoc") ?: [];
+        }catch(PDOException $e){
+            return [];
+        }
+    }
 }

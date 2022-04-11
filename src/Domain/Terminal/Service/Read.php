@@ -61,6 +61,20 @@ final class Read extends Admin{
                     $bookList[] = $arr;
                 }
                 $selections[$s]["list"] = $bookList;
+            } else if ($selection["type_id"] == 2) {
+                $tags = (int)$selection["tags"];
+                $limit = (int)$selection["max_count"];
+                $books = $this->libraryFinder->getAllByTags($limit, $this->parseAndGetTags($tags));
+                $bookList = array();
+                for($i = 0; $i < count($books); $i=$i+6) {
+                    $arr = array();
+                    $c = $i+6 > count($books) ? count($books) : $i+6;
+                    for($j=$i; $j < $c; $j++) {
+                        $arr[] = $books[$j];
+                    }
+                    $bookList[] = $arr;
+                }
+                $selections[$s]["list"] = $bookList;
             }
         }
         $array = array(
@@ -69,5 +83,15 @@ final class Read extends Admin{
             "selection" => $selections
         );
         return $array;
+    }
+
+    private function parseAndGetTags(string $tags) :array{
+        $arra = array();
+        $ex = explode("@", $tags);
+        foreach ($ex as $a) {
+            if($a > 0)
+                $arra[] = array("l.tags" => "@".$a."@");
+        }
+        return $arra;
     }
 }
