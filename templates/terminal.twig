@@ -27,10 +27,11 @@
 												<span class="card-label fw-bolder text-dark">{{ sel.name }}</span>
 											</h3>
 										</div>
+										{{ sel.list|join(', ') }}
 										<div class="card-body pt-9 pb-5">
 											<div class="tns">
 												<div data-tns="true" data-tns-nav-position="bottom" data-tns-controls="false">
-												{{ sel.list|join(', ') }}
+												
 													{% for l in sel.list %}
 													<div class="mb-3">
 														<div class="row g-10">
