@@ -65,16 +65,17 @@ final class Read extends Admin{
                 $tags = (int)$selection["tags"];
                 $limit = (int)$selection["max_count"];
                 $books = $this->libraryFinder->getAllByTags($limit, $this->parseAndGetTags($tags));
-                $bookList = array();
-                for($i = 0; $i < count($books); $i=$i+6) {
-                    $arr = array();
-                    $c = $i+6 > count($books) ? count($books) : $i+6;
-                    for($j=$i; $j < $c; $j++) {
-                        $arr[] = $books[$j];
-                    }
-                    $bookList[] = $arr;
-                }
-                $selections[$s]["list"] = $bookList;
+                $selections[$s]["list"] = $books;
+                // $bookList = array();
+                // for($i = 0; $i < count($books); $i=$i+6) {
+                //     $arr = array();
+                //     $c = $i+6 > count($books) ? count($books) : $i+6;
+                //     for($j=$i; $j < $c; $j++) {
+                //         $arr[] = $books[$j];
+                //     }
+                //     $bookList[] = $arr;
+                // }
+                // $selections[$s]["list"] = $bookList;
             }
         }
         $array = array(
