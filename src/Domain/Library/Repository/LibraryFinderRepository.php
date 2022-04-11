@@ -89,7 +89,7 @@ final class LibraryFinderRepository {
         ->where([$tags[0], "OR" => array_slice($tags, 1)])
         ->limit($limit);
         try{
-            return array((string) $query);
+            //return array((string) $query);
             return $query->execute()->fetchAll("assoc") ?: [];
         }catch(PDOException $e){
             return [];
