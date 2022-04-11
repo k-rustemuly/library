@@ -62,10 +62,10 @@ final class Read extends Admin{
                 }
                 $selections[$s]["list"] = $bookList;
             } else if ($selection["type_id"] == 2) {
-                $tags = (int)$selection["tags"];
+                $tags = $selection["tags"];
                 $limit = (int)$selection["max_count"];
                 $books = $this->libraryFinder->getAllByTags($limit, $this->parseAndGetTags($tags));
-                $selections[$s]["list"] = $tags;
+                $selections[$s]["list"] = $books;
                 //$selections[$s]["list"] = $books;
                 // $bookList = array();
                 // for($i = 0; $i < count($books); $i=$i+6) {
