@@ -92,7 +92,7 @@ final class Read extends Admin{
         $ex = explode("@", $tags);
         foreach ($ex as $a) {
             if($a > 0)
-                $arra[] = array("l.tags" => "@".$a."@");
+                $arra[] = array("l.tags LIKE" => "%@".$a."@%");
         }
         return $arra;
     }
