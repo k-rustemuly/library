@@ -48,6 +48,7 @@ final class Read extends Admin{
         $selections = $this->selectionFinder->getAll($lang);
 
         foreach($selections as $s => $selection) {
+            $selections[$s]["d"] = array("a");
             if($selection["type_id"] == 1) {
                 $limit = (int)$selection["max_count"];
                 $books = $this->libraryFinder->getAllByView($limit);
@@ -65,6 +66,7 @@ final class Read extends Admin{
                 $tags = $selection["tags"];
                 $limit = (int)$selection["max_count"];
                 $books = $this->libraryFinder->getAllByTags($limit, $this->parseAndGetTags($tags));
+                $selections[$s]["d"] = $this->parseAndGetTags($tags);
                 $bookList = array();
                 for($i = 0; $i < count($books); $i=$i+6) {
                     $arr = array();
