@@ -86,7 +86,7 @@ final class LibraryFinderRepository {
         $query = $this->queryFactory->newSelect(["l" => $this->tableName]);
         $query->select(["b.image", "b.name", "b.isbn", "b.description", "b.published_year"])
         ->innerJoin(["b" => BookFinderRepository::$tableName], ["b.isbn = l.isbn"])
-        ->andWhere([$tags[0], "OR" => array_slice($tags, 1)])
+        ->where([$tags[0], "OR" => array_slice($tags, 1)])
         ->limit($limit);
         try{
             return array((string) $query);
