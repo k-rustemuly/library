@@ -23,7 +23,7 @@ $("#kt_modal_add").on('shown.bs.modal', function (e) {
             var isbn = $('#isbn').val();
             $.get(bookSearchUrl, {isbn: isbn}, function (data) {
                 var d = data.data;
-                $('#abImage').attr( "src" ).val(d.image);
+                $('#abImage').attr( "src", d.image );
                 $('#abName').text(d.name);
                 $('#abYear').text(d.published_year);
             });
