@@ -62,7 +62,7 @@ function formSubmit() {
     document.getElementById('authors_output').value = '@'+Array.from(options).map(({ value }) => value).join('@')+'@';
     return true;
 }
-$(".book-edit").on('click', function (e) {
+$("button").on('click', ".book-edit", function (e) {
     var id = $(this).attr('id');
     $("i", this).removeClass("la-pencil-alt");
     $("i", this).addClass('la-spinner');
