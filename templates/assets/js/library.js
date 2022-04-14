@@ -19,9 +19,16 @@ $("#kt_modal_add").on('shown.bs.modal', function (e) {
     });
     $( "#isbn" ).on('input', function() {
         if($('#isbn').val().length == 12) {
-            console.log("12");
+            var isbn = $('#isbn').val();
+            $.get(bookSearchUrl, {isbn: isbn}, function (data) {
+                var d = data.data;
+                $('#abImage').attr( "src" ).val(d.image);
+                $('#abName').text(d.name);
+                $('#abYear').text(d.published_year);
+            });
+            $("#aboutBook").show();
         }else {
-            console.log("not");
+            $("#aboutBook").hide();
         }
     }); 
 });

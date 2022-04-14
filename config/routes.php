@@ -70,6 +70,8 @@ return function (App $app) {
 
                         $app->post('', \App\Action\Book\AddAction::class)->setName("panel-book-add");
 
+                        $app->get('/search', \App\Action\Book\SearchAction::class)->setName("panel-book-search");
+
                     });
 
                     $app->group('/author', function (RouteCollectorProxy $app) {

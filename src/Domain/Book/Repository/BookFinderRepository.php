@@ -57,4 +57,15 @@ final class BookFinderRepository {
         $query = $this->queryFactory->newSelect(self::$tableName)->select(["*"])->where(["isbn" => $isbn]);
         return $query->execute()->fetch("assoc") ? true : false;
     }
+
+    /**
+     *
+     * @return array<mixed> The list view data
+     */
+    public function findByIsbn($isbn): array{
+        $query = $this->queryFactory->newSelect(["b" => self::$tableName]);
+        $query->select(["b.id", "b.isbn", "b.image", "b.name", "b.published_year", "b.page_count"])
+        ->where(["b.isbn" => $isbn]);
+        return $query->execute()->fetch("assoc") ?: [];
+    }
 }

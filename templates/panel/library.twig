@@ -101,8 +101,21 @@
 											<div class="row mb-7">
 												<div class="col-md-6 fv-row">
 													<label class="required fw-bold fs-6 mb-2">ISBN</label>
-													<input type="text" name="isbn" class="form-control  mb-3 mb-lg-0" placeholder="ISBN"  id="isbn" minlength="13" maxlength="13" required>
+													<input type="text" name="isbn" class="form-control  mb-3 mb-lg-0" placeholder="ISBN"  id="isbn" minlength="13" maxlength="13" required autocomplete="off">
 													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+												<div class="col-md-6 fv-row" id="aboutBook">
+													<div class="d-flex align-items-center">
+														<div class="me-5 position-relative">
+															<div class="symbol symbol-100px">
+																<img alt="Pic" src="" id="abImage">
+															</div>
+														</div>
+														<div class="d-flex flex-column justify-content-center">
+															<a href="" class="mb-1 text-gray-900 fs-6 fw-bolder text-hover-primary" id="abName">Туризм тарихы</a>
+															<div class="fw-bold fs-6 text-gray-400" id="abYear">2011</div>
+														</div>
+													</div>
 												</div>
 												<div class="col-md-6 fv-row">
 													<label class="required fw-bold fs-6 mb-2">{{ count }}</label>
@@ -150,6 +163,7 @@
 		{{ assets({files: ['assets/plugins/custom/datatables/datatables.bundle.js'],  name: 'datatables.bundle.js'}) }}
 		<script>
 			var tagListUrl = '{{ url_for('panel-tag-list', { 'lang': lang }) }}';
+			var bookSearchUrl = '{{ url_for('panel-book-search', { 'lang': lang }) }}'
 		</script>
 		{{ assets({files: ['assets/js/library.js'],  name: 'library.js'}) }}
 	</body>
