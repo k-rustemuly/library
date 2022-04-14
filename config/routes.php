@@ -70,7 +70,7 @@ return function (App $app) {
 
                         $app->post('', \App\Action\Book\AddAction::class)->setName("panel-book-add");
 
-                        $app->post('/edit', \App\Action\Book\AddAction::class)->setName("panel-book-edit");
+                        $app->post('/edit', \App\Action\Book\EditAction::class)->setName("panel-book-edit");
 
                         $app->get('/search', \App\Action\Book\SearchAction::class)->setName("panel-book-search");
 
