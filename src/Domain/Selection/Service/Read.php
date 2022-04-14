@@ -80,8 +80,56 @@ final class Read extends Admin{
             "type" => $l->getField("type"),
             "max_book_show" => $l->getField("max_book_show"),
             "tags" => $l->getField("tags"),
-            "list" => $this->readRepository->getAllByLang($lang)
+            "list" => $this->getList($lang)
         );
         return array_merge($array, $base);
+    }
+
+    /**
+     * Get list of books on library
+     * 
+     * @param string $lang the language
+     * 
+     * @return array<mixed> The list
+     */
+    private function getList(string $lang) :array{
+        $list = $this->readRepository->getAllByLang($lang);
+        foreach($list as $i => $item) {
+            $tags = $item["tags"];
+            $list[$i]["tags"] = $this->parseTags($tags);
+        }
+        $tag_list = $this->tagFinderRepository->getByIds(array_keys($this->tags));
+        $tags = array();
+        foreach ($tag_list as $tag) {
+            $tags[$tag["id"]] = $tag["name"];
+        }
+        foreach ($list as $i => $item){
+            $string = "";
+            $ids = $item["tags"];
+            foreach ($ids as $id) {
+                $string.=$tags[$id].", ";
+            }
+            $list[$i]["tags"] = substr($string, 0, -2);
+        }
+        return $list;
+    }
+
+    /**
+     * parse ids and set to array
+     * 
+     * @param string $ids
+     */
+    private function parseTags(string $ids) {
+        $array = array();
+        if($ids == null) return $array;
+        $ids = explode('@', $ids);
+        foreach ($ids as $id) {
+            if($id > 0) {
+                $array[] = $id;
+                if(!isset($this->tags[$id]))
+                $this->tags[$id] = $id;
+            }
+        }
+        return $array;
     }
 }
