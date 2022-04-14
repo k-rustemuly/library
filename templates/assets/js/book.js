@@ -66,7 +66,14 @@ $(".book-edit").on('click', function (e) {
     var id = $(this).attr('id');
     $("i", this).removeClass("la-pencil-alt");
     $("i", this).addClass('la-spinner');
-    $("#book_edit").modal('show');
+    $.get(bookSearchUrl, {id: id}, function (data) {
+        var d = data.data;
+        $("#book_edit").modal('show');
+        $("i", this).removeClass("la-spinner");
+        $("i", this).addClass('la-pencil-alt');
+        
+    });
+    
     //alert(id);
 });
 //<
