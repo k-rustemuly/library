@@ -66,7 +66,7 @@ $(".book-edit").on('click', function (e) {
     var id = $(this).attr('id');
     $("i", this).removeClass("la-pencil-alt");
     $("i", this).addClass('la-spinner');
-    var i = $("i", this);
+    var f = $("i", this);
     var loaded = 0;
     $.get(languageUrl, function (data) {
         var languages = data.data;
@@ -76,10 +76,10 @@ $(".book-edit").on('click', function (e) {
         }
         $('#editLanguageCode').select2();
         loaded++;
-        if(loaded == 4) {            
-            i.removeClass("la-spinner");
-            i.addClass('la-pencil-alt');
+        if(loaded == 4) {
             loadData(id);
+            f.removeClass("la-spinner");
+            f.addClass('la-pencil-alt');
         }
 
     });
@@ -91,10 +91,10 @@ $(".book-edit").on('click', function (e) {
         }
         $('#editPublisher').select2();
         loaded++;
-        if(loaded == 4) {            
-            i.removeClass("la-spinner");
-            i.addClass('la-pencil-alt');
+        if(loaded == 4) {
             loadData(id);
+            f.removeClass("la-spinner");
+            f.addClass('la-pencil-alt');
         }
 
     });
@@ -106,10 +106,10 @@ $(".book-edit").on('click', function (e) {
         }
         $('#editSeries').select2();
         loaded++;
-        if(loaded == 4) {            
-            i.removeClass("la-spinner");
-            i.addClass('la-pencil-alt');
+        if(loaded == 4) {
             loadData(id);
+            f.removeClass("la-spinner");
+            f.addClass('la-pencil-alt');
         }
     });
     $.get(authorList, function (data) {
@@ -120,10 +120,10 @@ $(".book-edit").on('click', function (e) {
         }
         $('#editAuthors').select2();
         loaded++;
-        if(loaded == 4) {            
-            i.removeClass("la-spinner");
-            i.addClass('la-pencil-alt');
+        if(loaded == 4) {
             loadData(id);
+            f.removeClass("la-spinner");
+            f.addClass('la-pencil-alt');
         }
     });
 });
