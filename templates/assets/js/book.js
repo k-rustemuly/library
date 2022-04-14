@@ -106,6 +106,7 @@ $(".book-edit").on('click', function (e) {
         $("#editImage").css("background-image", "url(" + d.image + ")");
         $("#editPageCount").val(d.page_count);
         $('#editPubYear option[value="'+d.published_year+'"]').prop('selected', true);
+        $('#editPubYear').select2();
         $('#editLanguageCode option[value="'+d.language_code+'"]').prop('selected', true);
         $('#editPublisher option[value="'+d.publisher_id+'"]').prop('selected', true);
         $('#editSeries option[value="'+d.publisher_id+'"]').prop('selected', true);
