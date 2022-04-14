@@ -237,7 +237,7 @@
 									</div>
 								</div>
 								<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-									<form id="kt_modal_edit_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="{{ url_for('panel-book-edit', { 'lang': lang }) }}" method="post" enctype="multipart/form-data"  onsubmit="return formSubmit();">
+									<form id="kt_modal_edit_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="{{ url_for('panel-book-edit', { 'lang': lang }) }}" method="post" enctype="multipart/form-data"  onsubmit="return formSubmitEdit();">
 										<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px" style="max-height: 323px;">
 											<div class="row mb-7">
 												<div class="col-md-4 fv-row">
@@ -332,7 +332,7 @@
 															<select id="editAuthors" class="form-select select2-hidden-accessible" data-placeholder="." multiple="multiple" data-control="select2" data-allow-clear="true" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
 																<option>*</option>
 															</select>
-															<input type="hidden" name="author_ids" id="authors_output">
+															<input type="hidden" name="author_ids" id="editAuthors_output">
 														<div class="fv-plugins-message-container invalid-feedback"></div></div>
 													</div>
 											</div>

@@ -47,6 +47,7 @@
 														<th>{{ pdf }}</th>
 														<th>{{ view_count }}</th>
 														<th>{{ count }}</th>
+														<th></th>
 													</tr>
 													</thead>
 													<tbody class="text-gray-600 fw-bold">
@@ -70,6 +71,11 @@
 																<td>{% if row.pdf != null %}<a href="{{ row.pdf }}" class="text-primary" target="_blank">file</a>{% endif %} </td>
 																<td> <span class="text-gray-800 fs-7 fw-normal pt-1">{{ row.view_count }}</span></td>
 																<td>{{ row.count }}</td>
+																<td>
+																	<a id="{{row.id}}" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px library-edit">
+																		<i class="las la-pencil-alt"></i>
+																	</a>
+																</td>
 															</tr>
 														{% endfor %}
 													</tbody>
@@ -153,6 +159,79 @@
 							</div>
 						</div>
 					</div>
+					<div class="modal fade" id="kt_modal_edit" tabindex="-1" style="display: none;" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered mw-650px">
+							<div class="modal-content">
+								<div class="modal-header" id="kt_modal_add_header">
+									<h2 class="fw-bolder">{{ edit }}</h2>
+									<div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
+										<span class="svg-icon svg-icon-1">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black"></rect>
+												<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black"></rect>
+											</svg>
+										</span>
+									</div>
+								</div>
+								<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+									<form id="kt_modal_edit_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="{{ url_for('panel-library-edit', { 'lang': lang }) }}" method="post" enctype="multipart/form-data"  onsubmit="return formSubmitEdit();">
+										<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px" style="max-height: 323px;">
+											<div class="row mb-7">
+												<div class="col-md-6 fv-row">
+													<label class="fw-bold fs-6 mb-2">ISBN</label>
+													<input type="hidden" id="editId">
+													<input type="text" class="form-control  mb-3 mb-lg-0" placeholder="ISBN"  id="editIsbn" autocomplete="off" readonly>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+												<div class="col-md-6 fv-row">
+													<label class="required fw-bold fs-6 mb-2">{{ count }}</label>
+													<input id="editCount" type="number" name="count" class="form-control  mb-3 mb-lg-0" placeholder="{{ count }}" min="0" value="0"required>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+											</div>
+											<div class="col-md-12 fv-row mb-7" id="editAboutBook" style="display: none">
+												<div class="d-flex align-items-center">
+													<div class="me-5 position-relative">
+														<div class="symbol symbol-100px">
+															<img alt="Pic" src="" id="editAbImage">
+														</div>
+													</div>
+													<div class="d-flex flex-column justify-content-center">
+														<a href="" class="mb-1 text-gray-900 fs-6 fw-bolder text-hover-primary" id="editAbName"></a>
+														<div class="fw-bold fs-6 text-gray-400" id="editAbYear"></div>
+													</div>
+												</div>
+											</div>
+											<div class="fv-row mb-7">
+												<label class="d-block fw-bold fs-6 mb-5">{{ pdf }}</label>
+												<input type="file" name="pdf" class="form-control  mb-3 mb-lg-0" placeholder="{{ pdf }}" accept="application/pdf">
+												<div class="form-text">pdf.</div>
+											</div>
+											<div class="fv-row mb-7">
+												<label class="required fw-bold fs-6 mb-2">{{ tags }}</label>
+												<div class="row fv-row fv-plugins-icon-container">
+														<div class="col-12">
+															<select id="editTags" class="form-select select2-hidden-accessible" data-placeholder="." multiple="multiple" data-control="select2" data-allow-clear="true" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
+																<option>*</option>
+															</select>
+															<input type="hidden" name="tag_ids" id="EditTags_output">
+														<div class="fv-plugins-message-container invalid-feedback"></div></div>
+													</div>
+											</div>
+										</div>
+										<div class="text-center pt-15">
+											<button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">{{ cancel }}</button>
+											<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+												<span class="indicator-label">{{ add }}</span>
+												<span class="indicator-progress">{{ please_wait }}
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
 					{% include 'panel/footer.twig' %}
 				</div>
 			</div>
@@ -164,6 +243,8 @@
 		<script>
 			var tagListUrl = '{{ url_for('panel-tag-list', { 'lang': lang }) }}';
 			var bookSearchUrl = '{{ url_for('panel-book-search', { 'lang': lang }) }}';
+			var librarySearchUrl = '{{ url_for('panel-library-search', { 'lang': lang }) }}';
+
 		</script>
 		{{ assets({files: ['assets/js/library.js'],  name: 'library.js'}) }}
 	</body>

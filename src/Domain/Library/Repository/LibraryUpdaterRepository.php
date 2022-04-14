@@ -44,4 +44,20 @@ final class LibraryUpdaterRepository {
             return 0;
         }
     }
+
+    /**
+     * Update row.
+     *
+     * @param int $id The id
+     * @param array<mixed> $where The where
+     *
+     * @return void
+     */
+    public function updateId(int $id, array $data): int{
+        try {
+            return (int) $this->queryFactory->newUpdate($this->tableName, $data)->where(array("id" => $id))->execute()->rowCount();
+        } catch(PDOException $e) {
+            return 0;
+        }
+    }
 }

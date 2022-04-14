@@ -95,4 +95,18 @@ final class LibraryFinderRepository {
             return [];
         }
     }
+
+    /**
+     *
+     * @return array<mixed> The list view data
+     */
+    public function findById( $id ): array{
+        $query = $this->queryFactory->newSelect(["l" => $this->tableName]);
+        $query->select(["l.*"])->where(["l.id" => $id]);
+        try{
+            return $query->execute()->fetch("assoc") ?: [];
+        }catch(PDOException $e){
+            return [];
+        }
+    }
 }

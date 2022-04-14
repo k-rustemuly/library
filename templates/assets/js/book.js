@@ -62,6 +62,12 @@ function formSubmit() {
     document.getElementById('authors_output').value = '@'+Array.from(options).map(({ value }) => value).join('@')+'@';
     return true;
 }
+
+function formSubmitEdit() {
+    var options = document.getElementById('editAuthors').selectedOptions;
+    document.getElementById('editAuthors_output').value = '@'+Array.from(options).map(({ value }) => value).join('@')+'@';
+    return true;
+}
 $(document).on('click', ".book-edit", function () {
     var id = $(this).attr('id');
     $("i", this).removeClass("la-pencil-alt");

@@ -122,6 +122,10 @@ return function (App $app) {
 
                         $app->post('', \App\Action\Library\AddAction::class)->setName("panel-library-add");
 
+                        $app->get('/search', \App\Action\Library\SearchAction::class)->setName("panel-library-search");
+
+                        $app->post('/edit', \App\Action\Library\EditAction::class)->setName("panel-library-edit");
+
                     });
 
                     $app->group('/language', function (RouteCollectorProxy $app) {
