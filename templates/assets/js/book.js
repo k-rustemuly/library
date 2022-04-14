@@ -144,8 +144,11 @@ function loadData(id) {
         $('#editPubYear option[value="'+d.published_year+'"]').prop('selected', true);
         $('#editPubYear').select2();
         $('#editLanguageCode option[value="'+d.language_code+'"]').prop('selected', true);
+        $('#editLanguageCode').select2();
         $('#editPublisher option[value="'+d.publisher_id+'"]').prop('selected', true);
-        $('#editSeries option[value="'+d.publisher_id+'"]').prop('selected', true);
+        $('#editPublisher').select2();
+        $('#editSeries option[value="'+d.series_id+'"]').prop('selected', true);
+        $('#editSeries').select2();
         $("#editDescription").val(d.description);
         var values=d.author_ids;
         $.each(values.split("@"), function(i,e){
