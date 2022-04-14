@@ -9,6 +9,7 @@ $('#isbn').maxlength({
 
 $("#kt_modal_add").on('shown.bs.modal', function (e) {
 
+    $("#aboutBook").hide();
     $.get(tagListUrl, function (data) {
         var d = data.data;
         $('#tags').empty();
