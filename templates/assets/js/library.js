@@ -17,7 +17,13 @@ $("#kt_modal_add").on('shown.bs.modal', function (e) {
         }
         $('#tags').select2();
     });
-    
+    $( "#isbn" ).change(function() {
+        if($('#isbn').value().length == 12) {
+            console.log("12");
+        }else {
+            console.log("not");
+        }
+    });
 });
 
 
