@@ -130,6 +130,7 @@ $(document).on('click', ".book-edit", function () {
 function loadData(id) {
     $.get(bookSearchUrl, {id: id}, function (data) {
         var d = data.data;
+        $("#editId").val(id);
         $("#editIsbn").val(d.isbn);
         $("#editName").val(d.name);
         $("#editImage").css("background-image", "url(" + d.image + ")");
