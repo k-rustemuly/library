@@ -67,6 +67,7 @@ $(".book-edit").on('click', function (e) {
     $("i", this).removeClass("la-pencil-alt");
     $("i", this).addClass('la-spinner');
     var i = $("i", this);
+    var loaded = 0;
     $.get(languageUrl, function (data) {
         var languages = data.data;
         $('#editLanguageCode').empty();
@@ -74,6 +75,9 @@ $(".book-edit").on('click', function (e) {
             $('#editLanguageCode').append(new Option(languages[i].name, languages[i].code));
         }
         $('#editLanguageCode').select2();
+        loaded++;        
+        if(loaded == 4) loadData(id, i);
+
     });
     $.get(publisherUrl, function (data) {
         var d = data.data;
@@ -82,6 +86,9 @@ $(".book-edit").on('click', function (e) {
             $('#editPublisher').append(new Option(d[i].name, d[i].id));
         }
         $('#editPublisher').select2();
+        loaded++;
+        if(loaded == 4) loadData(id, i);
+
     });
     $.get(seriesUrl, function (data) {
         var d = data.data;
@@ -90,6 +97,8 @@ $(".book-edit").on('click', function (e) {
             $('#editSeries').append(new Option(d[i].name, d[i].id));
         }
         $('#editSeries').select2();
+        loaded++;
+        if(loaded == 4) loadData(id, i);
     });
     $.get(authorList, function (data) {
         var d = data.data;
@@ -98,7 +107,13 @@ $(".book-edit").on('click', function (e) {
             $('#editAuthors').append(new Option(d[i].name, d[i].id));
         }
         $('#editAuthors').select2();
+        loaded++;
+        if(loaded == 4) loadData(id, i);
     });
+    
+    //alert(id);
+});
+function loadData(id, i) {
     $.get(bookSearchUrl, {id: id}, function (data) {
         var d = data.data;
         $("#editIsbn").val(d.isbn);
@@ -122,7 +137,4 @@ $(".book-edit").on('click', function (e) {
         i.addClass('la-pencil-alt');
 
     });
-    
-    //alert(id);
-});
-//<
+}
