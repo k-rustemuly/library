@@ -75,8 +75,12 @@ $(".book-edit").on('click', function (e) {
             $('#editLanguageCode').append(new Option(languages[i].name, languages[i].code));
         }
         $('#editLanguageCode').select2();
-        loaded++;        
-        if(loaded == 4) loadData(id, i);
+        loaded++;
+        if(loaded == 4) {            
+            i.removeClass("la-spinner");
+            i.addClass('la-pencil-alt');
+            loadData(id);
+        }
 
     });
     $.get(publisherUrl, function (data) {
@@ -87,7 +91,11 @@ $(".book-edit").on('click', function (e) {
         }
         $('#editPublisher').select2();
         loaded++;
-        if(loaded == 4) loadData(id, i);
+        if(loaded == 4) {            
+            i.removeClass("la-spinner");
+            i.addClass('la-pencil-alt');
+            loadData(id);
+        }
 
     });
     $.get(seriesUrl, function (data) {
@@ -98,7 +106,11 @@ $(".book-edit").on('click', function (e) {
         }
         $('#editSeries').select2();
         loaded++;
-        if(loaded == 4) loadData(id, i);
+        if(loaded == 4) {            
+            i.removeClass("la-spinner");
+            i.addClass('la-pencil-alt');
+            loadData(id);
+        }
     });
     $.get(authorList, function (data) {
         var d = data.data;
@@ -108,12 +120,14 @@ $(".book-edit").on('click', function (e) {
         }
         $('#editAuthors').select2();
         loaded++;
-        if(loaded == 4) loadData(id, i);
+        if(loaded == 4) {            
+            i.removeClass("la-spinner");
+            i.addClass('la-pencil-alt');
+            loadData(id);
+        }
     });
-    
-    //alert(id);
 });
-function loadData(id, i) {
+function loadData(id) {
     $.get(bookSearchUrl, {id: id}, function (data) {
         var d = data.data;
         $("#editIsbn").val(d.isbn);
@@ -133,8 +147,6 @@ function loadData(id, i) {
         });
         $('#editAuthors').select2();
         $("#book_edit").modal('show');
-        i.removeClass("la-spinner");
-        i.addClass('la-pencil-alt');
 
     });
 }
