@@ -18,7 +18,7 @@ $("#kt_modal_add").on('shown.bs.modal', function (e) {
         $('#tags').select2();
     });
     $( "#isbn" ).on('input', function() {
-        if($('#isbn').value().length == 12) {
+        if($('#isbn').val().length == 12) {
             console.log("12");
         }else {
             console.log("not");
