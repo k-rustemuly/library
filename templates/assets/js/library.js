@@ -19,7 +19,7 @@ $("#kt_modal_add").on('shown.bs.modal', function (e) {
         $('#tags').select2();
     });
     $( "#isbn" ).on('input', function() {
-        if($('#isbn').val().length == 12) {
+        if($('#isbn').val().length == 13) {
             var isbn = $('#isbn').val();
             $.get(bookSearchUrl, {isbn: isbn}, function (data) {
                 var d = data.data;
