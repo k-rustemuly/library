@@ -38,8 +38,9 @@ final class Search{
      * @return array<mixed> The result
      */
     public function search(string $lang, array $params): array{
-        $isbn = isset($params['isbn']) ? $params['isbn']:0;
-        return $this->readRepository->findByIsbn($isbn);
+        $data = isset($params['isbn']) ? $this->readRepository->findByIsbn($params['isbn']) : array();
+        $data = isset($params['id']) ? $this->readRepository->findById($params['id']) : array();
+        return $data;
     }
 
 }

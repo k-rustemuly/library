@@ -68,4 +68,16 @@ final class BookFinderRepository {
         ->where(["b.isbn" => $isbn]);
         return $query->execute()->fetch("assoc") ?: [];
     }
+
+    /**
+     *
+     * @return array<mixed> The list view data
+     */
+    public function findById($id): array{
+        $query = $this->queryFactory->newSelect(["b" => self::$tableName]);
+        $query->select(["b.*"])
+        ->where(["b.id" => $id]);
+        return $query->execute()->fetch("assoc") ?: [];
+    }
+    
 }

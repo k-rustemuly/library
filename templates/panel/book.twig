@@ -49,6 +49,7 @@
 														<th>{{ publisher }}</th>
 														<th>{{ authors }}</th>
 														<th>{{ series }}</th>
+														<th></th>
 													</tr>
 													</thead>
 													<tbody class="text-gray-600 fw-bold">
@@ -74,6 +75,11 @@
 																<td>{{ row.publisher_name }}</td>
 																<td>{{ row.authors }}</td>
 																<td>{{ row.series_name }}</td>
+																<td>
+																	<button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px">
+																		<i class="las la-pencil-alt"></i>
+																	</button>
+																</td>
 															</tr>
 														{% endfor %}
 													</tbody>
@@ -229,6 +235,8 @@
 			var publisherUrl = '{{ url_for('panel-publisher-list', { 'lang': lang })}}';
 			var seriesUrl = '{{ url_for('panel-series-list', { 'lang': lang })}}';
 			var authorList = '{{ url_for('panel-author-list', { 'lang': lang })}}';
+			var bookSearchUrl = '{{ url_for('panel-book-search', { 'lang': lang }) }}';
+
 		</script>
 		{{ assets({files: ['assets/js/book.js'],  name: 'book.js'}) }}
 	</body>
