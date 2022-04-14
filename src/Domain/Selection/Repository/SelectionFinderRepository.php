@@ -35,7 +35,7 @@ final class SelectionFinderRepository {
      */
     public function getAllByLang(string $lang): array{
         $query = $this->queryFactory->newSelect(["s" => $this->tableName]);
-        $query->select(["s.id", "s.order_num", "s.name_".$lang." as name", "s.description_".$lang." as description", "s.max_count", "s.is_active",
+        $query->select(["s.id", "s.order_num", "s.name_".$lang." as name", "s.description_".$lang." as description", "s.max_count", "s.is_active", "s.tags",
                         "t.name_".$lang." as type_name",])
         ->innerJoin(["t" => SelectionTypeFinderRepository::$tableName], ["t.id = s.type_id"])
         ->orderAsc("s.order_num");
