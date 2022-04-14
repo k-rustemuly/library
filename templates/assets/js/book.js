@@ -64,6 +64,7 @@ function formSubmit() {
 }
 $(".book-edit").on('click', function (e) {
     var id = $(this).attr('id');
-    alert(id);
+    $(this).html('i class="las la-spinner"></i>');
+    //alert(id);
 });
-//<i class="las la-spinner"></i>
+//<
