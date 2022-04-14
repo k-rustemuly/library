@@ -111,6 +111,12 @@ $(".book-edit").on('click', function (e) {
         $('#editPublisher option[value="'+d.publisher_id+'"]').prop('selected', true);
         $('#editSeries option[value="'+d.publisher_id+'"]').prop('selected', true);
         $("#editDescription").val(d.description);
+        var values=d.author_ids;
+        $.each(values.split("@"), function(i,e){
+            if(e > 0)
+            $("#editAuthors option[value='" + e + "']").prop("selected", true);
+        });
+        $('#editAuthors').select2();
         $("#book_edit").modal('show');
         i.removeClass("la-spinner");
         i.addClass('la-pencil-alt');
