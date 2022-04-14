@@ -119,7 +119,7 @@ final class Read extends Admin{
      * 
      * @param string $ids
      */
-    private function parseTags(?string $ids) {
+    private function parseTags(?string $ids = null) {
         $array = array();
         if($ids == null) return $array;
         $ids = explode('@', $ids);
