@@ -99,19 +99,19 @@ final class Read extends Admin{
             $list[$i]["tags"] = $this->parseTags($tags);
         }
         if(count(array_keys($this->tags)) > 0) {
-            // $tag_list = $this->tagFinderRepository->getByIds(array_keys($this->tags));
-            // $tags = array();
-            // foreach ($tag_list as $tag) {
-            //     $tags[$tag["id"]] = $tag["name"];
-            // }
-            // foreach ($list as $i => $item){
-            //     $string = "";
-            //     $ids = $item["tags"];
-            //     foreach ($ids as $id) {
-            //         $string.=$tags[$id].", ";
-            //     }
-            //     $list[$i]["tags"] = substr($string, 0, -2);
-            // }    
+            $tag_list = $this->tagFinderRepository->getByIds(array_keys($this->tags));
+            $tags = array();
+            foreach ($tag_list as $tag) {
+                $tags[$tag["id"]] = $tag["name"];
+            }
+            foreach ($list as $i => $item){
+                $string = "";
+                $ids = $item["tags"];
+                foreach ($ids as $id) {
+                    $string.=$tags[$id].", ";
+                }
+                $list[$i]["tags"] = substr($string, 0, -2);
+            }    
         }
         return $list;
     }
