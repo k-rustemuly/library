@@ -62,6 +62,7 @@ final class Read extends Admin{
             "all" => $l->getString("all"),
             "edit" => $l->getString("edit"),
             "search" => $l->getString("search"),
+            "save" => $l->getString("save"),
             "add_new" => $l->getString("add_new_book"),
             "name" => $l->getField("name"),
             "cancel" => $l->getButton("cancel"),

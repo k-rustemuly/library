@@ -69,6 +69,7 @@ final class Read extends Admin{
             "title" => $l->getTitle("library"),
             "h1" => $l->getString("library_h1"),
             "search" => $l->getString("search"),
+            "save" => $l->getString("save"),
             "add_new" => $l->getString("add_new_library"),
             "tags" => $l->getField("tags"),
             "pdf" => $l->getField("pdf"),
