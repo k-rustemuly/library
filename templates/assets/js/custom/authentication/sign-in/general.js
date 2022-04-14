@@ -31,7 +31,7 @@ var KTSigninGeneral = function () {
                         rowSelector: ".fv-row"
                     })
                 }
-            }), 
+            }),  
             e.addEventListener("click", (function (n) {
                 n.preventDefault(), 
                 i.validate().then((function (i) {
