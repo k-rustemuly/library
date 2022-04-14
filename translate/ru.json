@@ -38,7 +38,8 @@
         "add_new_library" : "Добавить",
         "view_count" : "Кол. просмотров",
         "selection_h1" : "Подборки",
-        "add_new_selection" : "Добавить новую подборку по тегу"
+        "add_new_selection" : "Добавить новую подборку по тегу",
+        "edit" : "Редактировать"
     },
     "button": {
         "sign_in": "Войти",

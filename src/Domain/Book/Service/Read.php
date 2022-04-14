@@ -60,6 +60,7 @@ final class Read extends Admin{
             "title" => $l->getTitle("book"),
             "h1" => $l->getString("book_h1"),
             "all" => $l->getString("all"),
+            "edit" => $l->getString("edit"),
             "search" => $l->getString("search"),
             "add_new" => $l->getString("add_new_book"),
             "name" => $l->getField("name"),

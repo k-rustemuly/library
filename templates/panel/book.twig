@@ -222,6 +222,138 @@
 							</div>
 						</div>
 					</div>
+					<div class="modal fade" id="book_edit" tabindex="-1" style="display: none;" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered mw-650px">
+							<div class="modal-content">
+								<div class="modal-header" id="kt_modal_edit_header">
+									<h2 class="fw-bolder">{{ edit }}</h2>
+									<div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
+										<span class="svg-icon svg-icon-1">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black"></rect>
+												<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black"></rect>
+											</svg>
+										</span>
+									</div>
+								</div>
+								<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+									<form id="kt_modal_edit_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="{{ url_for('panel-book-edit', { 'lang': lang }) }}" method="post" enctype="multipart/form-data"  onsubmit="return formSubmit();">
+										<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px" style="max-height: 323px;">
+											<div class="row mb-7">
+												<div class="col-md-4 fv-row">
+													<label class="required fw-bold fs-6 mb-2">ISBN</label>
+													<input type="hidden" name="id" value="">
+													<input id="editIsbn" type="text" class="form-control  mb-3 mb-lg-0" placeholder="ISBN" readonly>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+												<div class="col-md-8 fv-row">
+													<label class="required fw-bold fs-6 mb-2">{{ name }}</label>
+													<input id="editName" type="text" name="name" class="form-control  mb-3 mb-lg-0" placeholder="{{ name }}" required>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+											</div>
+											<div class="fv-row mb-7">
+												<label class="d-block fw-bold fs-6 mb-5">{{ image }}</label>
+												<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('/uploads/images/books/default.jpg')">
+													<div class="image-input-wrapper w-125px h-125px" style="background-image: url(/uploads/images/books/default.jpg);"></div>
+													<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="{{ change_avatar }}">
+														<i class="bi bi-pencil-fill fs-7"></i>
+														<input type="file" name="image" accept=".png, .jpg, .jpeg">
+														<input type="hidden" name="avatar_remove">
+													</label>
+													<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="" data-bs-original-title="{{ cancel_avatar }}">
+														<i class="bi bi-x fs-2"></i>
+													</span>
+													<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="" data-bs-original-title="{{ remove_avatar }}">
+														<i class="bi bi-x fs-2"></i>
+													</span>
+												</div>
+												<div class="form-text">png, jpg, jpeg.</div>
+											</div>
+											<div class="row mb-7">
+												<div class="col-md-4 fv-row">
+													<label class="required fs-6 fw-bold form-label mb-2">{{ published_year }}</label>
+													<div class="row fv-row fv-plugins-icon-container">
+														<div class="col-12">
+															<select id="editPubYear" name="published_year" class="form-select select2-hidden-accessible" data-control="select2" data-hide-search="true" data-placeholder="Year" tabindex="-1" aria-hidden="true" required>
+																{% for i in "now"|date("Y").."now"|date("Y")-75 %}
+																	<option value="{{ i }}">{{ i }}</option>
+																{% endfor %}
+															</select>
+														<div class="fv-plugins-message-container invalid-feedback"></div></div>
+													</div>
+												</div>
+												<div class="col-md-4 fv-row fv-plugins-icon-container">
+													<label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+														<span class="required">{{ page_count }}</span>
+													</label>
+													<div class="position-relative">
+														<input id="editPageCount" type="text" class="form-control " minlength="1" name="page_count" required>
+													</div>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+												<div class="col-md-4 fv-row">
+													<label class="required fs-6 fw-bold form-label mb-2">{{ language_code }}</label>
+													<div class="row fv-row fv-plugins-icon-container">
+														<div class="col-12">
+															<select name="language_code" id="editLanguageCode" class="form-select select2-hidden-accessible" data-control="select2" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
+																<option>*</option>
+															</select>
+														<div class="fv-plugins-message-container invalid-feedback"></div></div>
+													</div>
+												</div>
+											</div>
+											<div class="row mb-7">
+												<div class="col-md-6 fv-row">
+													<label class="required fs-6 fw-bold form-label mb-2">{{ publisher }}</label>
+													<div class="row fv-row fv-plugins-icon-container">
+														<div class="col-12">
+															<select name="publisher_id" id="editPublisher" class="form-select select2-hidden-accessible" data-control="select2" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
+																<option>*</option>
+															</select>
+														<div class="fv-plugins-message-container invalid-feedback"></div></div>
+													</div>
+												</div>
+												<div class="col-md-6 fv-row">
+													<label class="required fs-6 fw-bold form-label mb-2">{{ series }}</label>
+													<div class="row fv-row fv-plugins-icon-container">
+														<div class="col-12">
+															<select name="series_id" id="editSeries" class="form-select select2-hidden-accessible" data-control="select2" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
+																<option>*</option>
+															</select>
+														<div class="fv-plugins-message-container invalid-feedback"></div></div>
+													</div>
+												</div>
+											</div>
+											<div class="fv-row mb-7">
+												<label class="required fw-bold fs-6 mb-2">{{ authors }}</label>
+												<div class="row fv-row fv-plugins-icon-container">
+														<div class="col-12">
+															<select id="editAuthors" class="form-select select2-hidden-accessible" data-placeholder="." multiple="multiple" data-control="select2" data-allow-clear="true" data-hide-search="true" tabindex="-1" aria-hidden="true" required>
+																<option>*</option>
+															</select>
+															<input type="hidden" name="author_ids" id="authors_output">
+														<div class="fv-plugins-message-container invalid-feedback"></div></div>
+													</div>
+											</div>
+											<div class="fv-row mb-7">
+												<label class="required fw-bold fs-6 mb-2">{{ description }}</label>
+												<textarea class="form-control" id="editDescription" name="description" maxlength="255" rows="6" required></textarea>
+											</div>
+										</div>
+										<div class="text-center pt-15">
+											<button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">{{ cancel }}</button>
+											<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+												<span class="indicator-label">{{ add }}</span>
+												<span class="indicator-progress">{{ please_wait }}
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
 					{% include 'panel/footer.twig' %}
 				</div>
 			</div>
