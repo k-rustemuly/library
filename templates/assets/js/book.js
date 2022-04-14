@@ -62,3 +62,8 @@ function formSubmit() {
     document.getElementById('authors_output').value = '@'+Array.from(options).map(({ value }) => value).join('@')+'@';
     return true;
 }
+$(".book-edit").on('click', function (e) {
+    var id = $(this).attr('id');
+    alert(id);
+});
+//<i class="las la-spinner"></i>
