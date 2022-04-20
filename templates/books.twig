@@ -48,7 +48,7 @@
 										<div class="text-center tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
 											<div class="mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('{{b.image}}')"></div>
 											<div class="mb-0">
-												<a href="#" class="text-dark fw-bolder text-hover-primary fs-3">{{b.name}}</a>
+												<a href="{{ url_for('book-read', { 'lang': lang, 'bin' : bin, 'isbn' : b.isbn}) }}" class="text-dark fw-bolder text-hover-primary fs-3">{{b.name}}</a>
 												<div class="text-muted fs-6 fw-bold mt-1">{{b.description|slice(0, 84)}}</div>
 											</div>
 										</div>

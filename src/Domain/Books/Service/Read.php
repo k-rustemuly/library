@@ -50,6 +50,7 @@ final class Read{
         $books = $this->libraryFinder->getAllByView($limit);
         $array = array(
             "bin" => $bin,
+            "lang" => $lang,
             "title" => $orgInfo["name"],
             "most_viewed_list" => $books,
             "hello" => $this->language->get("string")["hello"],
