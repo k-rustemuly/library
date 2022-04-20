@@ -80,7 +80,7 @@
 								<div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
 									<div class="mb-3 mb-md-0 fw-bold">
 										<h4 class="text-gray-900 fw-bolder"><a href="{{ url_for('book-read', { 'lang': lang, 'bin' : bin, 'isbn' : b.isbn}) }}">{{ b.name }}</a></h4>
-										<div class="fs-6 text-gray-700 pe-7">{{b.description|slice(0, 84)}}</div>
+										<div class="fs-6 text-gray-700 pe-7">{{b.description|slice(0, 122)}}...</div>
 									</div>
 								</div>
 							</div>
