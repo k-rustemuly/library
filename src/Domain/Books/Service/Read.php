@@ -54,7 +54,9 @@ final class Read{
             "title" => $orgInfo["name"],
             "most_viewed_list" => $books,
             "hello" => $this->language->get("string")["hello"],
-            "most_viewed" => $this->language->get("string")["most_viewed"]
+            "most_viewed" => $this->language->get("string")["most_viewed"],
+            "books_list_title" => $this->language->get("string")["books_list_title"],
+            "books" => $this->libraryFinder->search($limit)
         );
         return $array;
     }
