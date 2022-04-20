@@ -51,7 +51,9 @@ final class Read{
         $array = array(
             "bin" => $bin,
             "title" => $orgInfo["name"],
-            "most_viewed_list" => $books
+            "most_viewed_list" => $books,
+            "hello" => $this->language->get("string")["hello"],
+            "most_viewed" => $this->language->get("string")["most_viewed"]
         );
         return $array;
     }
