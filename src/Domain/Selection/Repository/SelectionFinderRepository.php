@@ -66,4 +66,20 @@ final class SelectionFinderRepository {
             return [];
         }
     }
+
+    /**
+     *
+     * @return array<mixed> The list view data
+     */
+    public function getMostViews(string $lang): array{
+        $query = $this->queryFactory->newSelect(["s" => $this->tableName]);
+        $query->select(["s.name_".$lang." as name", "s.description_".$lang." as description", "s.max_count", "s.isbns", "s.tags", "s.type_id"])
+        ->where(["s.is_active" => 1, "s.type_id" => 1])
+        ->orderAsc("s.order_num");
+        try{
+            return $query->execute()->fetch("assoc") ?: [];
+        }catch(PDOException $e){
+            return [];
+        }
+    }
 }
