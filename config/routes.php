@@ -40,6 +40,12 @@ return function (App $app) {
 
                 });
 
+                $app->group('/books', function (RouteCollectorProxy $app) { 
+
+                    $app->get('', \App\Action\Books\ReadAction::class)->setName("books");
+
+                });
+
             });
 
             $app->get('', \App\Action\Main\ReadAction::class)->setName("main-page");

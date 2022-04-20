@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		{% include 'head.twig' %}
+	</head>
+	<body id="kt_body" data-bs-spy="scroll" data-bs-target="#kt_landing_menu" data-bs-offset="200" class="bg-white position-relative">
+		<div class="d-flex flex-column flex-root">
+			<div class="mb-0" id="home">
+				<div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header" data-kt-sticky-offset="{default: '200px', lg: '300px'}">
+					<div class="container">
+						<div class="d-flex align-items-center justify-content-between">
+							<div class="d-flex align-items-center">
+								<a href="../../demo1/dist/landing.html">
+									<img alt="Logo" src="icon.png" class="logo-default h-45px h-lg-45px" />
+									<img alt="Logo" src="icon.png" class="logo-sticky h-45px h-lg-45px" />
+								</a>
+								<span style="margin-left: 15px;" class="d-inline-block mb-2 fs-2x fw-bolder text-dark">Сәлем, оқырман!</span>
+							</div>
+							<div class="text-end ms-1">
+								<a href="#" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-info"></i></a>
+								<a href="#" class="btn btn-icon"><i class="fa fa-search" style="color: #ffc700;"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mb-0">
+				<div class="container">
+					<span class="d-inline-block position-relative ms-2">
+						<span class="d-inline-block mb-2 fs-2tx fw-bolder">
+							КӨП ОҚЫЛҒАН КІТАПТАР
+						</span>
+					</span>
+					<div class="tns tns-default tns-initiazlied">
+						<div class="tns-outer" id="tns2-ow">
+							<div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">slide <span class="current">7 to 9</span>  of 7</div>
+							<div id="tns2-mw" class="tns-ovh">
+								<div class="tns-inner" id="tns2-iw">
+									<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="2000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev" data-tns-next-button="#kt_team_slider_next" data-tns-responsive="{1200: {items: 3}, 992: {items: 2}}" class="  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal" id="tns2" style="transform: translate3d(-40%, 0px, 0px);">
+										<div class="text-center tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+											<div class="mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('https://library.beyneu.kz/uploads/images/books/3a824154b16ed7dab899bf000b80eeee/7d0665438e81d8eceb98c1e31fca80c1/f6d69a10caf137b9.jpg')"></div>
+											<div class="mb-0">
+												<a href="#" class="text-dark fw-bolder text-hover-primary fs-3">Мен бір жұмбақ адаммын оны да...</a>
+												<div class="text-muted fs-6 fw-bold mt-1">Абай Құнанбаев</div>
+											</div>
+										</div>
+										<div class="text-center tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+											<div class="mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('https://library.beyneu.kz/uploads/images/books/3a824154b16ed7dab899bf000b80eeee/7d0665438e81d8eceb98c1e31fca80c1/f6d69a10caf137b9.jpg')"></div>
+											<div class="mb-0">
+												<a href="#" class="text-dark fw-bolder text-hover-primary fs-3">Anne Clarc</a>
+												<div class="text-muted fs-6 fw-bold mt-1">Project Manager</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev" aria-controls="tns2" tabindex="-1" data-controls="prev">
+							<span class="svg-icon svg-icon-3x">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+									<path d="M11.2657 11.4343L15.45 7.25C15.8642 6.83579 15.8642 6.16421 15.45 5.75C15.0358 5.33579 14.3642 5.33579 13.95 5.75L8.40712 11.2929C8.01659 11.6834 8.01659 12.3166 8.40712 12.7071L13.95 18.25C14.3642 18.6642 15.0358 18.6642 15.45 18.25C15.8642 17.8358 15.8642 17.1642 15.45 16.75L11.2657 12.5657C10.9533 12.2533 10.9533 11.7467 11.2657 11.4343Z" fill="black"></path>
+								</svg>
+							</span>
+						</button>
+						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next" aria-controls="tns2" tabindex="-1" data-controls="next">
+							<span class="svg-icon svg-icon-3x">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+									<path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="black"></path>
+								</svg>
+							</span>
+						</button>
+					</div>
+					<span class="d-inline-block position-relative mt-10">
+						<span class="d-inline-block mb-2 fs-2tx fw-bolder">
+							ОНЛАЙН КІТАПТАР ҚОРЫ
+						</span>
+					</span>
+					<div class="hover-scroll-overlay-y pe-6 me-n6">
+						<div class="rounded border-gray-300 border-1 border-gray-300 border-dashed px-7 py-3 mb-6">
+							<div class="d-flex flex-stack mb-3">
+								<div class="me-3">
+									<img src="https://library.beyneu.kz/uploads/images/books/3a824154b16ed7dab899bf000b80eeee/7d0665438e81d8eceb98c1e31fca80c1/f6d69a10caf137b9.jpg" class="rounded w-100px ms-n1 me-1" alt="" />
+								</div>
+								<div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+									<div class="mb-3 mb-md-0 fw-bold">
+										<h4 class="text-gray-900 fw-bolder">ТӘКЕН ӘЛІМҚҰЛОВ</h4>
+										<div class="fs-6 text-gray-700 pe-7">Мен оларды жақсы кѳрдім. Бірақ олар маған
+											қарамады, - деп бастады Ербол әңгімесін.</div>
+									</div>
+								</div>
+							</div>
+							<div class="d-flex flex-stack">
+								<span class="text-gray-400 fw-bolder">
+									<a href="../../demo1/dist/apps/ecommerce/sales/details.html" class="text-gray-800 text-hover-primary fw-bolder">Jason Bourne</a>
+								</span>
+								<a href="#" class="btn btn-icon"><i class="fa fa-eye ml-10"></i> 25</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+				<span class="svg-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+						<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+						<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black" />
+					</svg>
+				</span>
+				
+			</div>
+		</div>
+		{% include 'script.twig' %}
+		{{ assets({files: ['assets/js/custom/landing.js'],  name: 'book.js'}) }}
+	</body>
+</html>
