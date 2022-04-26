@@ -7,6 +7,7 @@ use App\Helper\Admin;
 use App\Domain\Organization\Repository\OrganizationFinderRepository as OrganizationFinder;
 use App\Domain\Selection\Repository\SelectionFinderRepository as SelectionFinder;
 use App\Domain\Library\Repository\LibraryFinderRepository as LibraryFinder;
+use App\Domain\Employee\Repository\EmployeeFinderRepository as EmployeeFinder;
 
 /**
  * Service.
@@ -21,15 +22,21 @@ final class Read{
 
     private $libraryFinder;
 
+    private $employeeFinder;
+
     /**
      * The constructor.
      *
      */
-    public function __construct(OrganizationFinder $organizationFinderRepository, SelectionFinder $selectionFinder, LibraryFinder $libraryFinder) {
+    public function __construct(OrganizationFinder $organizationFinderRepository,
+                                SelectionFinder $selectionFinder,
+                                LibraryFinder $libraryFinder,
+                                EmployeeFinder $employeeFinder) {
         $this->language = new Language();
         $this->organizationFinderRepository = $organizationFinderRepository;
         $this->selectionFinder = $selectionFinder;
         $this->libraryFinder = $libraryFinder;
+        $this->employeeFinder = $employeeFinder;
     }
 
     /**
@@ -59,7 +66,8 @@ final class Read{
             "real_book_count" => $orgInfo["real_book_count"],
             "most_viewed" => $this->language->get("string")["most_viewed"],
             "books_list_title" => $this->language->get("string")["books_list_title"],
-            "books" => $this->libraryFinder->search($limit)
+            "books" => $this->libraryFinder->search($limit),
+            "employees" => $this->employeeFinder->getByBin($lang, $bin)
         );
         return $array;
     }
