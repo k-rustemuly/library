@@ -33,7 +33,7 @@ final class OrganizationFinderRepository {
      * @return boolean
      */
     public function findByBin(string $bin, string $lang = "ru"): array{
-        $query = $this->queryFactory->newSelect(self::$tableName)->select(["id", "name_".$lang." as name", "full_name_".$lang." as full_name"])->where(["bin" => $bin]);
+        $query = $this->queryFactory->newSelect(self::$tableName)->select(["id", "name_".$lang." as name", "full_name_".$lang." as full_name", "real_book_count"])->where(["bin" => $bin]);
         return $query->execute()->fetch("assoc")?: [];
     }
 }

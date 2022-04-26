@@ -43,7 +43,9 @@
         "save" : "Сохранить",
         "hello" : "Привет, читатель!",
         "most_viewed" : "САМЫЕ ЧИТАЕМЫЕ КНИГИ",
-        "books_list_title" : "КНИЖНЫЙ ФОНД ОНЛАЙН"
+        "books_list_title" : "КНИЖНЫЙ ФОНД ОНЛАЙН",
+        "about_library" : "О библиотеке",
+        "real_book_count_s" : "Библиотечный фонд"
     },
     "button": {
         "sign_in": "Войти",
