@@ -123,12 +123,13 @@
 						<div class="card-px text-center pt-15 pb-15">
 							{% for employee in employees %}
 							<h2 class="fs-2x fw-bolder mb-0">{{ employee.type_name }}</h2>
-							<h2 class="fs-2x fw-bolder mb-0">{{ employee.full_name }}</h2>
+							<h2 class="fw-bolder mb-0">{{ employee.full_name }}</h2>
 							<p class="text-gray-400 fs-4 fw-bold py-7">{{ employee.about }}</p>
 							{% endfor %}
+							<br>
+							<p class="text-gray-400 fs-4 py-7"> {{ real_book_count_s }} : </p>
+							<p class="fw-bold fs-4 py-7"> {{ real_book_count }} </p>
 						</div>
-						{{ real_book_count_s }} : 
-						{{ real_book_count }}
 					</div>
 				</div>
 			</div>
