@@ -125,4 +125,18 @@ final class LibraryFinderRepository {
             return [];
         }
     }
+
+    /**
+     *
+     * @return array<mixed> The list view data
+     */
+    public function getCount(): int{
+        $query = $this->queryFactory->newSelect(["l" => $this->tableName]);
+        $query->select(["COUNT(l.id) as counter"]);
+        try{
+            return (int)$query->execute()->fetch("assoc")["counter"] ?: 0;
+        }catch(PDOException $e){
+            return 0;
+        }
+    }
 }

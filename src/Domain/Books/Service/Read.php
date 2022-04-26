@@ -67,7 +67,9 @@ final class Read{
             "most_viewed" => $this->language->get("string")["most_viewed"],
             "books_list_title" => $this->language->get("string")["books_list_title"],
             "books" => $this->libraryFinder->search($limit),
-            "employees" => $this->employeeFinder->getByBin($lang, $bin)
+            "employees" => $this->employeeFinder->getByBin($lang, $bin),
+            "e_book_count_s" => $this->language->get("string")["e_book_count_s"],
+            "e_book_count" => $this->libraryFinder->getCount()
         );
         return $array;
     }
