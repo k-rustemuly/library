@@ -155,18 +155,12 @@
 		</div>
 		{% include 'script.twig' %}
 		{{ assets({files: ['assets/js/custom/landing.js'],  name: 'book.js'}) }}
-		<script>
-			window.lazyLoadOptions = {
-				threshold: 0
-			};
-			window.addEventListener(
-				"LazyLoad::Initialized",
-				function (e) {
-					console.log(e.detail.instance);
-				},
-			false
-			);
-    </script>
+		
 		<script src="/assets/js/lazyload/dist/lazyload.min.js"/>
+		<script>
+			var lazyLoadInstance = new LazyLoad({
+				
+			});
+    </script>
 	</body>
 </html>
