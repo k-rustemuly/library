@@ -66,6 +66,7 @@ final class Read{
             "real_book_count" => $orgInfo["real_book_count"],
             "most_viewed" => $this->language->get("string")["most_viewed"],
             "books_list_title" => $this->language->get("string")["books_list_title"],
+            "search" => $this->language->get("string")["search"],
             "books" => $this->libraryFinder->search(),
             "employees" => $this->employeeFinder->getByBin($lang, $bin),
             "e_book_count_s" => $this->language->get("string")["e_book_count_s"],
