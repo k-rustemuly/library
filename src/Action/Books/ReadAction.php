@@ -42,6 +42,9 @@ final class ReadAction {
      * @return ResponseInterface The response
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $args): ResponseInterface{
-        return $this->twig->render($response, 'books.twig', $this->service->get($args['bin'], $args['lang']));
+        $get = (array)$request->getQueryParams();
+        $search = isset($get['search']) ? $get['search'] : null;
+
+        return $this->twig->render($response, 'books.twig', $this->service->get($args['bin'], $args['lang'], $search));
     }
 }

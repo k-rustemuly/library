@@ -45,7 +45,7 @@ final class Read{
      * 
      * @return array<mixed> The result
      */
-    public function get(string $bin, string $lang): array{
+    public function get(string $bin, string $lang, ?string $search = null): array{
         $this->language->locale($lang);
         $orgInfo = $this->organizationFinderRepository->findByBin($bin, $lang);
         if(empty($orgInfo)) return array();
@@ -60,7 +60,7 @@ final class Read{
             "lang" => $lang,
             "title" => $orgInfo["name"],
             "most_viewed_list" => $books,
-            "hello" => $this->language->get("string")["hello"],
+            "hello" => $this->language->get("string")["hello"].$search,
             "about_library" => $this->language->get("string")["about_library"],
             "real_book_count_s" => $this->language->get("string")["real_book_count_s"],
             "real_book_count" => $orgInfo["real_book_count"],
