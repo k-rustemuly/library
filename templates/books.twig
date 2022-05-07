@@ -206,10 +206,10 @@
 			var _originalSize = $(window).width() + $(window).height()
 			$(window).resize(function() {
 				if ($(window).width() + $(window).height() != _originalSize) {
-					console.log("keyboard show up");
+					alert("keyboard show up");
 					$(".copyright_link").css("position", "relative");
 				} else {
-					console.log("keyboard closed");
+					alert("keyboard closed");
 					$(".copyright_link").css("position", "fixed");
 				}
 			});
