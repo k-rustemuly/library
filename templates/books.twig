@@ -87,7 +87,12 @@
 						</span>
 					</span>
 					{% if books is empty %}
-						{{ books_list_empty }}
+					<span class="d-inline-block position-relative mt-10">
+						<span class="d-inline-block mb-2">
+							{{ books_list_empty }}
+						</span>
+					</span>
+						
 					{% endif %}
 					{% for b in books %}
 					<div class="hover-scroll-overlay-y pe-6 me-n6">
