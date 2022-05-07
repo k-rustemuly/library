@@ -70,6 +70,7 @@ final class Read{
             "books" => $this->libraryFinder->search($search),
             "employees" => $this->employeeFinder->getByBin($lang, $bin),
             "e_book_count_s" => $this->language->get("string")["e_book_count_s"],
+            "books_list_empty" => $this->language->get("string")["books_list_empty"],
             "e_book_count" => $this->libraryFinder->getCount()
         );
         return $array;

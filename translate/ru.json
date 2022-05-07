@@ -46,7 +46,8 @@
         "books_list_title" : "КНИЖНЫЙ ФОНД ОНЛАЙН",
         "about_library" : "О библиотеке",
         "real_book_count_s" : "Библиотечный фонд",
-        "e_book_count_s" : "Электронный книжный фонд"
+        "e_book_count_s" : "Электронный книжный фонд",
+        "books_list_empty": "Ничего не найдено..."
     },
     "button": {
         "sign_in": "Войти",

@@ -86,6 +86,9 @@
 							{{ books_list_title }}
 						</span>
 					</span>
+					{% if books is empty %}
+						{{ books_list_empty }}
+					{% endif %}
 					{% for b in books %}
 					<div class="hover-scroll-overlay-y pe-6 me-n6">
 						<div class="rounded border-gray-300 border-1 border-gray-300 border-dashed px-7 py-3 mb-6">

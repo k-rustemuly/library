@@ -46,7 +46,8 @@
         "books_list_title" : "ОНЛАЙН КІТАП ҚОРЫ",
         "about_library" : "Кітапхана туралы",
         "real_book_count_s" : "Кітапхана қоры",
-        "e_book_count_s" : "Электронды кітап қоры"
+        "e_book_count_s" : "Электронды кітап қоры",
+        "books_list_empty": "Кітап табылмады..."
     },
     "button": {
         "sign_in": "Кіру",
