@@ -1,8 +1,8 @@
 {
-    "name": "beyneu/library",
+    "name": "comand/azs",
     "type": "project",
-    "description": "Job finder",
-    "license": "Erkebulan",
+    "description": "Azs system",
+    "license": "Serik",
     "require": {
         "slim/slim": "4.*",
         "ext-json": "*",
